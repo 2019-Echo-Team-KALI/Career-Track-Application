@@ -1,12 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
-
-function HomePageDupe() {
+class CreateJob extends React.Component {
+  render () {
     return (
       <React.Fragment>
-        <h1>HomePageDupe</h1>
+        <h1> Create job here </h1> 
       </React.Fragment>
     );
+  }
 }
 
-export default HomePageDupe
+export default CreateJob

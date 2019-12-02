@@ -4,7 +4,9 @@ import PropTypes from "prop-types"
 function HomePage() {
     return (
       <React.Fragment>
-        <h1>HomePage</h1>
+        <div style = {{backgroundColor: 'red'}}>
+            <h1>Home page for users that are not logged in</h1>
+        </div>
       </React.Fragment>
     );
 }
