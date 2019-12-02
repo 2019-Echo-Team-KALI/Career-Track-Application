@@ -13,8 +13,10 @@ function Header(props) {
         <React.Fragment>
             <h1><Link to="/">Career Track </Link></h1>
             <h1><Link to="/homepagedupe">Home Page Dupe </Link></h1>
-            <h1><Link to="/careerpage">Career Page </Link></h1>
-
+            
+            {logged_in &&
+                <h1><Link to="/careerpage">Career Page </Link></h1>
+            }
             {" "}
             {logged_in &&
               <div>

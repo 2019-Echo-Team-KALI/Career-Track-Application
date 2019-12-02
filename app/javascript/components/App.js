@@ -29,9 +29,11 @@ function App(props) {
                 <Route exact path="/homepagedupe">
                     <HomePageDupe />
                 </Route>
-                <Route exact path="/careerpage">
-                    <CareerPage />
-                </Route>
+                {logged_in &&
+                    <Route exact path="/careerpage">
+                        <CareerPage />
+                    </Route>
+                }
             </Switch>
 
           </React.Fragment>
