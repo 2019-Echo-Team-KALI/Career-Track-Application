@@ -1,12 +1,14 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { Link } from 'react-router-dom' 
 
-function HomePage() {
+function CareerPage() {
     return (
       <React.Fragment>
-        <h1>HomePage</h1>
+        <h1>Career Page</h1>
       </React.Fragment>
     );
+
 }
 
-export default HomePage
+export default CareerPage

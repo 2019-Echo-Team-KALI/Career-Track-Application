@@ -1,12 +1,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-function HomePage() {
+function HomePageDupe() {
     return (
       <React.Fragment>
-        <h1>HomePage</h1>
+        <h1>HomePageDupe</h1>
       </React.Fragment>
     );
 }
 
-export default HomePage
+export default HomePageDupe
