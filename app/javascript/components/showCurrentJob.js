@@ -7,41 +7,58 @@ import { useState, useEffect, useParams } from 'react'
 function ShowCurrentJob(props) {
 
     const {id} = useParams()
+    const [ apiJobData, setApiJobData ] = useState([])
+    const [ errors, setErrors ] = useState(null)
 
-    const jobData = {
-        name:"Google",
-        title: "Developer",
-        description: "Front End",
-        url: "Google.com",
-        id: 1,
-        tasks: [
-            {
-                description : "Apply",
-                id: 1
-            },
-            {
-                description : "Follow up",
-                id: 2
-            }
-        ]
+
+    function getCurrentJob() {
+        return fetch(`/jobs/${id}`)
+            .then( resp => {
+                if (resp.status === 200) {
+                    return resp.json()
+                } else {
+                    return Promise.new(() => {
+                        resolve({error: 'there was an error'})
+                    })
+                }
+            })
     }
 
-    // function getCurrentJob() {
-    //     return fetch(`/jobs/${id}`)
-    //         .then( resp => {
-    //             if (resp.status === 200) {
-    //                 return resp.json()
-    //             } else {
-    //                 return Promise.new(() => {
-    //                     resolve({error: 'there was an error'})
-    //                 })
-    //             }
-    //         })
-    // }
+    function loadJob(){
+        getCurrentJob()
+            .then(job => {
+                if(job.errors) {
+                    setErrors(job.errors)
+                }
+                setApiJobData(job)
+            })
+    }
+
+    useEffect(() => {
+        loadJob()
+    },[])
+
+    const displayJob = apiJobData.map((jobObj, index) => {
+        const { name, title, description, tasks, url, user_id, id } = jobObj
+
+        return(
+            <div key={index} style = {{borderStyle: 'inset'}}>
+                <h1> {name}: {title}</h1>
+                <h2> {description} </h2>
+                <h2> {tasks} </h2>
+                <h2> {url} </h2>
+            </div>
+        )
+    })
+
+
     return(
-        <div>
-            <h1> test {id } </h1>
-        </div>
+        <React.Fragment>
+            <div>
+                test
+            </div>
+        </React.Fragment>
+
     )
 
 }

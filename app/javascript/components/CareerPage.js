@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 function CareerPage(props) {
 
     const [ errors, setErrors ] = useState(null)
-    const [ apiJobData, setApiJobData ] = useState([])
+    const [ apiJobsData, setApiJobsData ] = useState([])
     const {current_user_id} = props
 
     function getJob() {
@@ -29,7 +29,7 @@ function CareerPage(props) {
                 if(jobs.errors) {
                     setErrors(jobs.errors)
                 }
-                setApiJobData(jobs)
+                setApiJobsData(jobs)
             })
     }
 
@@ -38,15 +38,15 @@ function CareerPage(props) {
     },[])
 
 
-    const displayJobs = apiJobData.map((jobObj, index) => {
+    const displayJobs = apiJobsData.map((jobObj, index) => {
 
         const { name, title, description, tasks, url, user_id, id } = jobObj
 
             if(current_user_id === user_id) {
                 return(
-                    <div>
+                    <div key={index} >
                         <Link to={`/jobs/${id}`}>
-                            <div key={index} style = {{borderStyle: 'inset'}}>
+                            <div style = {{borderStyle: 'inset'}}>
                                 <h1> {name}: {title}</h1>
                                 <h2> {description} </h2>
                                 <h2> {tasks} </h2>

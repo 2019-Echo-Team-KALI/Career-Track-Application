@@ -35,25 +35,25 @@ function App(props) {
                 current_user_id={current_user_id}
             />
 
-            <Switch>
                 {logged_in &&
                     <div>
-                        <Route exact path="/careerpage">
-                            <CareerPage
-                                current_user_id={current_user_id}
-                             />
-                        </Route>
+                        <Switch>
+                            <Route exact path="/careerpage">
+                                <CareerPage
+                                    current_user_id={current_user_id}
+                                 />
+                            </Route>
 
-                        <Route exact path='/jobs/:id'>
-                            <ShowCurrentJob />
-                        </Route>
+                            <Route exact path='/jobs/:id' component = {ShowCurrentJob} />
 
-                        <Route exact path="/createjob">
-                            <CreateJob />
-                        </Route>
+
+                            <Route exact path="/createjob">
+                                <CreateJob />
+                            </Route>
+                        </Switch>
                     </div>
                 }
-            </Switch>
+
 
           </React.Fragment>
       </Router>
