@@ -14,9 +14,11 @@ class JobsController < ApplicationController
         end
     end
 
+
+
     def show
         @job = Job.find(params[:id])
-        render json: @job  #include: :user_id 
+        render json: @job  #include: :user_id
     end
 
 

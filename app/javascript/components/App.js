@@ -28,7 +28,9 @@ function App(props) {
             </Switch>
 
             <Header
-                logged_in={logged_in} sign_in_route={sign_in_route} sign_out_route={sign_out_route}
+                logged_in={logged_in}
+                sign_in_route={sign_in_route}
+                sign_out_route={sign_out_route}
                 current_user_id={current_user_id}
             />
 
