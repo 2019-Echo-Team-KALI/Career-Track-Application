@@ -44,7 +44,9 @@ function App(props) {
                                  />
                             </Route>
 
-                            <Route exact path='/jobs/:id' component = {ShowCurrentJob} />
+                            <Route exact path='/jobs/:id' >
+                                <ShowCurrentJob /> 
+                            </Route>
 
 
                             <Route exact path="/createjob">
