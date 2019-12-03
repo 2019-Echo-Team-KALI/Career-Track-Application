@@ -14,11 +14,17 @@ class JobsController < ApplicationController
         end
     end
 
+    def show
+        @job = Job.find(params[:id])
+        render json: @job  #include: :user_id 
+    end
+
+
 
 
     private
     def job_params
-        params.require(:job).permit(:name, :title, :description, :url) # we may need to implement the user_id
+        params.require(:job).permit(:name, :title, :description, :url, :user_id)
     end
 
 end

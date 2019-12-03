@@ -18,6 +18,7 @@ function App(props) {
     return (
         <Router>
           <React.Fragment>
+
             <Switch>
                 {!logged_in &&
                     <Route path="/">
@@ -35,7 +36,9 @@ function App(props) {
                 {logged_in &&
                     <div>
                         <Route exact path="/careerpage">
-                            <CareerPage />
+                            <CareerPage
+                                current_user_id={current_user_id}
+                             />
                         </Route>
 
                         <Route exact path="/createjob">

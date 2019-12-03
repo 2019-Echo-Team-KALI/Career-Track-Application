@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
-function CareerPage() {
+function CareerPage(props) {
 
     const [ errors, setErrors ] = useState(null)
     const [ apiJobData, setApiJobData ] = useState([])
+    const {current_user_id} = props
 
     function getJob() {
         return fetch('/jobs')
@@ -21,8 +22,6 @@ function CareerPage() {
                 }
             })
     }
-
-
 
     function loadJobs(){
         getJob()
@@ -41,17 +40,18 @@ function CareerPage() {
 
     const displayJobs = apiJobData.map((jobObj, index) => {
 
-        const { name, title, description, tasks, url, id } = jobObj
+        const { name, title, description, tasks, url, user_id } = jobObj
 
-        return(
-            <div key={index}>
-                <h1> {name}: {title}</h1>
-                <h2> {description} </h2>
-                <h2> {tasks} </h2>
-                <h2> {url} </h2>
-                <h2> {id} </h2>
-            </div>
-        )
+            if(current_user_id === user_id) {
+                return(
+                <div key={index}>
+                    <h1> {name}: {title}</h1>
+                    <h2> {description} </h2>
+                    <h2> {tasks} </h2>
+                    <h2> {url} </h2>
+                </div>
+                )
+            }
     })
 
     return (
