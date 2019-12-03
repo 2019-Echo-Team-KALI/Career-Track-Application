@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
-function CareerPage(props) {
+function CareerMainPage(props) {
 
     const [ errors, setErrors ] = useState(null)
     const [ apiJobsData, setApiJobsData ] = useState([])
@@ -66,4 +66,4 @@ function CareerPage(props) {
 
 }
 
-export default CareerPage
+export default CareerMainPage

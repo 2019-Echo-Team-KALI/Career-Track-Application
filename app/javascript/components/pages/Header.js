@@ -16,7 +16,7 @@ function Header(props) {
 
                 {logged_in &&
                     <div>
-                        <h1><Link to="/careerpage">Career Page </Link></h1>
+                        <h1><Link to="/careermainpage">Career Page </Link></h1>
 
                         <h1><Link to="/createjob">Create a new job </Link></h1>
                     </div>
