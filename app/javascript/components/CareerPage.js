@@ -40,16 +40,20 @@ function CareerPage(props) {
 
     const displayJobs = apiJobData.map((jobObj, index) => {
 
-        const { name, title, description, tasks, url, user_id } = jobObj
+        const { name, title, description, tasks, url, user_id, id } = jobObj
 
             if(current_user_id === user_id) {
                 return(
-                <div key={index}>
-                    <h1> {name}: {title}</h1>
-                    <h2> {description} </h2>
-                    <h2> {tasks} </h2>
-                    <h2> {url} </h2>
-                </div>
+                    <div>
+                        <Link to={`/jobs/${id}`}>
+                            <div key={index} style = {{borderStyle: 'inset'}}>
+                                <h1> {name}: {title}</h1>
+                                <h2> {description} </h2>
+                                <h2> {tasks} </h2>
+                                <h2> {url} </h2>
+                            </div>
+                        </Link>
+                    </div>
                 )
             }
     })

@@ -1,16 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useParams } from 'react'
 
 
-function showCurrentJob(props) {
+function ShowCurrentJob(props) {
+
+    const {id} = useParams()
+
     const jobData = {
         name:"Google",
         title: "Developer",
         description: "Front End",
         url: "Google.com",
-        id: 1
+        id: 1,
         tasks: [
             {
                 description : "Apply",
@@ -35,7 +38,11 @@ function showCurrentJob(props) {
     //             }
     //         })
     // }
-
+    return(
+        <div>
+            <h1> test {id } </h1>
+        </div>
+    )
 
 }
 

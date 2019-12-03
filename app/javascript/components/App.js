@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import HomePage from "./HomePage"
 import CareerPage from './CareerPage'
 import CreateJob from './CreateJob'
+import ShowCurrentJob from './ShowCurrentJob'
 
 import Header from "./pages/Header"
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
@@ -41,6 +42,10 @@ function App(props) {
                             <CareerPage
                                 current_user_id={current_user_id}
                              />
+                        </Route>
+
+                        <Route exact path='/jobs/:id'>
+                            <ShowCurrentJob />
                         </Route>
 
                         <Route exact path="/createjob">

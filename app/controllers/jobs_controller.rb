@@ -14,7 +14,21 @@ class JobsController < ApplicationController
         end
     end
 
+    def update
+        @job = Job.find(params[:id])
+        @job.update_attributes(job_params)
+        render json: @job
+    end
 
+    def destroy
+        @job = Job.find(params[:id])
+
+        if @job.destroy
+            # redirect_to: 'careerpage'
+        else
+            render json: @job.errors, status: :unprocessable_entity
+        end
+    end
 
     def show
         @job = Job.find(params[:id])
