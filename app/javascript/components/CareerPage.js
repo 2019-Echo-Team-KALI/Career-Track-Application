@@ -1,38 +1,45 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
 
 function CareerPage() {
 
-    const [jobsData, setJobsData ] = useState(
-        [
-            {
-                name: 'Gooooogle',
-                title: 'dev',
-                description: 'makin shit',
-                tasks: [{
-                    description: '',
-                    job_id: 1,
-                }],
-                url: 'google.google',
-                id: 1
-            },
-            {
-                name: 'Facebook',
-                title: 'dev',
-                description: 'makin stuff',
-                tasks: [{
-                    description: 'This is the task description',
-                    job_id: 2,
-                }],
-                url: 'google.google',
-                id: 2
-            }
-        ]
-    )
+    const [ errors, setErrors ] = useState(null)
+    const [ apiJobData, setApiJobData ] = useState([])
 
-    const displayJobs = jobsData.map((jobObj, index) => {
+    function getJob() {
+        return fetch('/jobs')
+            .then( resp => {
+                if (resp.status === 200) {
+                    return resp.json()
+                } else {
+                    return Promise.new(() => {
+                        resolve({error: 'there was an error'})
+                    })
+                }
+            })
+    }
+
+
+
+    function loadJobs(){
+        getJob()
+            .then(jobs => {
+                if(jobs.errors) {
+                    setErrors(jobs.errors)
+                }
+                setApiJobData(jobs)
+            })
+    }
+
+    useEffect(() => {
+        loadJobs()
+    },[])
+
+
+    const displayJobs = apiJobData.map((jobObj, index) => {
 
         const { name, title, description, tasks, url, id } = jobObj
 
@@ -40,8 +47,9 @@ function CareerPage() {
             <div key={index}>
                 <h1> {name}: {title}</h1>
                 <h2> {description} </h2>
-                <h2> {tasks.description} </h2>
+                <h2> {tasks} </h2>
                 <h2> {url} </h2>
+                <h2> {id} </h2>
             </div>
         )
     })

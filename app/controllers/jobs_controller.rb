@@ -10,17 +10,13 @@ class JobsController < ApplicationController
         if @job.save
             render json: @job, status: 200
         else
-            render json: @job.errors, status, 422
+            render json: @job.errors, status: 422
         end
     end
 
-    def destroy
-        
-    end
 
 
     private
-
     def job_params
         params.require(:job).permit(:name, :title, :description, :url) # we may need to implement the user_id
     end
