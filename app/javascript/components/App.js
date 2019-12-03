@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import HomePage from "./HomePage"
 import CareerPage from './CareerPage'
 import CreateJob from './CreateJob'
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from "./pages/Header"
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
@@ -19,13 +19,6 @@ function App(props) {
     return (
         <Router>
           <React.Fragment>
-            <Switch>
-                {!logged_in &&
-                    <Route path="/">
-                        <HomePage />
-                    </Route>
-                }
-            </Switch>
 
             <Header
                 logged_in={logged_in} sign_in_route={sign_in_route} sign_out_route={sign_out_route}
@@ -35,6 +28,9 @@ function App(props) {
             <Switch>
                 {logged_in &&
                     <div>
+                        <Route exact path="/">
+                            <HomePage />
+                        </Route>
                         <Route exact path="/careerpage">
                             <CareerPage />
                         </Route>
