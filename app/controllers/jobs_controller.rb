@@ -14,6 +14,11 @@ class JobsController < ApplicationController
         end
     end
 
+    def destroy
+        
+    end
+
+
     private
 
     def job_params
