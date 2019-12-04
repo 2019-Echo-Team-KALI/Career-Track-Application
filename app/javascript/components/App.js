@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import CareerMainPage from './CareerMainPage'
 import CreateJob from './pages/jobs/CreateJob'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from "./pages/Header"
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
