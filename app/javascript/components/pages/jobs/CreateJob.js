@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useState, useEffect } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Redirect } from "react-router-dom"
 
 function CreateJob(){
     const [jobSuccess, setJobSuccess] = useState(false)
@@ -37,7 +36,7 @@ function CreateJob(){
 
     function handleClick() {
         createJob(jobData)
-        jobSuccess(true)
+        setJobSuccess(true)
     }
 
     return (
@@ -89,7 +88,7 @@ function CreateJob(){
 
              </div>
              {jobSuccess &&
-                 <Redirect to="/careermainpage" />
+                 <Redirect to="/jobs" />
              }
       </React.Fragment>
     );
