@@ -1,8 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-import HomePage from "./HomePage"
-import CareerPage from './CareerPage'
-import CreateJob from './CreateJob'
+import CareerMainPage from './CareerMainPage'
+import CreateJob from './pages/jobs/CreateJob'
+import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from "./pages/Header"
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
@@ -18,32 +19,35 @@ function App(props) {
     return (
         <Router>
           <React.Fragment>
-            <Switch>
-                {!logged_in &&
-                    <Route path="/">
-                        <HomePage />
-                    </Route>
-                }
-            </Switch>
 
             <Header
-                logged_in={logged_in} sign_in_route={sign_in_route} sign_out_route={sign_out_route}
+                logged_in={logged_in}
+                sign_in_route={sign_in_route}
+                sign_out_route={sign_out_route}
                 current_user_id={current_user_id}
             />
 
-            <Switch>
                 {logged_in &&
                     <div>
-                        <Route exact path="/careerpage">
-                            <CareerPage />
-                        </Route>
+                        <Switch>
+                            <Route exact path="/careermainpage">
+                                <CareerMainPage
+                                    current_user_id={current_user_id}
+                                 />
+                            </Route>
 
-                        <Route exact path="/createjob">
-                            <CreateJob />
-                        </Route>
+                            <Route exact path='/jobs/:id' >
+                                <ShowCurrentJob />
+                            </Route>
+
+
+                            <Route exact path="/createjob">
+                                <CreateJob />
+                            </Route>
+                        </Switch>
                     </div>
                 }
-            </Switch>
+
 
           </React.Fragment>
       </Router>

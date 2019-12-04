@@ -10,14 +10,37 @@ class JobsController < ApplicationController
         if @job.save
             render json: @job, status: 200
         else
-            render json: @job.errors, status, 422
+            render json: @job.errors, status: 422
         end
     end
 
-    private
+    def update
+        @job = Job.find(params[:id])
+        @job.update_attributes(job_params)
+        render json: @job
+    end
 
+    def destroy
+        @job = Job.find(params[:id])
+
+        if @job.destroy
+            # redirect_to: 'careerpage'
+        else
+            render json: @job.errors, status: :unprocessable_entity
+        end
+    end
+
+    def show
+        @job = Job.find(params[:id])
+        render json: @job  #include: :user_id
+    end
+
+
+
+
+    private
     def job_params
-        params.require(:job).permit(:name, :title, :description, :url) # we may need to implement the user_id
+        params.require(:job).permit(:name, :title, :description, :url, :user_id)
     end
 
 end
