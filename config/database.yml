@@ -75,11 +75,5 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
 production:
-  <<: *default
-  database: career_track_production
-  username: career_track
-  password: <%= ENV['CAREER_TRACK_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
