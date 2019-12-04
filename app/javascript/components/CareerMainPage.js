@@ -38,7 +38,7 @@ function CareerMainPage(props) {
     },[])
 
 
-    const displayJobs = apiJobsData.map((jobObj, index) => {
+    const displayJobs = [...apiJobsData].reverse().map((jobObj, index) => {
 
         const { name, title, description, tasks, url, user_id, id } = jobObj
 
