@@ -20,6 +20,7 @@ function ShowCurrentJob(props) {
             url: '',
         }
     )
+    const {getJob, loadJobs} = props
 
     function deleteJob(id) {
         return fetch(`/jobs/${id}`, {
@@ -37,8 +38,6 @@ function ShowCurrentJob(props) {
         })
     }
 
-
-
     function getCurrentJob() {
         return fetch(`/jobs/${id}`)
             .then( resp => {
@@ -51,6 +50,7 @@ function ShowCurrentJob(props) {
                 }
             })
     }
+
     function loadJob(){
         getCurrentJob()
             .then(job => {
@@ -86,19 +86,6 @@ function ShowCurrentJob(props) {
         })
     }
 
-    function getJob() {
-        return fetch('/jobs')
-            .then( resp => {
-                if (resp.status === 200) {
-                    return resp.json()
-                } else {
-                    return Promise.new(() => {
-                        resolve({error: 'there was an error'})
-                    })
-                }
-            })
-    }
-
     function handleChange(event) {
         const newJobData = {...jobData, [event.target.name]: event.target.value}
         setJobData(newJobData)
@@ -109,8 +96,7 @@ function ShowCurrentJob(props) {
     }
     function handleEditClick() {
         editJob(jobData)
-        setUpdated(true)
-        getJob()
+        loadJobs()
     }
     const { name, title, description, tasks, url, user_id } = apiJobData
 

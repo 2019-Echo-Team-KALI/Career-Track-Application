@@ -6,22 +6,9 @@ import { useState, useEffect } from 'react'
 
 function CareerMainPage(props) {
 
+    const {current_user_id, getJob} = props
     const [ errors, setErrors ] = useState(null)
     const [ apiJobsData, setApiJobsData ] = useState([])
-    const {current_user_id} = props
-
-    function getJob() {
-        return fetch('/jobs')
-            .then( resp => {
-                if (resp.status === 200) {
-                    return resp.json()
-                } else {
-                    return Promise.new(() => {
-                        resolve({error: 'there was an error'})
-                    })
-                }
-            })
-    }
 
     function loadJobs(){
         getJob()
