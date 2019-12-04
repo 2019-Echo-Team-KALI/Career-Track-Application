@@ -7,18 +7,7 @@ import { useState, useEffect } from 'react'
 function CareerMainPage(props) {
 
     const {current_user_id, getJob} = props
-    const [ errors, setErrors ] = useState(null)
-    const [ apiJobsData, setApiJobsData ] = useState([])
 
-    function loadJobs(){
-        getJob()
-            .then(jobs => {
-                if(jobs.errors) {
-                    setErrors(jobs.errors)
-                }
-                setApiJobsData(jobs)
-            })
-    }
 
     useEffect(() => {
         loadJobs()

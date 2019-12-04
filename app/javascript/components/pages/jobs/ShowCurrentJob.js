@@ -60,6 +60,7 @@ function ShowCurrentJob(props) {
                 setApiJobData(job)
             })
     }
+
     useEffect(() => {
         loadJob()
     },[])
