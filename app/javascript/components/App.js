@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import CareerMainPage from './CareerMainPage'
 import CreateJob from './pages/jobs/CreateJob'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react'
 
@@ -19,6 +20,21 @@ function App(props) {
 
     const [ errors, setErrors ] = useState(null)
     const [ apiJobsData, setApiJobsData ] = useState([])
+
+    const [tasks, setTasks] = useState([
+        {
+            description: "Task1 for job 1 User 1",
+            job_id: 1
+        },
+        {
+            description: "Task2 for job 2 User 1",
+            job_id: 2
+        },
+        {
+            description: "Task2 for job 4 for User 2",
+            job_id: 4
+        },
+    ])
 
     function getJob() {
         return fetch('/jobs')
@@ -59,7 +75,11 @@ function App(props) {
                         <Switch>
                             <Route exact path="/careermainpage">
                                 <CareerMainPage
-                                    current_user_id={current_user_id} getJob= {getJob}
+                                    current_user_id={current_user_id}
+                                    getJob= {getJob}
+                                    apiJobsData={apiJobsData}
+                                    loadJobs={loadJobs}
+                                    tasks={tasks}
                                  />
                             </Route>
 

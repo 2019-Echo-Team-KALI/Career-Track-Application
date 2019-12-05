@@ -60,6 +60,7 @@ function ShowCurrentJob(props) {
                 setApiJobData(job)
             })
     }
+
     useEffect(() => {
         loadJob()
     },[])
@@ -105,10 +106,10 @@ function ShowCurrentJob(props) {
             {apiJobData &&
                 <div>
                     <div>
-                        <h1> {name}: {title}</h1>
-                        <h2> {description} </h2>
-                        <h2> {tasks} </h2>
-                        <h2> {url} </h2>
+                        <h1> Name: {name} - Title: {title}</h1>
+                        <h2> Description: {description} </h2>
+                        <h2> Tasks: {tasks} </h2>
+                        <h2> Url:{url} </h2>
 
                     </div>
                     {errors &&

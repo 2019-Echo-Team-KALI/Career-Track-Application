@@ -26,6 +26,7 @@ function CreateJob(){
         })
         .then( resp => {
             let json = resp.json()
+            setJobSuccess(true)
             return json
         })
     }
@@ -37,7 +38,6 @@ function CreateJob(){
 
     function handleClick() {
         createJob(jobData)
-        setJobSuccess(true)
     }
 
     return (

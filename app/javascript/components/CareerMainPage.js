@@ -1,24 +1,15 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
+import MainTaskList from './pages/tasks/tasklist/MainTaskList'
+
 import { useState, useEffect } from 'react'
 
 
 function CareerMainPage(props) {
 
-    const {current_user_id, getJob} = props
-    const [ errors, setErrors ] = useState(null)
-    const [ apiJobsData, setApiJobsData ] = useState([])
+    const {current_user_id, getJob, apiJobsData, loadJobs, tasks} = props
 
-    function loadJobs(){
-        getJob()
-            .then(jobs => {
-                if(jobs.errors) {
-                    setErrors(jobs.errors)
-                }
-                setApiJobsData(jobs)
-            })
-    }
 
     useEffect(() => {
         loadJobs()
@@ -34,10 +25,7 @@ function CareerMainPage(props) {
                     <div key={index} >
                         <Link to={`/jobs/${id}`}>
                             <div style = {{borderStyle: 'inset'}}>
-                                <h1> {name}: {title}</h1>
-                                <h2> {description} </h2>
-                                <h2> {tasks} </h2>
-                                <h2> {url} </h2>
+                                <h1> Name: {name} - Title: {title}</h1>
                             </div>
                         </Link>
                     </div>
@@ -47,6 +35,9 @@ function CareerMainPage(props) {
 
     return (
       <React.Fragment>
+        <MainTaskList tasks={tasks} apiJobsData={apiJobsData}/>
+        <br></br>
+        <br></br>
         {displayJobs}
       </React.Fragment>
     );
