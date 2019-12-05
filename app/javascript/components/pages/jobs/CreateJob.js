@@ -88,6 +88,7 @@ function CreateJob(){
                  </button>
 
              </div>
+
              {jobSuccess &&
                  <Redirect to="/careermainpage" />
              }

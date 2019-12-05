@@ -5,7 +5,7 @@ import CreateJob from './pages/jobs/CreateJob'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Header from "./pages/Header"
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
@@ -20,21 +20,24 @@ function App(props) {
 
     const [ errors, setErrors ] = useState(null)
     const [ apiJobsData, setApiJobsData ] = useState([])
+    const [ apiTasksData, setApiTasksData ] = useState([])
 
-    const [tasks, setTasks] = useState([
-        {
-            description: "Task1 for job 1 User 1",
-            job_id: 1
-        },
-        {
-            description: "Task2 for job 2 User 1",
-            job_id: 2
-        },
-        {
-            description: "Task2 for job 4 for User 2",
-            job_id: 4
-        },
-    ])
+    useEffect(() => {
+        loadTasks()
+    },[])
+
+    function getTask() {
+        return fetch('/tasks')
+            .then( resp => {
+                if (resp.status === 200) {
+                    return resp.json()
+                } else {
+                    return Promise.new(() => {
+                        resolve({error: 'there was an error'})
+                    })
+                }
+            })
+    }
 
     function getJob() {
         return fetch('/jobs')
@@ -46,6 +49,17 @@ function App(props) {
                         resolve({error: 'there was an error'})
                     })
                 }
+            })
+    }
+
+
+    function loadTasks(){
+        getTask()
+            .then(tasks => {
+                if(tasks.errors) {
+                    setErrors(tasks.errors)
+                }
+                setApiTasksData(tasks)
             })
     }
 
@@ -77,9 +91,10 @@ function App(props) {
                                 <CareerMainPage
                                     current_user_id={current_user_id}
                                     getJob= {getJob}
-                                    apiJobsData={apiJobsData}
                                     loadJobs={loadJobs}
-                                    tasks={tasks}
+                                    apiJobsData={apiJobsData}
+
+                                    apiTasksData={apiTasksData}
                                  />
                             </Route>
 
