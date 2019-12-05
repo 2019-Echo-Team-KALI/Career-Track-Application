@@ -1,8 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useState, useEffect } from "react"
+import { Redirect } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Redirect } from "react-router-dom"
 
 function CreateJob(){
     const [jobSuccess, setJobSuccess] = useState(false)
@@ -37,7 +37,7 @@ function CreateJob(){
 
     function handleClick() {
         createJob(jobData)
-        jobSuccess(true)
+        setJobSuccess(true)
     }
 
     return (
