@@ -5,11 +5,30 @@ import { useState, useEffect } from 'react'
 
 
 function MainTaskList(props) {
+    const {tasks, apiJobsData} = props
+
+    // const {apiJobsData}
+
+    const taskList = tasks.map((task, index) => {
+        const {description, job_id} = task // we need the job id to compare
+        return(
+            <div key={index} style = {{borderStyle: 'inset'}}>
+                <h1> description: {description}</h1>
+            </div>
+        )
+    })
+
     return(
         <div style = {{borderStyle: 'inset'}}>
             <h1> MainTaskList </h1>
+            {taskList}
         </div>
     )
 }
 
 export default MainTaskList
+
+// {
+//     description: "Task1 for job 1 User 1",
+//     job_id: 1
+// },

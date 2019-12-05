@@ -21,7 +21,7 @@ function App(props) {
     const [ errors, setErrors ] = useState(null)
     const [ apiJobsData, setApiJobsData ] = useState([])
 
-    const [taskList, setTaskList] = useState([
+    const [tasks, setTasks] = useState([
         {
             description: "Task1 for job 1 User 1",
             job_id: 1
@@ -79,6 +79,7 @@ function App(props) {
                                     getJob= {getJob}
                                     apiJobsData={apiJobsData}
                                     loadJobs={loadJobs}
+                                    tasks={tasks}
                                  />
                             </Route>
 

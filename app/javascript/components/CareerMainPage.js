@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 
 function CareerMainPage(props) {
 
-    const {current_user_id, getJob, apiJobsData, loadJobs} = props
+    const {current_user_id, getJob, apiJobsData, loadJobs, tasks} = props
 
 
     useEffect(() => {
@@ -35,7 +35,9 @@ function CareerMainPage(props) {
 
     return (
       <React.Fragment>
-        <MainTaskList />
+        <MainTaskList tasks={tasks} apiJobsData={apiJobsData}/>
+        <br></br>
+        <br></br>
         {displayJobs}
       </React.Fragment>
     );
