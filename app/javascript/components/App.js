@@ -19,6 +19,20 @@ function App(props) {
 
     const [ errors, setErrors ] = useState(null)
     const [ apiJobsData, setApiJobsData ] = useState([])
+    const [taskList, setTaskList] = useState([
+        {
+            description: "Task1 for job 1 User 1",
+            job_id: 1
+        },
+        {
+            description: "Task2 for job 2 User 1",
+            job_id: 2
+        },
+        {
+            description: "Task2 for job 3 for User 2",
+            job_id: 3
+        },
+    ])
 
     function getJob() {
         return fetch('/jobs')
