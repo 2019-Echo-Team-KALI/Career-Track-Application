@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import CareerMainPage from './CareerMainPage'
 import CreateJob from './pages/jobs/CreateJob'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react'
 
@@ -19,6 +20,7 @@ function App(props) {
 
     const [ errors, setErrors ] = useState(null)
     const [ apiJobsData, setApiJobsData ] = useState([])
+
     const [taskList, setTaskList] = useState([
         {
             description: "Task1 for job 1 User 1",
@@ -29,8 +31,8 @@ function App(props) {
             job_id: 2
         },
         {
-            description: "Task2 for job 3 for User 2",
-            job_id: 3
+            description: "Task2 for job 4 for User 2",
+            job_id: 4
         },
     ])
 

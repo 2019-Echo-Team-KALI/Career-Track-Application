@@ -1,6 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
+import MainTaskList from './pages/tasks/tasklist/MainTaskList'
+
 import { useState, useEffect } from 'react'
 
 
@@ -24,9 +26,6 @@ function CareerMainPage(props) {
                         <Link to={`/jobs/${id}`}>
                             <div style = {{borderStyle: 'inset'}}>
                                 <h1> Name: {name} - Title: {title}</h1>
-                                <h2> Description: {description} </h2>
-                                <h2> Tasks: {tasks} </h2>
-                                <h2> Url:{url} </h2>
                             </div>
                         </Link>
                     </div>
@@ -36,6 +35,7 @@ function CareerMainPage(props) {
 
     return (
       <React.Fragment>
+        <MainTaskList />
         {displayJobs}
       </React.Fragment>
     );
