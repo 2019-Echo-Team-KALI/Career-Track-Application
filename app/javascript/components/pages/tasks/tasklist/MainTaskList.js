@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 
 
 function MainTaskList(props) {
-    const {loadTasks, apiTasksData, apiJobsData} = props
+    const { apiTasksData, apiJobsData} = props
 
     // const {apiJobsData}
 

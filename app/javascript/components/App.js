@@ -11,6 +11,7 @@ import Header from "./pages/Header"
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
 
 function App(props) {
+
     const {
       logged_in,
       sign_in_route,
@@ -22,9 +23,7 @@ function App(props) {
     const [ apiJobsData, setApiJobsData ] = useState([])
     const [ apiTasksData, setApiTasksData ] = useState([])
 
-    useEffect(() => {
-        loadTasks()
-    },[])
+
 
     function getTask() {
         return fetch('/tasks')
@@ -90,16 +89,18 @@ function App(props) {
                             <Route exact path="/careermainpage">
                                 <CareerMainPage
                                     current_user_id={current_user_id}
-                                    getJob= {getJob}
-                                    loadJobs={loadJobs}
+                                    loadJobs = {loadJobs}
+                                    loadTasks = {loadTasks}
                                     apiJobsData={apiJobsData}
-
                                     apiTasksData={apiTasksData}
                                  />
                             </Route>
 
                             <Route exact path='/jobs/:id' >
-                                <ShowCurrentJob getJob={getJob} loadJobs = {loadJobs}/>
+                                <ShowCurrentJob
+                                    getJob={getJob}
+                                    loadJobs = {loadJobs}
+                                />
                             </Route>
 
 

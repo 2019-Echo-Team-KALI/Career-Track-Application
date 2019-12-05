@@ -11,8 +11,10 @@ function CareerMainPage(props) {
     const {current_user_id, loadJobs, loadTasks, apiJobsData ,apiTasksData} = props
 
 
-    useEffect(() => {
+    useEffect(() => { // we need lifecycle hook here to reload the data whenever we create a page, we may need to rename the load functions to make things easier
+        // the load functions set the data
         loadJobs()
+        loadTasks()
     },[])
 
 
