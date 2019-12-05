@@ -59,7 +59,10 @@ function App(props) {
                         <Switch>
                             <Route exact path="/careermainpage">
                                 <CareerMainPage
-                                    current_user_id={current_user_id} getJob= {getJob}
+                                    current_user_id={current_user_id}
+                                    getJob= {getJob}
+                                    apiJobsData={apiJobsData}
+                                    loadJobs={loadJobs}
                                  />
                             </Route>
 

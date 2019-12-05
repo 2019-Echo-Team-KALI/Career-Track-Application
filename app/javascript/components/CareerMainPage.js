@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 
 function CareerMainPage(props) {
 
-    const {current_user_id, getJob} = props
+    const {current_user_id, getJob, apiJobsData, loadJobs} = props
 
 
     useEffect(() => {
