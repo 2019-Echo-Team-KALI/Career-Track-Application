@@ -6,6 +6,7 @@ import CreateJob from './pages/jobs/CreateJob'
 import AddTask from './pages/jobs/AddTask'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
 import CurrentJobCard from './pages/jobs/CurrentJobCard'
+import EditCurrentJob from './pages/jobs/EditCurrentJob'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react'
@@ -110,6 +111,9 @@ function App(props) {
                                 />
                             </Route>
                             */}
+                            <Route exact path="/editcurrentjob">
+                                <EditCurrentJob />
+                            </Route>
 
                             <Route exact path="/createjob">
                                 <CreateJob />

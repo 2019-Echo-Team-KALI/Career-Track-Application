@@ -10,6 +10,7 @@ function CurrentJobCard(props) { // this should be called JobCard component
     const { paramJobId } = useParams()
 
     const [goBack, setGoBack] = useState(false)
+    const [goEdit, setGoEdit] = useState(false)
     const [ apiTasks, setApiTasks ] = useState(apiTasksData)
     const [ currentJob, setCurrentJob ] = useState({
         name: '',
@@ -68,11 +69,23 @@ function CurrentJobCard(props) { // this should be called JobCard component
 
     function handleEdit() {
         console.log("Edit,", paramJobId)
-        // will will create a link for this
+        setGoEdit(true)
     }
-    function handleDelete() {
+    function handleDelete(id) {
         console.log("Delete,", paramJobId)
-        // will will create a link for this
+        return fetch(`/jobs/${id}`, {
+            method: 'DELETE'
+        })
+        .then(resp => {
+            if (resp.status === 200) {
+                setGoBack(true)
+            } else {
+                resp.json()
+                .then(payload => {
+                    setErrors(payload.error)
+                })
+            }
+        })
     }
     function handleBack() {
         setGoBack(true)
@@ -86,10 +99,13 @@ function CurrentJobCard(props) { // this should be called JobCard component
             <h2> Tasks: {currentJobTasks} </h2>
             <h2> Url:{url} </h2>
             <button onClick={handleBack}>Go Back to Main Page</button>
-            <button onClick={handleDelete}>Delete</button>
+            <button onClick={() => handleDelete(paramJobId)}>Delete</button>
             <button onClick={handleEdit}>Edit</button>
             {goBack &&
                 <Redirect to='/careermainpage'/>
+            }
+            {goEdit &&
+                <Redirect to='/editcurrentjob'/>
             }
         </div>
 
