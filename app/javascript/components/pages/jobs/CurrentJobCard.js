@@ -51,11 +51,17 @@ function CurrentJobCard(props) { // this should be called JobCard component
 
     const { name, title, description, tasks, url, user_id } = currentJob
 
-    const currentJobTasks = apiTasks.map(task => {
+    const currentJobTasks = apiTasks.map((task, index) => {
         const {id, name, job_id} = task
+        console.log("id", job_id)
+        console.log("paramJobId", paramJobId)
 
         return (
-            <h1> Task: {id} - name </h1>
+            <div key={index}>
+                {job_id == paramJobId &&
+                <h1> Task: {id} - name </h1>
+                }
+            </div>
         )
     })
 
@@ -64,7 +70,7 @@ function CurrentJobCard(props) { // this should be called JobCard component
             <h1> Test ID: {paramJobId} </h1>
             <h1> Name: {name} - Title: {title}</h1>
             <h2> Description: {description} </h2>
-            <h2> Tasks: {} </h2>
+            <h2> Tasks: {currentJobTasks} </h2>
             <h2> Url:{url} </h2>
         </div>
 
