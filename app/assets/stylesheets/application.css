@@ -40,8 +40,14 @@
   padding: 20px;
 }
 
-.bio img {
+.biophoto {
   border-radius: 10px;
+}
+
+.logo img {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -10px;
 }
 
 .aboutus {
