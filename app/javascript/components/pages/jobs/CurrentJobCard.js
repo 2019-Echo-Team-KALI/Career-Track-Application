@@ -64,6 +64,19 @@ function CurrentJobCard(props) { // this should be called JobCard component
         )
     })
 
+    function handleEdit() {
+        console.log("Edit,", paramJobId)
+        // will will create a link for this
+    }
+    function handleDelete() {
+        console.log("Delete,", paramJobId)
+        // will will create a link for this
+    }
+    function handleBack() {
+        console.log("Back,", paramJobId)
+        // will will create a link for this
+    }
+
     return (
         <div>
             <h1> Test ID: {paramJobId} </h1>
@@ -71,6 +84,9 @@ function CurrentJobCard(props) { // this should be called JobCard component
             <h2> Description: {description} </h2>
             <h2> Tasks: {currentJobTasks} </h2>
             <h2> Url:{url} </h2>
+            <button onClick={handleBack}>Go Back to Main Page</button>
+            <button onClick={handleDelete}>Delete</button>
+            <button onClick={handleEdit}>Edit</button>
         </div>
 
     )

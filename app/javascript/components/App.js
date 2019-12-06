@@ -86,7 +86,10 @@ function App(props) {
                 sign_out_route={sign_out_route}
                 current_user_id={current_user_id}
             />
-
+                {!logged_in &&
+                    <HomePage />
+                }
+                
                 {logged_in &&
                     <div>
                         <Switch>
@@ -128,7 +131,6 @@ function App(props) {
                     </div>
                 }
 
-          <HomePage />
           </React.Fragment>
       </Router>
     );
