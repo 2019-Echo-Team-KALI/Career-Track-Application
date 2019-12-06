@@ -111,7 +111,7 @@ function App(props) {
                                 />
                             </Route>
                             */}
-                            <Route exact path="/editcurrentjob">
+                            <Route exact path="/jobs/edit/:paramEditId">
                                 <EditCurrentJob />
                             </Route>
 

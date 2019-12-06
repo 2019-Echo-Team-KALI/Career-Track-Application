@@ -100,13 +100,15 @@ function CurrentJobCard(props) { // this should be called JobCard component
             <h2> Url:{url} </h2>
             <button onClick={handleBack}>Go Back to Main Page</button>
             <button onClick={() => handleDelete(paramJobId)}>Delete</button>
-            <button onClick={handleEdit}>Edit</button>
+            <button>
+                <Link to={`/jobs/edit/${paramJobId}`}>
+                    Edit
+                </Link>
+            </button>
             {goBack &&
                 <Redirect to='/careermainpage'/>
             }
-            {goEdit &&
-                <Redirect to='/editcurrentjob'/>
-            }
+
         </div>
 
     )
