@@ -26,7 +26,6 @@ function CreateJob(){
         })
         .then( resp => {
             let json = resp.json()
-            setJobSuccess(true)
             return json
         })
     }
@@ -38,6 +37,9 @@ function CreateJob(){
 
     function handleClick() {
         createJob(jobData)
+        .then(() => {
+            setJobSuccess(true)
+        })
     }
 
     return (
@@ -84,12 +86,13 @@ function CreateJob(){
                  </div>
 
                  <button variant="primary" onClick={handleClick}>
-                 Create New User
+                 Create New Job
                  </button>
 
              </div>
+
              {jobSuccess &&
-                 <Redirect to="/careermainpage" />
+                 <Redirect to="/addtask" />
              }
       </React.Fragment>
     );

@@ -8,11 +8,13 @@ import { useState, useEffect } from 'react'
 
 function CareerMainPage(props) {
 
-    const {current_user_id, getJob, apiJobsData, loadJobs, tasks} = props
+    const {current_user_id, loadJobs, loadTasks, apiJobsData ,apiTasksData} = props
 
 
-    useEffect(() => {
+    useEffect(() => { // we need lifecycle hook here to reload the data whenever we create a page, we may need to rename the load functions to make things easier
+        // the load functions set the data
         loadJobs()
+        loadTasks()
     },[])
 
 
@@ -20,7 +22,7 @@ function CareerMainPage(props) {
 
         const { name, title, description, tasks, url, user_id, id } = jobObj
 
-            if(current_user_id === user_id) {
+
                 return(
                     <div key={index} >
                         <Link to={`/jobs/${id}`}>
@@ -30,12 +32,17 @@ function CareerMainPage(props) {
                         </Link>
                     </div>
                 )
-            }
+
     })
 
     return (
       <React.Fragment>
-        <MainTaskList tasks={tasks} apiJobsData={apiJobsData}/>
+      <h1> Main Careers Page </h1>
+        <MainTaskList
+            apiTasksData={apiTasksData}
+            apiJobsData={apiJobsData}
+            current_user_id={current_user_id}
+        />
         <br></br>
         <br></br>
         {displayJobs}

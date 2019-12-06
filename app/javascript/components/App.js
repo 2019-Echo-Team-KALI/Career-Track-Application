@@ -2,15 +2,18 @@ import React from "react"
 import PropTypes from "prop-types"
 import CareerMainPage from './CareerMainPage'
 import CreateJob from './pages/jobs/CreateJob'
+import AddTask from './pages/jobs/AddTask'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
+import CurrentJobCard from './pages/jobs/CurrentJobCard'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import Header from "./pages/Header"
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
 
 function App(props) {
+
     const {
       logged_in,
       sign_in_route,
@@ -20,23 +23,24 @@ function App(props) {
 
     const [ errors, setErrors ] = useState(null)
     const [ apiJobsData, setApiJobsData ] = useState([])
+    const [ apiTasksData, setApiTasksData ] = useState([])
 
-    const [tasks, setTasks] = useState([
-        {
-            description: "Task1 for job 1 User 1",
-            job_id: 1
-        },
-        {
-            description: "Task2 for job 2 User 1",
-            job_id: 2
-        },
-        {
-            description: "Task2 for job 4 for User 2",
-            job_id: 4
-        },
-    ])
 
-    function getJob() {
+
+    function getTask() {
+        return fetch('/tasks')
+            .then( resp => {
+                if (resp.status === 200) {
+                    return resp.json()
+                } else {
+                    return Promise.new(() => {
+                        resolve({error: 'there was an error'})
+                    })
+                }
+            })
+    }
+
+    function getJobs() {
         return fetch('/jobs')
             .then( resp => {
                 if (resp.status === 200) {
@@ -49,12 +53,24 @@ function App(props) {
             })
     }
 
+
+    function loadTasks(){
+        getTask()
+            .then(tasks => {
+                if(tasks.errors) {
+                    setErrors(tasks.errors)
+                }
+                setApiTasksData(tasks)
+            })
+    }
+
     function loadJobs(){
-        getJob()
+        getJobs()
             .then(jobs => {
                 if(jobs.errors) {
                     setErrors(jobs.errors)
                 }
+                console.log("ALJ", jobs)
                 setApiJobsData(jobs)
             })
     }
@@ -73,23 +89,39 @@ function App(props) {
                 {logged_in &&
                     <div>
                         <Switch>
-                            <Route exact path="/careermainpage">
+                            <Route exact path="/">
                                 <CareerMainPage
                                     current_user_id={current_user_id}
-                                    getJob= {getJob}
+                                    loadJobs = {loadJobs}
+                                    loadTasks = {loadTasks}
                                     apiJobsData={apiJobsData}
-                                    loadJobs={loadJobs}
-                                    tasks={tasks}
+                                    apiTasksData={apiTasksData}
                                  />
                             </Route>
 
-                            <Route exact path='/jobs/:id' >
-                                <ShowCurrentJob getJob={getJob} loadJobs = {loadJobs}/>
+                            {/* <Route exact path='/jobs/:id' >
+                                <ShowCurrentJob
+                                    getJobs={getJobs}
+                                    loadJobs = {loadJobs}
+                                />
                             </Route>
-
+                            */}
 
                             <Route exact path="/createjob">
                                 <CreateJob />
+                            </Route>
+
+                            <Route exact path="/addtask">
+                                <AddTask />
+                            </Route>
+
+                            <Route exact path='/jobs/:paramJobId' >
+                                <CurrentJobCard
+                                    apiJobsData={apiJobsData}
+                                    loadJobs={loadJobs}
+                                    loadTasks={loadTasks}
+                                    apiTasksData={apiTasksData}
+                                />
                             </Route>
                         </Switch>
                     </div>
