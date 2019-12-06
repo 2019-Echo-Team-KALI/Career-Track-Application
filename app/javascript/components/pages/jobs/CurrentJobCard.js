@@ -53,8 +53,6 @@ function CurrentJobCard(props) { // this should be called JobCard component
 
     const currentJobTasks = apiTasks.map((task, index) => {
         const {id, name, job_id} = task
-        console.log("id", job_id)
-        console.log("paramJobId", paramJobId)
 
         return (
             <div key={index}>
