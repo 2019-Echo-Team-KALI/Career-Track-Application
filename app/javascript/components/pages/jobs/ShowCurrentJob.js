@@ -4,9 +4,10 @@ import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
-function ShowCurrentJob(props) {
+function ShowCurrentJob(props) { // this should be called JobCard component
 
     const {id} = useParams()
+
     const [ apiJobData, setApiJobData ] = useState({})
     const [ errors, setErrors ] = useState(null)
     const [ deleted, setDeleted ] = useState(false)
@@ -20,7 +21,7 @@ function ShowCurrentJob(props) {
             url: '',
         }
     )
-    const {getJob, loadJobs} = props
+    const {getJobs, loadJobs} = props
 
     function deleteJob(id) {
         return fetch(`/jobs/${id}`, {
@@ -95,6 +96,7 @@ function ShowCurrentJob(props) {
     function handleClick() {
         setClicked(true)
     }
+
     function handleEditClick() {
         editJob(jobData)
         loadJobs()
@@ -107,6 +109,7 @@ function ShowCurrentJob(props) {
             {apiJobData &&
                 <div>
                     <div>
+                        <h1> Test ID: {id} </h1>
                         <h1> Name: {name} - Title: {title}</h1>
                         <h2> Description: {description} </h2>
                         <h2> Tasks: {tasks} </h2>

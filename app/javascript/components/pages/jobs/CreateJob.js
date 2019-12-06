@@ -92,7 +92,7 @@ function CreateJob(){
              </div>
 
              {jobSuccess &&
-                 <Redirect to="/careermainpage" />
+                 <Redirect to="/addtask" />
              }
       </React.Fragment>
     );

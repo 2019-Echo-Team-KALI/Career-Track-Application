@@ -2,7 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import CareerMainPage from './CareerMainPage'
 import CreateJob from './pages/jobs/CreateJob'
+import AddTask from './pages/jobs/AddTask'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
+import CurrentJobCard from './pages/jobs/CurrentJobCard'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react'
@@ -38,7 +40,7 @@ function App(props) {
             })
     }
 
-    function getJob() {
+    function getJobs() {
         return fetch('/jobs')
             .then( resp => {
                 if (resp.status === 200) {
@@ -63,11 +65,12 @@ function App(props) {
     }
 
     function loadJobs(){
-        getJob()
+        getJobs()
             .then(jobs => {
                 if(jobs.errors) {
                     setErrors(jobs.errors)
                 }
+                console.log("ALJ", jobs)
                 setApiJobsData(jobs)
             })
     }
@@ -96,16 +99,29 @@ function App(props) {
                                  />
                             </Route>
 
-                            <Route exact path='/jobs/:id' >
+                            {/* <Route exact path='/jobs/:id' >
                                 <ShowCurrentJob
-                                    getJob={getJob}
+                                    getJobs={getJobs}
                                     loadJobs = {loadJobs}
                                 />
                             </Route>
-
+                            */}
 
                             <Route exact path="/createjob">
                                 <CreateJob />
+                            </Route>
+
+                            <Route exact path="/addtask">
+                                <AddTask />
+                            </Route>
+
+                            <Route exact path='/jobs/:paramJobId' >
+                                <CurrentJobCard
+                                    apiJobsData={apiJobsData}
+                                    loadJobs={loadJobs}
+                                    loadTasks={loadTasks}
+                                    apiTasksData={apiTasksData}
+                                />
                             </Route>
                         </Switch>
                     </div>
