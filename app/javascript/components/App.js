@@ -89,11 +89,11 @@ function App(props) {
                 {!logged_in &&
                     <HomePage />
                 }
-                
+
                 {logged_in &&
                     <div>
                         <Switch>
-                            <Route exact path="/">
+                            <Route path="/careermainpage">
                                 <CareerMainPage
                                     current_user_id={current_user_id}
                                     loadJobs = {loadJobs}

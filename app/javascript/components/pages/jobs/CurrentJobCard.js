@@ -9,6 +9,8 @@ function CurrentJobCard(props) { // this should be called JobCard component
 
     const { paramJobId } = useParams()
 
+    const [goBack, setGoBack] = useState(false)
+    const [ apiTasks, setApiTasks ] = useState(apiTasksData)
     const [ currentJob, setCurrentJob ] = useState({
         name: '',
         title: '',
@@ -16,7 +18,7 @@ function CurrentJobCard(props) { // this should be called JobCard component
         url: '',
     })
 
-    const [ apiTasks, setApiTasks ] = useState(apiTasksData)
+
 
     useEffect(() => {
         loadJob()
@@ -73,8 +75,7 @@ function CurrentJobCard(props) { // this should be called JobCard component
         // will will create a link for this
     }
     function handleBack() {
-        console.log("Back,", paramJobId)
-        // will will create a link for this
+        setGoBack(true)
     }
 
     return (
@@ -87,6 +88,9 @@ function CurrentJobCard(props) { // this should be called JobCard component
             <button onClick={handleBack}>Go Back to Main Page</button>
             <button onClick={handleDelete}>Delete</button>
             <button onClick={handleEdit}>Edit</button>
+            {goBack &&
+                <Redirect to='/careermainpage'/>
+            }
         </div>
 
     )
