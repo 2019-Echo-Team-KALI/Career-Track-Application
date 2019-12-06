@@ -1,65 +1,50 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
+import MainTaskList from './pages/tasks/tasklist/MainTaskList'
+
 import { useState, useEffect } from 'react'
 
 
 function CareerMainPage(props) {
 
-    const [ errors, setErrors ] = useState(null)
-    const [ apiJobsData, setApiJobsData ] = useState([])
-    const {current_user_id} = props
+    const {current_user_id, loadJobs, loadTasks, apiJobsData ,apiTasksData} = props
 
-    function getJob() {
-        return fetch('/jobs')
-            .then( resp => {
-                if (resp.status === 200) {
-                    return resp.json()
-                } else {
-                    return Promise.new(() => {
-                        resolve({error: 'there was an error'})
-                    })
-                }
-            })
-    }
 
-    function loadJobs(){
-        getJob()
-            .then(jobs => {
-                if(jobs.errors) {
-                    setErrors(jobs.errors)
-                }
-                setApiJobsData(jobs)
-            })
-    }
-
-    useEffect(() => {
+    useEffect(() => { // we need lifecycle hook here to reload the data whenever we create a page, we may need to rename the load functions to make things easier
+        // the load functions set the data
         loadJobs()
+        loadTasks()
     },[])
 
 
-    const displayJobs = apiJobsData.map((jobObj, index) => {
+    const displayJobs = [...apiJobsData].reverse().map((jobObj, index) => {
 
         const { name, title, description, tasks, url, user_id, id } = jobObj
 
-            if(current_user_id === user_id) {
+
                 return(
                     <div key={index} >
                         <Link to={`/jobs/${id}`}>
                             <div style = {{borderStyle: 'inset'}}>
-                                <h1> {name}: {title}</h1>
-                                <h2> {description} </h2>
-                                <h2> {tasks} </h2>
-                                <h2> {url} </h2>
+                                <h1> Name: {name} - Title: {title}</h1>
                             </div>
                         </Link>
                     </div>
                 )
-            }
+
     })
 
     return (
       <React.Fragment>
+      <h1> Main Careers Page </h1>
+        <MainTaskList
+            apiTasksData={apiTasksData}
+            apiJobsData={apiJobsData}
+            current_user_id={current_user_id}
+        />
+        <br></br>
+        <br></br>
         {displayJobs}
       </React.Fragment>
     );

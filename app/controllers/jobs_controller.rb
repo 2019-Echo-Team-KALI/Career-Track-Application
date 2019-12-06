@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
     def index
-        @jobs = Job.all
+        @jobs = current_user.jobs
         render json: @jobs
     end
 
@@ -22,11 +22,10 @@ class JobsController < ApplicationController
 
     def destroy
         @job = Job.find(params[:id])
-
-        if @job.destroy
-            # redirect_to: 'careerpage'
+        if @job && @job.destroy
+            render json: @job, status: 200
         else
-            render json: @job.errors, status: :unprocessable_entity
+            render json: { errors: 'could not destroy job' }, status: 400
         end
     end
 

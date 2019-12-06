@@ -1,10 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useState, useEffect } from "react"
+import { Redirect } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CreateJob(){
-    const [jobSucess, setJobSuccess] = useState(false)
+    const [jobSuccess, setJobSuccess] = useState(false)
 
     const [ jobData, setJobData ] = useState(
         {
@@ -36,7 +37,9 @@ function CreateJob(){
 
     function handleClick() {
         createJob(jobData)
-        setJobSuccess(true)
+        .then(() => {
+            setJobSuccess(true)
+        })
     }
 
     return (
@@ -83,12 +86,13 @@ function CreateJob(){
                  </div>
 
                  <button variant="primary" onClick={handleClick}>
-                 Create New User
+                 Create New Job
                  </button>
 
              </div>
-             {jobSucess &&
-                 <Redirect to="/jobs" />
+
+             {jobSuccess &&
+                 <Redirect to="/addtask" />
              }
       </React.Fragment>
     );
