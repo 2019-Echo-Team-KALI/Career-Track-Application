@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import HomePage from './HomePage'
 import CareerMainPage from './CareerMainPage'
 import CreateJob from './pages/jobs/CreateJob'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
@@ -75,7 +76,7 @@ function App(props) {
                     </div>
                 }
 
-
+          <HomePage />
           </React.Fragment>
       </Router>
     );
