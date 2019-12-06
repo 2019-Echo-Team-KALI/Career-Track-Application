@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
     def index
-        @jobs = Job.all
+        @jobs = current_user.jobs
         render json: @jobs
     end
 

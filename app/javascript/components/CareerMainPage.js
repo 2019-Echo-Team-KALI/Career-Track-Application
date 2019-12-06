@@ -22,7 +22,7 @@ function CareerMainPage(props) {
 
         const { name, title, description, tasks, url, user_id, id } = jobObj
 
-            if(current_user_id === user_id) {
+
                 return(
                     <div key={index} >
                         <Link to={`/jobs/${id}`}>
@@ -32,7 +32,7 @@ function CareerMainPage(props) {
                         </Link>
                     </div>
                 )
-            }
+
     })
 
     return (
