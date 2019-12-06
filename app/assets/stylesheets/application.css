@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+.firstbios {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
+
+.secondbios {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-between;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.bio {
+  padding: 20px;
+}
+
+.bio img {
+  border-radius: 10px;
+}
+
+.aboutus {
+  text-align: center;
+}
