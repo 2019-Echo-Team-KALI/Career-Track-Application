@@ -41,6 +41,7 @@ function CareerMainPage(props) {
         <MainTaskList
             apiTasksData={apiTasksData}
             apiJobsData={apiJobsData}
+            current_user_id={current_user_id}
         />
         <br></br>
         <br></br>

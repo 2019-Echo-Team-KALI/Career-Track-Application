@@ -170,7 +170,7 @@ function ShowCurrentJob(props) { // this should be called JobCard component
                             </div>
                     }
                     {updated &&
-                        <Redirect to='/careermainpage' />
+                        <Redirect to='/careermainpage'/>
                     }
 
                     <button onClick = {() => deleteJob(id)}>Delete</button>

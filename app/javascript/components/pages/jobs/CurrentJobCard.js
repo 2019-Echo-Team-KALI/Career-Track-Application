@@ -58,6 +58,7 @@ function CurrentJobCard(props) { // this should be called JobCard component
 
         return (
             <div key={index}>
+                {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
                 {job_id == paramJobId &&
                 <h1> Task: {id} - name </h1>
                 }
