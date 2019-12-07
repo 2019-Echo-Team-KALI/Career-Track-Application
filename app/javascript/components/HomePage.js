@@ -15,7 +15,7 @@ function HomePage() {
         </div>
 
         <div className = "aboutus">
-          <h2>About Us</h2>
+          <h2>Meet the Devs</h2>
             <div className = "firstbios">
               <div className="bio">
                 <img src={arvin} className="biophoto"/>

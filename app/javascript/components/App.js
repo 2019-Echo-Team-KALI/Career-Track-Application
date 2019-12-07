@@ -6,8 +6,7 @@ import CreateJob from './pages/jobs/CreateJob'
 import AddTask from './pages/jobs/AddTask'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
 import CurrentJobCard from './pages/jobs/CurrentJobCard'
-
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootswatch/dist/lux/bootstrap.min.css"; 
 import { useState, useEffect } from 'react'
 
 import Header from "./pages/Header"
