@@ -94,6 +94,15 @@ function App(props) {
                 {logged_in &&
                     <div>
                         <Switch>
+                            <Route path="/">
+                            <CareerMainPage
+                                current_user_id={current_user_id}
+                                loadJobs = {loadJobs}
+                                loadTasks = {loadTasks}
+                                apiJobsData={apiJobsData}
+                                apiTasksData={apiTasksData}
+                             />
+                             </Route>
                             <Route path="/careermainpage">
                                 <CareerMainPage
                                     current_user_id={current_user_id}

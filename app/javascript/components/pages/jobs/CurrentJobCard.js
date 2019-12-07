@@ -91,6 +91,7 @@ function CurrentJobCard(props) { // this should be called JobCard component
         setGoBack(true)
     }
 
+
     return (
         <div>
             <h1> Test ID: {paramJobId} </h1>
