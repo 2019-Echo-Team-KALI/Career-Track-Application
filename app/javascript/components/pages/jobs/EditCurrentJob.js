@@ -8,6 +8,7 @@ function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to cons
     const { paramEditId } = useParams() // this will be used to get the current job that we want to edit
     const [goBack, setGoBack] = useState(false)
     const [goEdit, setGoEdit] = useState(false)
+    const [editComplete, setEditComplete] = useState(false)
     const [ currentJob, setCurrentJob ] = useState({
         name: '',
         title: '',
@@ -42,35 +43,109 @@ function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to cons
             })
     }
 
+    function editJob(job){
+        return fetch(`/jobs/${paramEditId}`, {
+            body: JSON.stringify(job),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'PATCH',
+        })
+        .then(resp => {
+            if (resp.status === 200) {
+                let json = resp.json()
+                setEditComplete(true)
+                return json
+            } else {
+                resp.json()
+                .then(payload => {
+                    setErrors(payload.error)
+                })
+            }
+        })
+    }
+
     const { name, title, description, tasks, url, user_id } = currentJob
 
     function handleFinishEdit() {
         console.log("Edit,", paramEditId)
-        //setGoEdit(true)
+        editJob(currentJob)
     }
 
     function handleBack() {
         setGoBack(true)
     }
 
+    function handleChange(event) {
+        const newJobData = {...currentJob, [event.target.name]: event.target.value}
+        setCurrentJob(newJobData)
+    }
+
     return(
         <React.Fragment>
-            <h1>This is the EditCurrentJob page</h1>
+            {/* This is to show the user what the current job information that we have*/}
+            <h1>This is the Edit CurrentJob of Id: {paramEditId} </h1>
             <div>
-                <h1> Test ID: {paramEditId} </h1>
-                <h1> Name: {name} - Title: {title}</h1>
+                <h1> Name: {name} </h1>
+                <h1> Title: {title}</h1>
                 <h2> Description: {description} </h2>
                 <h2> Tasks:  </h2>
                 <h2> Url:{url} </h2>
-                <button onClick={handleBack}>Go Back to Main Page</button>
-                <button onClick={() => handleFinishEdit()}>
-                    Complete Edits
-                </button>
-                {goBack &&
-                    <Redirect to={`/jobs/${paramEditId}`}/>
-                }
 
             </div>
+
+            {/* The section below will be what we are editing*/}
+            <div>
+                <label>Name:</label>
+                <input
+                type="text"
+                name="name"
+                onChange={handleChange}
+                value={currentJob.name}
+                />
+            </div>
+            <div>
+                <label>Title</label>
+                <input
+                type="text"
+                name="title"
+                onChange={handleChange}
+                value={currentJob.title}
+                />
+            </div>
+
+            <div>
+                <label>Description</label>
+                <input
+                type="text"
+                name="description"
+                onChange={handleChange}
+                value={currentJob.description}
+                />
+            </div>
+
+            <div>
+                <label>URL</label>
+                <input
+                type="text"
+                name="url"
+                onChange={handleChange}
+                value={currentJob.url}
+                />
+            </div>
+
+            <button onClick={handleBack}>Go Back to Main Page</button>
+            <button onClick={handleFinishEdit}>
+                Complete Edits
+            </button>
+            {goBack &&
+                <Redirect to={`/jobs/${paramEditId}`}/>
+            }
+            {editComplete &&
+                <Redirect to='/careermainpage'/>
+            }
+
+
         </React.Fragment>
     )
 }
