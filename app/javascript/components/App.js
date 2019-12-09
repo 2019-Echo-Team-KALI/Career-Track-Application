@@ -121,7 +121,10 @@ function App(props) {
                             </Route>
                             */}
                             <Route exact path="/jobs/edit/:paramEditId">
-                                <EditCurrentJob />
+                                <EditCurrentJob
+                                    apiJobsData={apiJobsData}
+                                    loadJobs={loadJobs}
+                                />
                             </Route>
 
                             <Route exact path="/createjob">
