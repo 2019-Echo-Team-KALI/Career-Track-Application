@@ -2,7 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import "bootswatch/dist/lux/bootstrap.min.css";
+import { ButtonToolbar, Button } from 'react-bootstrap'
+
 
 
 function CurrentJobCard(props) { // this should be called JobCard component
@@ -10,6 +11,9 @@ function CurrentJobCard(props) { // this should be called JobCard component
 
     const { paramJobId } = useParams()
 
+    const [goBack, setGoBack] = useState(false)
+    const [goEdit, setGoEdit] = useState(false)
+    const [ apiTasks, setApiTasks ] = useState(apiTasksData)
     const [ currentJob, setCurrentJob ] = useState({
         name: '',
         title: '',
@@ -17,7 +21,7 @@ function CurrentJobCard(props) { // this should be called JobCard component
         url: '',
     })
 
-    const [ apiTasks, setApiTasks ] = useState(apiTasksData)
+
 
     useEffect(() => {
         loadJob()
@@ -65,13 +69,56 @@ function CurrentJobCard(props) { // this should be called JobCard component
         )
     })
 
+    function handleEdit() {
+        console.log("Edit,", paramJobId)
+        setGoEdit(true)
+    }
+    function handleDelete(id) {
+        console.log("Delete,", paramJobId)
+        return fetch(`/jobs/${id}`, {
+            method: 'DELETE'
+        })
+        .then(resp => {
+            if (resp.status === 200) {
+                setGoBack(true)
+            } else {
+                resp.json()
+                .then(payload => {
+                    setErrors(payload.error)
+                })
+            }
+        })
+    }
+    function handleBack() {
+        setGoBack(true)
+    }
+
+
     return (
         <div>
-            <h1> Test ID: {paramJobId} </h1>
-            <h1> Name: {name} - Title: {title}</h1>
-            <h2> Description: {description} </h2>
-            <h2> Tasks: {currentJobTasks} </h2>
-            <h2> Url:{url} </h2>
+            <div className = "currentjob">
+              <h1><span style = {{fontWeight: 'bold'}}>Company Name:</span> {name}</h1>
+              <h2><span style = {{fontWeight: 'bold'}}>Title:</span> {title}</h2>
+              <h3><span style = {{fontWeight: 'bold'}}>Url:</span>{url}</h3>
+              <br />
+              <h4><span style = {{fontWeight: 'bold'}}>Description:</span> {description} </h4>
+              <h4><span style = {{fontWeight: 'bold'}}>Tasks:</span> {currentJobTasks} </h4>
+            </div>
+            <div className = "buttons">
+            <ButtonToolbar>
+              <Button onClick={handleBack}>Go Back to Main Page</Button>
+              <Button className="centerbutton" onClick={() => handleDelete(paramJobId)}>Delete</Button>
+              <Button>
+                <Link to={`/jobs/edit/${paramJobId}`}>
+                    <span style = {{color: 'white'}}>Edit</span>
+                </Link>
+              </Button>
+              </ButtonToolbar>
+            </div>
+            {goBack &&
+                <Redirect to='/careermainpage'/>
+            }
+
         </div>
 
     )

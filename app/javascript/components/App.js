@@ -6,8 +6,10 @@ import CreateJob from './pages/jobs/CreateJob'
 import AddTask from './pages/jobs/AddTask'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
 import CurrentJobCard from './pages/jobs/CurrentJobCard'
-
+import EditCurrentJob from './pages/jobs/EditCurrentJob'
 import "bootswatch/dist/lux/bootstrap.min.css";
+
+
 import { useState, useEffect } from 'react'
 
 import Header from "./pages/Header"
@@ -85,11 +87,25 @@ function App(props) {
                 sign_out_route={sign_out_route}
                 current_user_id={current_user_id}
             />
+                {!logged_in &&
+                    <HomePage />
+                }
 
                 {logged_in &&
                     <div>
                         <Switch>
-                            <Route exact path="/careermainpage">
+
+                            <Route exact path="/">
+                            <CareerMainPage
+                                current_user_id={current_user_id}
+                                loadJobs = {loadJobs}
+                                loadTasks = {loadTasks}
+                                apiJobsData={apiJobsData}
+                                apiTasksData={apiTasksData}
+                             />
+                             </Route>
+                            <Route path="/careermainpage">
+
                                 <CareerMainPage
                                     current_user_id={current_user_id}
                                     loadJobs = {loadJobs}
@@ -106,6 +122,12 @@ function App(props) {
                                 />
                             </Route>
                             */}
+                            <Route exact path="/jobs/edit/:paramEditId">
+                                <EditCurrentJob
+                                    apiJobsData={apiJobsData}
+                                    loadJobs={loadJobs}
+                                />
+                            </Route>
 
                             <Route exact path="/createjob">
                                 <CreateJob />

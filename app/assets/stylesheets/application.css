@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ @import 'bootstrap';
 
 
 .firstbios {
@@ -41,10 +42,26 @@
   padding: 20px;
 }
 
-.bio img {
+.biophoto {
   border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.logo img {
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -10px;
 }
 
 .aboutus {
   text-align: center;
+  margin-top: 100px;
+}
+
+.aboutus h2 {
+  margin-bottom: 40px;
+}
+
+.bold {
+  font-weight: bold;
 }
