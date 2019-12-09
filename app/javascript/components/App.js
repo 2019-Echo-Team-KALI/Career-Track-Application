@@ -132,7 +132,7 @@ function App(props) {
                                 <CreateJob />
                             </Route>
 
-                            <Route exact path="/addtask">
+                            <Route exact path="/jobs/:paramJobId/addtask">
                                 <AddTask />
                             </Route>
 

@@ -100,11 +100,13 @@ function CareerMainPage(props) {
     return (
       <React.Fragment>
           <div style={{borderStyle: 'edge', marginLeft: '18em'}}>
-          {/*<MainTaskList
+          {/*   This is to show the Main TaskList 
+              </MainTaskList
               apiTasksData={apiTasksData}
               apiJobsData={apiJobsData}
               current_user_id={current_user_id}
-          />*/}
+          />
+          */}
           <br />
 
           <ul className="nav nav-tabs" style={{marginLeft: '28em'}}>

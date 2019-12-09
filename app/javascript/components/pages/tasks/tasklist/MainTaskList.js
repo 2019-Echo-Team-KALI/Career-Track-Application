@@ -25,6 +25,7 @@ function MainTaskList(props) {
 
     return(
         <div style = {{borderStyle: 'inset'}}>
+            <h1>Main TaskList</h1>
             {taskList}
         </div>
     )
