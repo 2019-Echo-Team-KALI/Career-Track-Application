@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { ButtonToolbar, Button } from 'react-bootstrap'
 
 
 function CurrentJobCard(props) { // this should be called JobCard component
@@ -94,18 +95,25 @@ function CurrentJobCard(props) { // this should be called JobCard component
 
     return (
         <div>
-            <h1> Test ID: {paramJobId} </h1>
-            <h1> Name: {name} - Title: {title}</h1>
-            <h2> Description: {description} </h2>
-            <h2> Tasks: {currentJobTasks} </h2>
-            <h2> Url:{url} </h2>
-            <button onClick={handleBack}>Go Back to Main Page</button>
-            <button onClick={() => handleDelete(paramJobId)}>Delete</button>
-            <button>
+            <div className = "currentjob">
+              <h1><span style = {{fontWeight: 'bold'}}>Company Name:</span> {name}</h1>
+              <h2><span style = {{fontWeight: 'bold'}}>Title:</span> {title}</h2>
+              <h3><span style = {{fontWeight: 'bold'}}>Url:</span>{url}</h3>
+              <br />
+              <h4><span style = {{fontWeight: 'bold'}}>Description:</span> {description} </h4>
+              <h4><span style = {{fontWeight: 'bold'}}>Tasks:</span> {currentJobTasks} </h4>
+            </div>
+            <div className = "buttons">
+            <ButtonToolbar>
+              <Button onClick={handleBack}>Go Back to Main Page</Button>
+              <Button className="centerbutton" onClick={() => handleDelete(paramJobId)}>Delete</Button>
+              <Button>
                 <Link to={`/jobs/edit/${paramJobId}`}>
-                    Edit
+                    <span style = {{color: 'white'}}>Edit</span>
                 </Link>
-            </button>
+              </Button>
+              </ButtonToolbar>
+            </div>
             {goBack &&
                 <Redirect to='/careermainpage'/>
             }
