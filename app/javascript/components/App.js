@@ -7,7 +7,7 @@ import AddTask from './pages/jobs/AddTask'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
 import CurrentJobCard from './pages/jobs/CurrentJobCard'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootswatch/dist/lux/bootstrap.min.css";
 import { useState, useEffect } from 'react'
 
 import Header from "./pages/Header"
@@ -79,7 +79,6 @@ function App(props) {
     return (
         <Router>
           <React.Fragment>
-
             <Header
                 logged_in={logged_in}
                 sign_in_route={sign_in_route}
@@ -90,7 +89,7 @@ function App(props) {
                 {logged_in &&
                     <div>
                         <Switch>
-                            <Route exact path="/">
+                            <Route exact path="/careermainpage">
                                 <CareerMainPage
                                     current_user_id={current_user_id}
                                     loadJobs = {loadJobs}
@@ -116,6 +115,10 @@ function App(props) {
                                 <AddTask />
                             </Route>
 
+                            <Route exact path='/homepage'>
+                              <HomePage />
+                            </Route>
+
                             <Route exact path='/jobs/:paramJobId' >
                                 <CurrentJobCard
                                     apiJobsData={apiJobsData}
@@ -128,7 +131,6 @@ function App(props) {
                     </div>
                 }
 
-          <HomePage />
           </React.Fragment>
       </Router>
     );

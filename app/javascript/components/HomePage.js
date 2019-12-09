@@ -4,13 +4,11 @@ import lisa from './lisakamino.jpg'
 import kalvin from './kalvinkang.jpg'
 import ian from './ianthompson.jpg'
 import arvin from './arvinlleva.jpg'
+import "bootswatch/dist/lux/bootstrap.min.css";
 
 function HomePage() {
     return (
       <React.Fragment>
-        <div>
-            <h1>Welcome to Career Track!</h1>
-        </div>
 
         <div className = "aboutus">
           <h2>About Us</h2>

@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import "bootswatch/dist/lux/bootstrap.min.css";
 
 
 function CurrentJobCard(props) { // this should be called JobCard component

@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import "bootswatch/dist/lux/bootstrap.min.css";
 
 
 function MainTaskList(props) {
@@ -12,7 +13,7 @@ function MainTaskList(props) {
 
     const taskList = apiTasksData.map((task, index) => {
         const {description, job_id, user_id} = task // we need the job id to compare
-    
+
         return(
             <div key={index} style = {{borderStyle: 'inset'}}>
 
@@ -24,7 +25,6 @@ function MainTaskList(props) {
 
     return(
         <div style = {{borderStyle: 'inset'}}>
-            <h1> Main Task List </h1>
             {taskList}
         </div>
     )
