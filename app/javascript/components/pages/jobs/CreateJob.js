@@ -2,7 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useState, useEffect } from "react"
 import { Redirect } from 'react-router-dom'
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootswatch/dist/lux/bootstrap.min.css";
+
 
 function CreateJob(){
     const [jobSuccess, setJobSuccess] = useState(false)
@@ -13,6 +14,7 @@ function CreateJob(){
             title: '',
             description: '',
             url: '',
+            category: 0
         }
     )
 
@@ -82,6 +84,16 @@ function CreateJob(){
                        name="url"
                        onChange={handleChange}
                        value={jobData.url}
+                     />
+                 </div>
+
+                 <div>
+                     <label>Category</label>
+                     <input
+                       type="text"
+                       name="category"
+                       onChange={handleChange}
+                       value={jobData.category}
                      />
                  </div>
 
