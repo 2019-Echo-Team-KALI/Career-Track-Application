@@ -4,7 +4,6 @@ import HomePage from './HomePage'
 import CareerMainPage from './CareerMainPage'
 import CreateJob from './pages/jobs/CreateJob'
 import AddTask from './pages/jobs/AddTask'
-import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
 import CurrentJobCard from './pages/jobs/CurrentJobCard'
 import EditCurrentJob from './pages/jobs/EditCurrentJob'
 import "bootswatch/dist/lux/bootstrap.min.css";

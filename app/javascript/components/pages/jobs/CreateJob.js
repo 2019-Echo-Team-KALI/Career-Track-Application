@@ -7,7 +7,7 @@ import "bootswatch/dist/lux/bootstrap.min.css";
 
 function CreateJob(){
     const [jobSuccess, setJobSuccess] = useState(false)
-
+    const [goBack, setGoBack] = useState(false)
     const [ jobData, setJobData ] = useState(
         {
             name: '',
@@ -42,6 +42,10 @@ function CreateJob(){
         .then(() => {
             setJobSuccess(true)
         })
+    }
+
+    function handleBack() {
+        setGoBack(true)
     }
 
     return (
@@ -97,6 +101,10 @@ function CreateJob(){
                      />
                  </div>
 
+                 <button variant="primary" onClick={handleBack}>
+                 Back to Career Page
+                 </button>
+
                  <button variant="primary" onClick={handleClick}>
                  Create New Job
                  </button>
@@ -105,6 +113,9 @@ function CreateJob(){
 
              {jobSuccess &&
                  <Redirect to="/addtask" />
+             }
+             {goBack &&
+                 <Redirect to="/careermainpage"/>
              }
       </React.Fragment>
     );
