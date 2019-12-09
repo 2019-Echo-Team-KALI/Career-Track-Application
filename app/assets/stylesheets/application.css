@@ -43,6 +43,7 @@
 
 .biophoto {
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .logo img {
@@ -53,4 +54,9 @@
 
 .aboutus {
   text-align: center;
+  margin-top: 100px;
+}
+
+.aboutus h2 {
+  margin-bottom: 40px;
 }
