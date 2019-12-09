@@ -14,7 +14,7 @@ function CreateJob(){
             title: '',
             description: '',
             url: '',
-            catagory: 0
+            category: 0
         }
     )
 
@@ -88,12 +88,12 @@ function CreateJob(){
                  </div>
 
                  <div>
-                     <label>Catagory</label>
+                     <label>Category</label>
                      <input
                        type="text"
-                       name="url"
+                       name="category"
                        onChange={handleChange}
-                       value={jobData.catagory}
+                       value={jobData.category}
                      />
                  </div>
 
