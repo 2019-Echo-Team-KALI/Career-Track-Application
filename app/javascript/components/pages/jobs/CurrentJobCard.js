@@ -9,6 +9,9 @@ function CurrentJobCard(props) { // this should be called JobCard component
 
     const { paramJobId } = useParams()
 
+    const [goBack, setGoBack] = useState(false)
+    const [goEdit, setGoEdit] = useState(false)
+    const [ apiTasks, setApiTasks ] = useState(apiTasksData)
     const [ currentJob, setCurrentJob ] = useState({
         name: '',
         title: '',
@@ -16,7 +19,7 @@ function CurrentJobCard(props) { // this should be called JobCard component
         url: '',
     })
 
-    const [ apiTasks, setApiTasks ] = useState(apiTasksData)
+
 
     useEffect(() => {
         loadJob()
@@ -64,6 +67,31 @@ function CurrentJobCard(props) { // this should be called JobCard component
         )
     })
 
+    function handleEdit() {
+        console.log("Edit,", paramJobId)
+        setGoEdit(true)
+    }
+    function handleDelete(id) {
+        console.log("Delete,", paramJobId)
+        return fetch(`/jobs/${id}`, {
+            method: 'DELETE'
+        })
+        .then(resp => {
+            if (resp.status === 200) {
+                setGoBack(true)
+            } else {
+                resp.json()
+                .then(payload => {
+                    setErrors(payload.error)
+                })
+            }
+        })
+    }
+    function handleBack() {
+        setGoBack(true)
+    }
+
+
     return (
         <div>
             <h1> Test ID: {paramJobId} </h1>
@@ -71,6 +99,17 @@ function CurrentJobCard(props) { // this should be called JobCard component
             <h2> Description: {description} </h2>
             <h2> Tasks: {currentJobTasks} </h2>
             <h2> Url:{url} </h2>
+            <button onClick={handleBack}>Go Back to Main Page</button>
+            <button onClick={() => handleDelete(paramJobId)}>Delete</button>
+            <button>
+                <Link to={`/jobs/edit/${paramJobId}`}>
+                    Edit
+                </Link>
+            </button>
+            {goBack &&
+                <Redirect to='/careermainpage'/>
+            }
+
         </div>
 
     )
