@@ -185,7 +185,7 @@ function ShowCurrentJob(props) { // this should be called JobCard component
 
 export default ShowCurrentJob
 
-// 
+//
 // <button onClick = {() => handleBackClick()}>
 //     Back to Main Career Page
 // </button>
