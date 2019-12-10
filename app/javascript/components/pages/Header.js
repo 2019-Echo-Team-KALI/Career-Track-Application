@@ -14,8 +14,9 @@ function Header(props) {
         <React.Fragment>
             <nav>
 
+
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                  <a className="navbar-brand" href="/"><b>KALI</b></a>
+                  <Link to="/" className="navbar-brand"><b>KALI</b></Link>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                   </button>
@@ -23,13 +24,13 @@ function Header(props) {
                   <div className="collapse navbar-collapse" id="navbarColor02">
                     <ul className="navbar-nav mr-auto">
                       <li className="nav-item active">
-                        <a className="nav-link" href="careermainpage">Listings <span className="sr-only">(current)</span></a>
+                        <Link to="/careermainpage" className="nav-link">Listings</Link> <span className="sr-only">(current)</span>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href='createjob'>Create Job Listing</a>
+                        <Link to="/createjob" className="nav-link">Create Job Listing </Link>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href="homepage">About Us</a>
+                        <Link to="/homepage" className="nav-link">About Us</Link>
                       </li>
 
                     </ul>
