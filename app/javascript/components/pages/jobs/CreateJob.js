@@ -2,12 +2,13 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useState, useEffect } from "react"
 import { Redirect } from 'react-router-dom'
-import "bootswatch/dist/lux/bootstrap.min.css";
+import { Form, ButtonToolbar, Button } from 'react-bootstrap'
 
 
 function CreateJob(){
     const [jobSuccess, setJobSuccess] = useState(false)
-
+    const [goBack, setGoBack] = useState(false)
+    const [currentJobId, setCurrentJobId] = useState()
     const [ jobData, setJobData ] = useState(
         {
             name: '',
@@ -28,9 +29,20 @@ function CreateJob(){
         })
         .then( resp => {
             let json = resp.json()
+            // this helped us understand more about what is being fetch
+            console.log("resp", resp)
+            console.log("json", json)
+            console.log("id", json.id)
             return json
         })
+        .then(data => {
+            // we're able to get the payload id once the job is created
+            // here's a link to show the https://stackoverflow.com/questions/28916710/what-do-double-brackets-mean-in-javascript-and-how-to-access-them
+            console.log("job's id", typeof data.id, data.id)
+            setCurrentJobId(data.id)
+        })
     }
+
 
     function handleChange(event) {
         const newJobData = {...jobData, [event.target.name]: event.target.value}
@@ -40,71 +52,81 @@ function CreateJob(){
     function handleClick() {
         createJob(jobData)
         .then(() => {
+
             setJobSuccess(true)
         })
     }
 
+    function handleBack() {
+        setGoBack(true)
+    }
+
     return (
       <React.Fragment>
-         <div>
-             <br></br>
-                <div>
-                     <label>Name:</label>
-                     <input
+         <div className="editorcreatejob">
+            <h1>Create a New Job Listing</h1>
+            <Form className = "formContainer">
+              <Form.Group controlId="formGroupName">
+                     <Form.Label>Name:</Form.Label>
+                     <Form.Control
                        type="text"
                        name="name"
                        onChange={handleChange}
                        value={jobData.name}
                      />
-                </div>
-                 <div>
-                     <label>Title</label>
-                     <input
+                </Form.Group>
+
+                 <Form.Group controlId="formGroupTitle">
+                     <Form.Label>Title</Form.Label>
+                     <Form.Control
                        type="text"
                        name="title"
                        onChange={handleChange}
                        value={jobData.title}
                      />
-                 </div>
+                 </Form.Group>
 
-                 <div>
-                     <label>Description</label>
-                     <input
+                 <Form.Group>
+                     <Form.Label>Description</Form.Label>
+                     <Form.Control
                        type="text"
                        name="description"
                        onChange={handleChange}
                        value={jobData.description}
                      />
-                 </div>
+                 </Form.Group>
 
-                 <div>
-                     <label>URL</label>
-                     <input
+                 <Form.Group>
+                     <Form.Label>URL</Form.Label>
+                     <Form.Control
                        type="text"
                        name="url"
                        onChange={handleChange}
                        value={jobData.url}
                      />
-                 </div>
+                 </Form.Group>
 
-                 <div>
-                     <label>Category</label>
-                     <input
+                 <Form.Group>
+                     <Form.Label>Category</Form.Label>
+                     <Form.Control
                        type="text"
                        name="category"
                        onChange={handleChange}
                        value={jobData.category}
                      />
-                 </div>
-
-                 <button variant="primary" onClick={handleClick}>
-                 Create New Job
-                 </button>
-
+                 </Form.Group>
+                 <ButtonToolbar className="formbuttons">
+                    <Button className="centerbutton" onClick={handleBack}>Go Back to Main Page</Button>
+                    <Button className="centerbutton" onClick={handleClick}>Create New Job</Button>
+                 </ButtonToolbar>
+             </Form>
              </div>
 
              {jobSuccess &&
-                 <Redirect to="/addtask" />
+                <Redirect to={`/jobs/${currentJobId}/createtask`} />
+             }
+             {goBack &&
+                 <Redirect to="/careermainpage"/>
              }
       </React.Fragment>
     );
