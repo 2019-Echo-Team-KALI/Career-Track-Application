@@ -1,9 +1,9 @@
 import React from "react"
 import PropTypes from "prop-types"
-import HomePage from './HomePage'
-import CareerMainPage from './CareerMainPage'
+import HomePage from './pages/home/HomePage'
+import CareerMainPage from './pages/career-main/CareerMainPage'
 import CreateJob from './pages/jobs/CreateJob'
-import AddTask from './pages/jobs/AddTask'
+import CreateTask from './pages/tasks/CreateTask'
 import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
 import CurrentJobCard from './pages/jobs/CurrentJobCard'
 import EditCurrentJob from './pages/jobs/EditCurrentJob'
@@ -12,7 +12,7 @@ import "bootswatch/dist/lux/bootstrap.min.css";
 
 import { useState, useEffect } from 'react'
 
-import Header from "./pages/Header"
+import Header from "./components/Header"
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
 
 function App(props) {
@@ -134,7 +134,7 @@ function App(props) {
                             </Route>
 
                             <Route exact path="/addtask">
-                                <AddTask />
+                                <CreateTask />
                             </Route>
 
                             <Route exact path='/homepage'>

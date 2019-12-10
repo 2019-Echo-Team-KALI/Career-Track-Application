@@ -4,7 +4,7 @@ import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
-function AddTask(props) { // this should be called JobCard component
+function CreateTask(props) { // this should be called JobCard component
 
     return (
         <div>
@@ -13,4 +13,4 @@ function AddTask(props) { // this should be called JobCard component
     )
 }
 
-export default AddTask
+export default CreateTask
