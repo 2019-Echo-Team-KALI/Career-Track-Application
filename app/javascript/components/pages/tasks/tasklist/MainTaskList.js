@@ -2,7 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import "bootswatch/dist/lux/bootstrap.min.css";
 
 
 function MainTaskList(props) { // this is being called from the App.js

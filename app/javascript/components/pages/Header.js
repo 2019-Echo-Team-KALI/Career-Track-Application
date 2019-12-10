@@ -1,6 +1,5 @@
 import React from "react"
 import { Link } from "react-router-dom"
-import "bootswatch/dist/lux/bootstrap.min.css";
 
 function Header(props) {
     const {

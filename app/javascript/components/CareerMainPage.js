@@ -2,8 +2,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
 import MainTaskList from './pages/tasks/tasklist/MainTaskList'
-import "bootswatch/dist/lux/bootstrap.min.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Accordion, Card, Button, Navbar, Nav  } from 'react-bootstrap'
 import google_logo from './google_logo.png'
