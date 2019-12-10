@@ -56,13 +56,13 @@ function CurrentJobCard(props) { // this should be called JobCard component
     const { name, title, description, tasks, url, user_id } = currentJob
 
     const currentJobTasks = apiTasksData.map((task, index) => {
-        const {id, name, job_id} = task
+        const {id, name, job_id, description} = task
 
         return (
             <div key={index}>
                 {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
                 {job_id == paramJobId &&
-                <h1> Task: {id} - name </h1>
+                <h1> Task: {id} - {description} </h1>
                 }
             </div>
         )

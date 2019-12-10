@@ -125,7 +125,7 @@ function CreateJob(){
              </div>
 
              {jobSuccess &&
-                <Redirect to={`/jobs/${currentJobId}/addtask`} />
+                <Redirect to={`/jobs/${currentJobId}/createtask`} />
              }
              {goBack &&
                  <Redirect to="/careermainpage"/>
