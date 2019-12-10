@@ -13,7 +13,6 @@ function Header(props) {
         <React.Fragment>
             <nav>
 
-
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                   <Link to="/" className="navbar-brand"><b>KALI</b></Link>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
