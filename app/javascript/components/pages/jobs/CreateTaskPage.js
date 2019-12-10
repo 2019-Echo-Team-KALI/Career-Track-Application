@@ -4,7 +4,7 @@ import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
 
-function CreateTask(props) { // this should be called JobCard component
+function CreateTaskPage(props) { // this should be called JobCard component
 
     const {paramJobId} = useParams()
     const [ taskSuccess, setTaskSuccess ] = useState(false)
@@ -61,10 +61,10 @@ function CreateTask(props) { // this should be called JobCard component
             Create Task
             </button>
             {taskSuccess &&
-               <Redirect to={`/jobs/${paramJobId}/createtask`} />
+               <Redirect to={`/jobs/${paramJobId}/createtaskpage`} />
             }
         </React.Fragment>
     )
 }
 
-export default CreateTask
+export default CreateTaskPage

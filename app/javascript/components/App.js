@@ -3,7 +3,8 @@ import PropTypes from "prop-types"
 import HomePage from './HomePage'
 import CareerMainPage from './CareerMainPage'
 import CreateJob from './pages/jobs/CreateJob'
-import CreateTask from './pages/jobs/CreateTask'
+import CreateTaskPage from './pages/jobs/CreateTaskPage'
+import EditTaskPage from './pages/tasks/EditTaskPage'
 import CurrentJobCard from './pages/jobs/CurrentJobCard'
 import EditCurrentJob from './pages/jobs/EditCurrentJob'
 import "bootswatch/dist/lux/bootstrap.min.css";
@@ -132,8 +133,12 @@ function App(props) {
                                 <CreateJob />
                             </Route>
 
-                            <Route exact path="/jobs/:paramJobId/createtask">
-                                <CreateTask />
+                            <Route exact path="/jobs/:paramJobId/createtaskpage">
+                                <CreateTaskPage />
+                            </Route>
+
+                            <Route exact path='/jobs/:paramJobId/edittaskpage' >
+                                <EditTaskPage />
                             </Route>
 
                             <Route exact path='/homepage'>
