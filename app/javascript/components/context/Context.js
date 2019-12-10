@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 const Context = React.createContext()
 
 function ContextProvider({children}) {
-    const [ test, setTest] = useState("test")
+    const [ test, setTest] = useState("HOLY CRAP THIS WORKS")
 
     return (
         <Context.Provider value={{test: test}}> {/** here we pass in an object which is the array of photos using the value of this context provider to be accessed within the child component, in this case it ill be sent to our app*/}

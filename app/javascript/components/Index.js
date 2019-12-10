@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import App from "./App"
 import { BrowserRouter as Router } from "react-router-dom"
-import { ContextProvider } from "./react-components/context/Context"
+import { ContextProvider } from "./context/Context"
 
 function Index(props) {
 
