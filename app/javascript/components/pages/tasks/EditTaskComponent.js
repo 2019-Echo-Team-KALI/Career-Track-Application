@@ -62,6 +62,10 @@ function EditTaskComponent({apiTasksData, loadTasks}) {
             }
         })
     }
+
+    render(
+        <h1>Task Component </h1>
+    )
 }
 
 export default EditTaskComponent

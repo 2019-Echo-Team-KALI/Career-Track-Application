@@ -116,7 +116,7 @@ function CareerMainPage(props) {
       <React.Fragment>
 
           <div style={{borderStyle: 'edge', width: '82em', float: 'right', marginTop: '1em'}}>
-          {/*<MainTaskList
+          <MainTaskList
 
               apiTasksData={apiTasksData}
               apiJobsData={apiJobsData}
@@ -125,18 +125,6 @@ function CareerMainPage(props) {
 
           <br />
 
-          {/*<ul className="nav nav-tabs" style={{marginLeft: '28em'}}>
-            <li className="nav-item">
-              <a className="nav-link active" data-toggle="tab" href="#home">Home</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link " data-toggle="tab" href="#applied">Applied</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#wishList">Wish List</a>
-            </li>
-
-          </ul>*/}
 
 
           <Nav fill variant="tabs" defaultActiveKey="#applied" style={{border: '1px solid rgba(0, 0, 0, .2)', marginRight: '1.7em', }}>
