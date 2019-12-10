@@ -90,6 +90,16 @@ function CareerMainPage(props) {
     return (
       <React.Fragment>
           <div style={{borderStyle: 'edge', width: '80%', float: 'right', marginTop: '1em'}}>
+          {/* Next is to mob the maintasklist*/}
+          <MainTaskList
+
+              apiTasksData={apiTasksData}
+              apiJobsData={apiJobsData}
+              current_user_id={current_user_id}
+              />
+
+          <br />
+
 
 
           <Nav fill variant="tabs" defaultActiveKey="#applied" style={{border: '1px solid rgba(0, 0, 0, .2)', marginRight: '1.7em', }}>
