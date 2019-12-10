@@ -103,6 +103,7 @@ function App(props) {
                                 loadTasks = {loadTasks}
                                 apiJobsData={apiJobsData}
                                 apiTasksData={apiTasksData}
+                                getTask = {getTask}
                              />
                              </Route>
                             <Route path="/careermainpage">
@@ -113,6 +114,7 @@ function App(props) {
                                     loadTasks = {loadTasks}
                                     apiJobsData={apiJobsData}
                                     apiTasksData={apiTasksData}
+                                    getTask = {getTask}
                                  />
                             </Route>
 
