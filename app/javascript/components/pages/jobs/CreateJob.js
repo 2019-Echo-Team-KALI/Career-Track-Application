@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useState, useEffect } from "react"
 import { Redirect } from 'react-router-dom'
-import "bootswatch/dist/lux/bootstrap.min.css";
+import { Form, ButtonToolbar, Button } from 'react-bootstrap'
 
 
 function CreateJob(){
@@ -63,65 +63,63 @@ function CreateJob(){
 
     return (
       <React.Fragment>
-         <div>
-             <br></br>
-                <div>
-                     <label>Name:</label>
-                     <input
+         <div className="editorcreatejob">
+            <h1>Create a New Job Listing</h1>
+            <Form className = "formContainer">
+              <Form.Group controlId="formGroupName">
+                     <Form.Label>Name:</Form.Label>
+                     <Form.Control
                        type="text"
                        name="name"
                        onChange={handleChange}
                        value={jobData.name}
                      />
-                </div>
-                 <div>
-                     <label>Title</label>
-                     <input
+                </Form.Group>
+
+                 <Form.Group controlId="formGroupTitle">
+                     <Form.Label>Title</Form.Label>
+                     <Form.Control
                        type="text"
                        name="title"
                        onChange={handleChange}
                        value={jobData.title}
                      />
-                 </div>
+                 </Form.Group>
 
-                 <div>
-                     <label>Description</label>
-                     <input
+                 <Form.Group>
+                     <Form.Label>Description</Form.Label>
+                     <Form.Control
                        type="text"
                        name="description"
                        onChange={handleChange}
                        value={jobData.description}
                      />
-                 </div>
+                 </Form.Group>
 
-                 <div>
-                     <label>URL</label>
-                     <input
+                 <Form.Group>
+                     <Form.Label>URL</Form.Label>
+                     <Form.Control
                        type="text"
                        name="url"
                        onChange={handleChange}
                        value={jobData.url}
                      />
-                 </div>
+                 </Form.Group>
 
-                 <div>
-                     <label>Category</label>
-                     <input
+                 <Form.Group>
+                     <Form.Label>Category</Form.Label>
+                     <Form.Control
                        type="text"
                        name="category"
                        onChange={handleChange}
                        value={jobData.category}
                      />
-                 </div>
-
-                 <button variant="primary" onClick={handleBack}>
-                 Back to Career Page
-                 </button>
-
-                 <button variant="primary" onClick={handleClick}>
-                 Create New Job
-                 </button>
-
+                 </Form.Group>
+                 <ButtonToolbar className="formbuttons">
+                    <Button className="centerbutton" onClick={handleBack}>Go Back to Main Page</Button>
+                    <Button className="centerbutton" onClick={handleClick}>Create New Job</Button>
+                 </ButtonToolbar>
+             </Form>
              </div>
 
              {jobSuccess &&

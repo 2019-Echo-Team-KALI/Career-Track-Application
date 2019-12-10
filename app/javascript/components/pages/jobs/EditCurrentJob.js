@@ -84,7 +84,7 @@ function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to cons
 
     return(
         <React.Fragment>
-            <div className="editjob">
+            <div className="editorcreatejob">
                 <h1>Edit Job Details</h1>
                 <Form className = "formContainer">
 
@@ -128,7 +128,6 @@ function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to cons
                     value={currentJob.description}
                   />
                 </Form.Group>
-            </Form>
 
             <ButtonToolbar className="formbuttons">
               <Button className="centerbutton" onClick={handleBack}>Go Back to Main Page</Button>
@@ -136,6 +135,7 @@ function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to cons
                   Complete Edits
               </Button>
             </ButtonToolbar>
+            </Form>
             {goBack &&
                 <Redirect to={`/jobs/${paramEditId}`}/>
             }
