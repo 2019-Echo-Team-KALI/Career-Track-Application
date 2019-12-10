@@ -25,7 +25,11 @@ function App(props) {
     const [ errors, setErrors ] = useState(null)
     const [ apiJobsData, setApiJobsData ] = useState([])
     const [ apiTasksData, setApiTasksData ] = useState([])
+    const [ createClick, setCreateClick ] = useState(false)
 
+    const openCreate = () => {
+      setCreateClick(!createClick)
+    }
 
 
     function getTask() {
@@ -84,6 +88,9 @@ function App(props) {
                 sign_in_route={sign_in_route}
                 sign_out_route={sign_out_route}
                 current_user_id={current_user_id}
+                createClick={createClick}
+                setCreateClick={setCreateClick}
+                openCreate={openCreate}
             />
 
                 {logged_in &&
@@ -96,6 +103,9 @@ function App(props) {
                                     loadTasks = {loadTasks}
                                     apiJobsData={apiJobsData}
                                     apiTasksData={apiTasksData}
+                                    createClick={createClick}
+                                    setCreateClick={setCreateClick}
+                                    openCreate={openCreate}
                                  />
                             </Route>
 

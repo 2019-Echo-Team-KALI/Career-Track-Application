@@ -3,12 +3,18 @@ import { Link } from "react-router-dom"
 import "bootswatch/dist/lux/bootstrap.min.css";
 
 function Header(props) {
-    const {
-      logged_in,
-      sign_in_route,
-      sign_out_route,
-      current_user_id
-    } = props
+  const {
+    logged_in,
+    sign_in_route,
+    sign_out_route,
+    current_user_id,
+    createClick,
+    setCreateClick,
+    openCreate,
+    apiJobsData,
+    apiTasksData,
+  } = props
+
 
     return (
         <React.Fragment>
@@ -22,10 +28,10 @@ function Header(props) {
                   <div className="collapse navbar-collapse" id="navbarColor02">
                     <ul className="navbar-nav mr-auto">
                       <li className="nav-item active">
-                        <a className="nav-link" href="careermainpage">Listings <span className="sr-only">(current)</span></a>
+                        <a className="nav-link" href="careermainpage" >Listings <span className="sr-only">(current)</span></a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" href='createjob'>Create Job Listing</a>
+                        <a className="nav-link" onClick={openCreate}>Create Job Listing</a>
                       </li>
                       <li className="nav-item">
                         <a className="nav-link" href="homepage">About Us</a>

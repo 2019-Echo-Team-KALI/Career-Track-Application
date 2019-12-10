@@ -5,7 +5,7 @@ import MainTaskList from './pages/tasks/tasklist/MainTaskList'
 import "bootswatch/dist/lux/bootstrap.min.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Accordion, Card, Button, Navbar, Nav  } from 'react-bootstrap'
+import { Accordion, Card, Button, Navbar, Nav, Form, Col  } from 'react-bootstrap'
 import google_logo from './google_logo.png'
 import facebook_logo from './facebook_logo.png'
 import { useState, useEffect } from 'react'
@@ -13,39 +13,56 @@ import { useState, useEffect } from 'react'
 
 function CareerMainPage(props) {
 
-    const {current_user_id, loadJobs, loadTasks, apiJobsData ,apiTasksData} = props
+    const {
+      logged_in,
+      sign_in_route,
+      sign_out_route,
+      current_user_id,
+      createClick,
+      setCreateClick,
+      openCreate,
+      apiJobsData,
+      apiTasksData,
+      loadJobs,
+      loadTasks
+    } = props
 
     const [ logo, setLogo ] = useState({
       google: google_logo,
       facebook: facebook_logo
     })
 
+    function createJob(job) {
+        return fetch('/jobs', {
+            body: JSON.stringify(job),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST'
+        })
+        .then( resp => {
+            let json = resp.json()
+            return json
+        })
+    }
+
+    function handleChange(event) {
+        const newJobData = {...jobData, [event.target.name]: event.target.value}
+        setJobData(newJobData)
+    }
+
+    function handleClick() {
+        createJob(jobData)
+        .then(() => {
+            setJobSuccess(true)
+        })
+    }
+
     useEffect(() => { // we need lifecycle hook here to reload the data whenever we create a page, we may need to rename the load functions to make things easier
         // the load functions set the data
         loadJobs()
         loadTasks()
     },[])
-
-
-    const displayJobs = [...apiJobsData].reverse().map((jobObj, index) => {
-
-        const { name, title, description, tasks, url, user_id, id } = jobObj
-
-
-                return(
-                    <div key={index} >
-                        <Link to={`/jobs/${id}`}>
-                            <div style = {{borderStyle: 'inset'}}>
-                                <h1> Name: {name} - Title: {title}</h1>
-                            </div>
-                        </Link>
-
-
-
-                    </div>
-                )
-
-    })
 
     const displayJobs2 = [...apiJobsData].reverse().map((jobObj, index) => {
 
@@ -120,7 +137,52 @@ function CareerMainPage(props) {
 
           </ul>
 
+          {createClick &&
+            <div style ={{marginRight: '2em', borderStyle: 'edge'}}>
+            <br />
+            <br />
+              <Form>
 
+               <Form.Row>
+                 <Form.Group as={Col} >
+                   <Form.Label>Company Name</Form.Label>
+                   <Form.Control placeholder="Enter Name" />
+                 </Form.Group>
+
+                 <Form.Group as={Col} >
+                   <Form.Label>Job Title</Form.Label>
+                   <Form.Control  placeholder="Enter Title" />
+                 </Form.Group>
+
+               <Form.Group as={Col} >
+                 <Form.Label>Link</Form.Label>
+                 <Form.Control  placeholder="Enter URL" />
+               </Form.Group>
+
+             </Form.Row>
+
+               <Form.Group >
+                 <Form.Label>Description</Form.Label>
+                 <Form.Control placeholder="..." />
+               </Form.Group>
+
+
+               <Form.Group as={Col} >
+                 <Form.Label>Catagory</Form.Label>
+                 <Form.Control as="select">
+                   <option>~</option>
+                   <option>Applied</option>
+                   <option>Wish List</option>
+                 </Form.Control>
+               </Form.Group>
+
+             </Form>
+
+             <Button variant="primary" onClick={handleClick}>
+                 Create New Job
+             </Button>
+           </div>
+          }
 
           <div id="myTabContent" className="tab-content">
             <div id="applied">

@@ -20,6 +20,7 @@ function ShowCurrentJob(props) { // this should be called JobCard component
             title: '',
             description: '',
             url: '',
+            catagory: 0
         }
     )
     const {getJobs, loadJobs} = props
