@@ -38,7 +38,7 @@ function CreateJob(){
         .then(data => {
             // we're able to get the payload id once the job is created
             // here's a link to show the https://stackoverflow.com/questions/28916710/what-do-double-brackets-mean-in-javascript-and-how-to-access-them
-            console.log("data's id", typeof data.id, data.id)
+            console.log("job's id", typeof data.id, data.id)
             setCurrentJobId(data.id)
         })
     }

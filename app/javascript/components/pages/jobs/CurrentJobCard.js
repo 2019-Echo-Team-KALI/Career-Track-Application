@@ -13,7 +13,6 @@ function CurrentJobCard(props) { // this should be called JobCard component
 
     const [goBack, setGoBack] = useState(false)
     const [goEdit, setGoEdit] = useState(false)
-    const [ apiTasks, setApiTasks ] = useState(apiTasksData)
     const [ currentJob, setCurrentJob ] = useState({
         name: '',
         title: '',
@@ -28,7 +27,7 @@ function CurrentJobCard(props) { // this should be called JobCard component
         loadTasks()
     },[])
 
-    console.log("Tasks", apiTasks)
+
 
     function getJob() {
         return fetch(`/jobs/${paramJobId}`)
@@ -56,7 +55,7 @@ function CurrentJobCard(props) { // this should be called JobCard component
 
     const { name, title, description, tasks, url, user_id } = currentJob
 
-    const currentJobTasks = apiTasks.map((task, index) => {
+    const currentJobTasks = apiTasksData.map((task, index) => {
         const {id, name, job_id} = task
 
         return (
@@ -107,7 +106,13 @@ function CurrentJobCard(props) { // this should be called JobCard component
             <div className = "buttons">
             <ButtonToolbar>
               <Button onClick={handleBack}>Go Back to Main Page</Button>
-              <Button className="centerbutton" onClick={() => handleDelete(paramJobId)}>Delete</Button>
+
+              <Button
+                  className="centerbutton"
+                  onClick={() => handleDelete(paramJobId)}>
+                  Delete
+              </Button>
+
               <Button>
                 <Link to={`/jobs/edit/${paramJobId}`}>
                     <span style = {{color: 'white'}}>Edit</span>
