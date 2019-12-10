@@ -90,15 +90,18 @@ function CareerMainPage(props) {
     return (
       <React.Fragment>
           <div style={{borderStyle: 'edge', width: '80%', float: 'right', marginTop: '1em'}}>
-          {/* Next is to mob the maintasklist*/}
-          <MainTaskList
+          {/* Next is to mob the maintasklist
+              <MainTaskList
 
-              apiTasksData={apiTasksData}
-              apiJobsData={apiJobsData}
-              current_user_id={current_user_id}
-              />
+                  apiTasksData={apiTasksData}
+                  apiJobsData={apiJobsData}
+                  current_user_id={current_user_id}
+                  />
 
-          <br />
+              <br />
+
+              */}
+
 
 
 
