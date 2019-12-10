@@ -13,6 +13,7 @@ function Header(props) {
     return (
         <React.Fragment>
             <nav>
+
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                   <a className="navbar-brand" href="/"><b>KALI</b></a>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +33,7 @@ function Header(props) {
                       </li>
 
                     </ul>
+
                     <form className="form-inline my-2 my-lg-0">
                       {logged_in &&
                         <div>

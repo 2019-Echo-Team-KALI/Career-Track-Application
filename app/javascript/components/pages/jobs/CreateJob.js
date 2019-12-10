@@ -7,7 +7,8 @@ import "bootswatch/dist/lux/bootstrap.min.css";
 
 function CreateJob(){
     const [jobSuccess, setJobSuccess] = useState(false)
-
+    const [goBack, setGoBack] = useState(false)
+    const [currentJobId, setCurrentJobId] = useState()
     const [ jobData, setJobData ] = useState(
         {
             name: '',
@@ -28,9 +29,20 @@ function CreateJob(){
         })
         .then( resp => {
             let json = resp.json()
+            // this helped us understand more about what is being fetch
+            console.log("resp", resp)
+            console.log("json", json)
+            console.log("id", json.id)
             return json
         })
+        .then(data => {
+            // we're able to get the payload id once the job is created
+            // here's a link to show the https://stackoverflow.com/questions/28916710/what-do-double-brackets-mean-in-javascript-and-how-to-access-them
+            console.log("job's id", typeof data.id, data.id)
+            setCurrentJobId(data.id)
+        })
     }
+
 
     function handleChange(event) {
         const newJobData = {...jobData, [event.target.name]: event.target.value}
@@ -40,8 +52,13 @@ function CreateJob(){
     function handleClick() {
         createJob(jobData)
         .then(() => {
+
             setJobSuccess(true)
         })
+    }
+
+    function handleBack() {
+        setGoBack(true)
     }
 
     return (
@@ -97,6 +114,10 @@ function CreateJob(){
                      />
                  </div>
 
+                 <button variant="primary" onClick={handleBack}>
+                 Back to Career Page
+                 </button>
+
                  <button variant="primary" onClick={handleClick}>
                  Create New Job
                  </button>
@@ -104,7 +125,10 @@ function CreateJob(){
              </div>
 
              {jobSuccess &&
-                 <Redirect to="/addtask" />
+                <Redirect to={`/jobs/${currentJobId}/createtask`} />
+             }
+             {goBack &&
+                 <Redirect to="/careermainpage"/>
              }
       </React.Fragment>
     );

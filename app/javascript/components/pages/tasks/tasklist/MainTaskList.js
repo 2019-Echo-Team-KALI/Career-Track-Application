@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import "bootswatch/dist/lux/bootstrap.min.css";
 
 
-function MainTaskList(props) {
+function MainTaskList(props) { // this is being called from the App.js
     const { current_user_id, apiTasksData, apiJobsData} = props
 
     // const {apiJobsData}
@@ -25,6 +25,7 @@ function MainTaskList(props) {
 
     return(
         <div style = {{borderStyle: 'inset'}}>
+            <h1>Main TaskList</h1>
             {taskList}
         </div>
     )

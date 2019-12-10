@@ -3,8 +3,7 @@ import PropTypes from "prop-types"
 import HomePage from './HomePage'
 import CareerMainPage from './CareerMainPage'
 import CreateJob from './pages/jobs/CreateJob'
-import AddTask from './pages/jobs/AddTask'
-import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
+import CreateTask from './pages/jobs/CreateTask'
 import CurrentJobCard from './pages/jobs/CurrentJobCard'
 import EditCurrentJob from './pages/jobs/EditCurrentJob'
 import "bootswatch/dist/lux/bootstrap.min.css";
@@ -63,6 +62,7 @@ function App(props) {
                 if(tasks.errors) {
                     setErrors(tasks.errors)
                 }
+                console.log("App Tasks", tasks)
                 setApiTasksData(tasks)
             })
     }
@@ -73,7 +73,6 @@ function App(props) {
                 if(jobs.errors) {
                     setErrors(jobs.errors)
                 }
-                console.log("ALJ", jobs)
                 setApiJobsData(jobs)
             })
     }
@@ -133,8 +132,8 @@ function App(props) {
                                 <CreateJob />
                             </Route>
 
-                            <Route exact path="/addtask">
-                                <AddTask />
+                            <Route exact path="/jobs/:paramJobId/createtask">
+                                <CreateTask />
                             </Route>
 
                             <Route exact path='/homepage'>
