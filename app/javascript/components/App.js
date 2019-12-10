@@ -135,7 +135,12 @@ function App(props) {
                             </Route>
 
                             <Route exact path="/jobs/:paramJobId/createtaskpage">
-                                <CreateTaskPage />
+                                <CreateTaskPage
+                                    loadJobs = {loadJobs}
+                                    loadTasks = {loadTasks}
+                                    apiJobsData={apiJobsData}
+                                    apiTasksData={apiTasksData}
+                                />
                             </Route>
 
                             <Route exact path='/jobs/:paramJobId/edittaskpage' >
