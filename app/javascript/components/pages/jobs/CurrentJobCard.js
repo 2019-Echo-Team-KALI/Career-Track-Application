@@ -113,11 +113,18 @@ function CurrentJobCard(props) { // this should be called JobCard component
                   Delete
               </Button>
 
-              <Button>
+              <Button className="centerbutton">
                 <Link to={`/jobs/edit/${paramJobId}`}>
-                    <span style = {{color: 'white'}}>Edit</span>
+                    <span style = {{color: 'white'}}>Edit Job Details</span>
                 </Link>
               </Button>
+
+              <Button className="centerbutton">
+                <Link to={`/jobs/${paramJobId}/edittaskpage`}>
+                    <span style = {{color: 'white'}}>Edit Task Details</span>
+                </Link>
+              </Button>
+
               </ButtonToolbar>
             </div>
             {goBack &&
