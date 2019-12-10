@@ -8,7 +8,9 @@ function EditTaskPage(props) {
     const {paramJobId} = useParams()
 
     return (
-        <h1> Edit Task page for Job # {paramJobId} </h1>
+        <div>
+            <h1> Edit Task page for Job # {paramJobId} </h1>
+        </div>
     )
 }
 
