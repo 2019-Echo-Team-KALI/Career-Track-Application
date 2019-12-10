@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { Form, ButtonToolbar, Button } from 'react-bootstrap'
 
 
 function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to const {apiJobsData, loadJobs} = props for decontructoring
@@ -83,61 +84,58 @@ function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to cons
 
     return(
         <React.Fragment>
-            {/* This is to show the user what the current job information that we have*/}
-            <h1>This is the Edit CurrentJob of Id: {paramEditId} </h1>
-            <div>
-                <h1> Name: {name} </h1>
-                <h1> Title: {title}</h1>
-                <h2> Description: {description} </h2>
-                <h2> Tasks:  </h2>
-                <h2> Url:{url} </h2>
+            <div className="editjob">
+                <h1>Edit Job Details</h1>
+                <Form className = "formContainer">
 
-            </div>
+                  <Form.Group controlId="formGroupName">
+                    <Form.Label>Company Name:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="name"
+                      onChange={handleChange}
+                      value={currentJob.name}
+                    />
+                  </Form.Group>
 
-            {/* The section below will be what we are editing*/}
-            <div>
-                <label>Name:</label>
-                <input
-                type="text"
-                name="name"
-                onChange={handleChange}
-                value={currentJob.name}
-                />
-            </div>
-            <div>
-                <label>Title</label>
-                <input
-                type="text"
-                name="title"
-                onChange={handleChange}
-                value={currentJob.title}
-                />
-            </div>
+                  <Form.Group controlId="formGroupTitle">
+                    <Form.Label>Title:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="title"
+                      onChange={handleChange}
+                      value={currentJob.title}
+                  />
+                  </Form.Group>
 
-            <div>
-                <label>Description</label>
-                <input
-                type="text"
-                name="description"
-                onChange={handleChange}
-                value={currentJob.description}
-                />
-            </div>
 
-            <div>
-                <label>URL</label>
-                <input
-                type="text"
-                name="url"
-                onChange={handleChange}
-                value={currentJob.url}
-                />
-            </div>
+                  <Form.Group controlId="formGroupUrl">
+                    <Form.Label>URL:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="url"
+                      onChange={handleChange}
+                      value={currentJob.url}
+                    />
+                    </Form.Group>
 
-            <button onClick={handleBack}>Go Back to Main Page</button>
-            <button onClick={handleFinishEdit}>
-                Complete Edits
-            </button>
+                <Form.Group controlId="formGroupDescription">
+                  <Form.Label>Description:</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="description"
+                    onChange={handleChange}
+                    value={currentJob.description}
+                  />
+                </Form.Group>
+            </Form>
+
+            <ButtonToolbar className="formbuttons">
+              <Button className="centerbutton" onClick={handleBack}>Go Back to Main Page</Button>
+              <Button className="centerbutton" onClick={handleFinishEdit}>
+                  Complete Edits
+              </Button>
+            </ButtonToolbar>
             {goBack &&
                 <Redirect to={`/jobs/${paramEditId}`}/>
             }
@@ -145,7 +143,7 @@ function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to cons
                 <Redirect to='/careermainpage'/>
             }
 
-
+        </div>
         </React.Fragment>
     )
 }
