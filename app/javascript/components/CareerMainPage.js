@@ -105,7 +105,7 @@ function CareerMainPage(props) {
 
 
 
-          <Nav fill variant="tabs" defaultActiveKey="#applied" style={{border: '1px solid rgba(0, 0, 0, .2)', marginRight: '1.7em', }}>
+          <Nav fill variant="tabs" defaultActiveKey="#applied" style={{border: '1px solid rgba(0, 0, 0, .2)', marginRight: '1.7em', marginTop: '1.7em' }}>
             <Nav.Item>
               <Nav.Link href="#applied">Applied</Nav.Link>
             </Nav.Item>

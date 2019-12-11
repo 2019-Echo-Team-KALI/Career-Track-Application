@@ -17,22 +17,25 @@ function ProfileCard(props) {
 
   return(
 
-  <Card style={{ width: '15%', position: 'sticky',  display: 'inline-block', marginLeft: '2.5em', marginTop: '4.3em'}}>
+  <Card style={{ width: '16%',  position: 'sticky',  display: 'inline-block', marginLeft: '2.5em', marginTop: '4.3em'}}>
     <Card.Img variant="top" src={arvin} />
     <Card.Body>
-      <Card.Title>Arvin</Card.Title>
+      <Card.Title><b> Arvin</b></Card.Title>
       <Card.Text>
         Hi I am Arvin and this is my description section where I get to tell you all about me!!
       </Card.Text>
     </Card.Body>
-      <MainTaskList
-
-          apiTasksData={apiTasksData}
-          apiJobsData={apiJobsData}
-          current_user_id={current_user_id}
-          />
-
-    <br />
+      <div >
+      <Card.Body >
+        <Card.Title><u>Task List:</u></Card.Title>
+      </Card.Body>
+        <MainTaskList
+            apiTasksData={apiTasksData}
+            apiJobsData={apiJobsData}
+            current_user_id={current_user_id}
+            />
+          <br /> 
+      </div>
     <Card.Body>
       <Card.Link href="#">Random Link 1</Card.Link>
       <Card.Link href="#">Random Link2</Card.Link>

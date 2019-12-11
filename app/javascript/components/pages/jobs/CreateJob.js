@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useState, useEffect } from "react"
 import { Redirect } from 'react-router-dom'
-import { Form, ButtonToolbar, Button } from 'react-bootstrap'
+import { Form, ButtonToolbar, Button, DropdownButton, SplitButton, Dropdown } from 'react-bootstrap'
 
 
 function CreateJob(){
@@ -106,16 +106,18 @@ function CreateJob(){
                      />
                  </Form.Group>
 
-                 <Form.Group>
-                     <Form.Label>Category</Form.Label>
-                     <Form.Control
-                       type="text"
-                       name="category"
-                       onChange={handleChange}
-                       value={jobData.category}
-                     />
-                 </Form.Group>
-                 <ButtonToolbar className="formbuttons">
+                 <Form.Group controlId="exampleForm.ControlSelect1">
+                    <Form.Label>Category Select:</Form.Label>
+                    <Form.Control as="select">
+                      <option>New</option>
+                      <option>Applied</option>
+                      <option>Wish List</option>
+                      <option>Get More Info </option>
+
+                    </Form.Control>
+                  </Form.Group>
+
+                  <ButtonToolbar> 
                     <Button className="centerbutton" onClick={handleBack}>Go Back to Main Page</Button>
                     <Button className="centerbutton" onClick={handleClick}>Create New Job</Button>
                  </ButtonToolbar>
