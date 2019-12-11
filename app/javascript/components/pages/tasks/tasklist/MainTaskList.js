@@ -9,7 +9,6 @@ import { useState, useEffect } from 'react'
 function MainTaskList(props) { // this is being called from the App.js
     const { current_user_id, apiTasksData, apiJobsData} = props
 
-    // const {apiJobsData}
 
 
     const taskList = apiTasksData.map((task, index) => {
@@ -17,17 +16,15 @@ function MainTaskList(props) { // this is being called from the App.js
 
         return(
             <div key={index} >
-              <Card body >
-                  <Link to={`/jobs/${job_id}`}>{description}</Link>
-              </Card>
+                  <Link to={`/jobs/${job_id}`}><button style={{width: '100%', color: 'black', textAlign: 'left'}}type="button" className="btn btn-outline-secondary" >{description}</button></Link>
             </div>
         )
     })
 
     return(
-        <ListGroup className="list-group-flush">
+      <div>
             {taskList}
-        </ListGroup>
+      </div>
 
     )
 }

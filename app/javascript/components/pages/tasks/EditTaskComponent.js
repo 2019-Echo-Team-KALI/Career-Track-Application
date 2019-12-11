@@ -18,7 +18,7 @@ function EditTaskComponent({apiTasksData, loadTasks}) {
         loadTask()
     },[])
 
-    function getTask() {
+    function getTask() { 
         return fetch(`/tasks/${paramEditId}`)
             .then( resp => {
                 if (resp.status === 200) {
@@ -47,7 +47,7 @@ function EditTaskComponent({apiTasksData, loadTasks}) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            method: 'PATCH',
+            method: 'PATCH', 
         })
         .then(resp => {
             if (resp.status === 200) {
