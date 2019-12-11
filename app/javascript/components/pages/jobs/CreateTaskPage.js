@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem } from 'react-bootstrap'
 
 
 function CreateTaskPage(props) { // this should be called JobCard component
@@ -75,7 +76,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
             <div key={index}>
                 {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
                 {job_id == paramJobId &&
-                <h1> Task: {id} - {description} </h1>
+                <ListGroupItem> {description} </ListGroupItem>
                 }
             </div>
         )
@@ -83,28 +84,34 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
     return (
         <React.Fragment>
-            <div>
+            <div className="formContainer editorcreateforms">
                 <h1> Add Tasks for this Job </h1>
-                {currentJobTasks}
-            </div>
-            <div>
-                 <label>Task Description:</label>
-                 <input
+                <ListGroup className="tasks">
+                  {currentJobTasks}
+                </ListGroup>
+            <Form>
+              <Form.Group style={{marginTop: "60px"}}>
+                 <Form.Label>Task Description:</Form.Label>
+                 <Form.Control
                    type="text"
                    name="description"
                    onChange={handleChange}
                    value={taskData.description}
                  />
-            </div>
-            <button variant="primary" onClick={handleBackClick}>
+              </Form.Group>
+            <ButtonToolbar className="formbuttons">
+            <Button className="centerbutton" onClick={handleBackClick}>
             Back
-            </button>
-            <button variant="primary" onClick={handleCreateTask}>
+            </Button>
+            <Button className="centerbutton" onClick={handleCreateTask}>
             Create Task
-            </button>
-            <button variant="primary" onClick={handleDoneClick}>
+            </Button>
+            <Button className="centerbutton" onClick={handleDoneClick}>
             Done
-            </button>
+            </Button>
+            </ButtonToolbar>
+            </Form>
+          </div>
 
             {tasksCreatedDone &&
                <Redirect to={`/jobs/${paramJobId}`} />

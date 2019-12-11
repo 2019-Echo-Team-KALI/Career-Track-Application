@@ -63,7 +63,7 @@ function CreateJob(){
 
     return (
       <React.Fragment>
-         <div className="editorcreatejob">
+         <div className="editorcreateforms">
             <h1>Create a New Job Listing</h1>
             <Form className = "formContainer">
               <Form.Group controlId="formGroupName">
@@ -123,7 +123,7 @@ function CreateJob(){
              </div>
 
              {jobSuccess &&
-                <Redirect to={`/jobs/${currentJobId}/createtaskpage`} />
+                <Redirect to={`/jobs/${currentJobId}/createtaskpage`}/>
              }
              {goBack &&
                  <Redirect to="/careermainpage"/>
