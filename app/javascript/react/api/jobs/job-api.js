@@ -27,12 +27,13 @@ function createJob(job) {
         console.log("id", json.id)
         return json
     })
-    .then(data => {
+    // this part is important for one of the functions that we did
+    // .then(data => {
         // we're able to get the payload id once the job is created
         // here's a link to show the https://stackoverflow.com/questions/28916710/what-do-double-brackets-mean-in-javascript-and-how-to-access-them
-        console.log("job's id", typeof data.id, data.id)
-        setCurrentJobId(data.id)
-    })
+    //     console.log("job's id", typeof data.id, data.id)
+    //     setCurrentJobId(data.id)
+    // })
 }
 
 function getJob(id) {
@@ -41,8 +42,9 @@ function getJob(id) {
             if (resp.status === 200) {
                 return resp.json()
             } else {
-                return Promise.new(() => {   {/*need to fix this*/}
-                    resolve({error: 'there was an error'})
+                resp.json()
+                .then(payload => {
+                    setErrors(payload.error)
                 })
             }
         })
@@ -71,7 +73,7 @@ function editJob(job,id){
 }
 
 function deleteJob(id) {
-    console.log("Delete,", paramJobId)
+ 
     return fetch(`/jobs/${id}`, {
         method: 'DELETE'
     })
