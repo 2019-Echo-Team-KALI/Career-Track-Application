@@ -19,29 +19,27 @@ function ProfileCard(props) {
 
     <Sticky>
 
-    <Card style={{ width: '16%',  display: 'inline-block', marginLeft: '2.5em', marginTop: '3.8em'}}>
+    <Card style={{ width: '16%', height: '59%',  display: 'inline-block', marginLeft: '2.5em', marginTop: '3em', marginBottom: '15em'}}>
       <Card.Img variant="top" src={arvin} />
-        <Card.Body>
-          <Card.Title><u> Arvin</u></Card.Title>
-          <Card.Text>
-            Hi I am Arvin and this is my description section where I get to tell you all about me!!
-          </Card.Text>
-        </Card.Body>
+        <Card.Body style={{marginBottom: '-0.8em'}}>
+          <Card.Title><u> Arvin</u>: DEVELOPER</Card.Title>
+        </Card.Body>  
         <div >
         <Card.Body >
           <Card.Title style={{marginBottom: '-0.8em'}}><u>Task List:</u></Card.Title>
         </Card.Body>
-          <MainTaskList
-              apiTasksData={apiTasksData}
-              apiJobsData={apiJobsData}
-              current_user_id={current_user_id}
-              />
-            <br />
+          <div style ={{maxHeight: '20%'}}> 
+            <div style={{ height: '500px', overflowY: 'scroll' }}>
+              <MainTaskList
+                    apiTasksData={apiTasksData}
+                    apiJobsData={apiJobsData}
+                    current_user_id={current_user_id}
+                    />
+                  <br />
+            </div> 
+          </div>
         </div>
-      <Card.Body>
-        <Card.Link href="#">Link 1</Card.Link>
-        <Card.Link href="#">Link2</Card.Link>
-      </Card.Body>
+    
 
     </Card>
 
