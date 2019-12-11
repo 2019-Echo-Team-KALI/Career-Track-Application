@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 import { Form, ButtonToolbar, Button } from 'react-bootstrap'
+
 import { getTasks } from "../../api/tasks/tasks-api"
+import EditTaskComponent from "../../components/EditTaskComponent"
 
 
 function EditTaskPage(props) {
@@ -32,7 +33,12 @@ function EditTaskPage(props) {
             <div key={index}>
                 {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
                 {job_id == paramJobId &&
-                <h2> {description} </h2>
+                <EditTaskComponent
+                    id={id}
+                    name={name}
+                    job_id={job_id}
+                    description={description}
+                />
                 }
             </div>
         )

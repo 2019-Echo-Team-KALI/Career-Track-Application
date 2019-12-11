@@ -11,7 +11,6 @@ function getTasks() {
         })
 }
 
-
 function createTask(task) { // this is the object
     return fetch('/tasks', {
         body: JSON.stringify(task),
