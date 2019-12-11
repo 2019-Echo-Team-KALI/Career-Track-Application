@@ -72,8 +72,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
         console.log("Edit,", paramJobId)
         setGoEdit(true)
     }
-    function handleDelete(id) {
-        console.log("Delete,", paramJobId)
+    function deleteJob(id) {
         return fetch(`/jobs/${id}`, {
             method: 'DELETE'
         })
@@ -88,6 +87,11 @@ function CurrentJobPage(props) { // this should be called JobCard component
             }
         })
     }
+
+    function handleDelete(){
+        deleteJob()
+    }
+
     function handleBack() {
         setGoBack(true)
     }
