@@ -89,7 +89,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
     }
 
     function handleDelete(){
-        deleteJob()
+        deleteJob(paramJobId)
     }
 
     function handleBack() {
