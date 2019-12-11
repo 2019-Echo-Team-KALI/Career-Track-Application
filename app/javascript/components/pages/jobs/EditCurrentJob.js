@@ -84,7 +84,7 @@ function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to cons
 
     return(
         <React.Fragment>
-            <div className="editorcreatejob">
+            <div className="editorcreateforms">
                 <h1>Edit Job Details</h1>
                 <Form className = "formContainer">
 
