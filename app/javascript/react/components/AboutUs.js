@@ -18,8 +18,8 @@ function AboutUs() {
                 <p>Arvin Lleva<br />
                 Full-Stack Web Developer</p>
                 <div className="logo">
-                  <a href = "https://github.com/adclleva"><img src={github} /></a>
-                  <a href = "https://www.linkedin.com/in/arvinlleva/"><img src={linkedin} /></a>
+                  <a href = "https://github.com/adclleva" target="_blank"><img src={github} /></a>
+                  <a href = "https://www.linkedin.com/in/arvinlleva/" target="_blank"><img src={linkedin} /></a>
                 </div>
               </div>
               <div className="bio">
@@ -27,8 +27,8 @@ function AboutUs() {
                 <p>Ian Thompson<br />
                 Full-Stack Web Developer</p>
                 <div className="logo">
-                  <a href="https://github.com/thompsian"><img src={github} /></a>
-                  <a href= "https://www.linkedin.com/in/thompsian/"><img src={linkedin} /></a>
+                  <a href="https://github.com/thompsian" target="_blank"><img src={github} /></a>
+                  <a href= "https://www.linkedin.com/in/thompsian/" target="_blank"><img src={linkedin} /></a>
                 </div>
               </div>
             </div>
@@ -38,8 +38,8 @@ function AboutUs() {
                 <p>Kalvin Kang<br />
                 Full-Stack Web Developer</p>
                 <div className="logo">
-                  <a href="https://github.com/kalvin-k"><img src={github} /></a>
-                  <a href="https://www.linkedin.com/in/kalvin-k/"><img src={linkedin} /></a>
+                  <a href="https://github.com/kalvin-k" target="_blank"><img src={github} /></a>
+                  <a href="https://www.linkedin.com/in/kalvin-k/" target="_blank"><img src={linkedin} /></a>
                 </div>
               </div>
               <div className="bio">
@@ -47,8 +47,8 @@ function AboutUs() {
                 <p>Lisa Kamino<br />
                 Full-Stack Web Developer</p>
                 <div className="logo">
-                  <a href="https://github.com/lk15"><img src={github} /></a>
-                  <a href="https://www.linkedin.com/in/lisakamino/"><img src={linkedin} /></a>
+                  <a href="https://github.com/lk15" target="_blank"><img src={github} /></a>
+                  <a href="https://www.linkedin.com/in/lisakamino/" target="_blank"><img src={linkedin} /></a>
                 </div>
               </div>
             </div>
