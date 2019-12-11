@@ -6,7 +6,7 @@ import { ButtonToolbar, Button } from 'react-bootstrap'
 
 
 
-function CurrentJobCard(props) { // this should be called JobCard component
+function CurrentJobPage(props) { // this should be called JobCard component
     const {apiJobsData, loadJobs, loadTasks, apiTasksData} = props
 
     const { paramJobId } = useParams()
@@ -136,4 +136,4 @@ function CurrentJobCard(props) { // this should be called JobCard component
     )
 }
 
-export default CurrentJobCard
+export default CurrentJobPage

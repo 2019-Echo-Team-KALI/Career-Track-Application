@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { Form, ButtonToolbar, Button } from 'react-bootstrap'
 
 
-function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to const {apiJobsData, loadJobs} = props for decontructoring
+function EditJobPage({apiJobsData, loadJobs}) { // this is equivalent to const {apiJobsData, loadJobs} = props for decontructoring
     const { paramEditId } = useParams() // this will be used to get the current job that we want to edit
     const [goBack, setGoBack] = useState(false)
     const [goEdit, setGoEdit] = useState(false)
@@ -140,7 +140,7 @@ function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to cons
                 <Redirect to={`/jobs/${paramEditId}`}/>
             }
             {editComplete &&
-                <Redirect to='/careermainpage'/>
+                <Redirect to={`/jobs/${paramEditId}`}/>
             }
 
         </div>
@@ -148,4 +148,4 @@ function EditCurrentJob({apiJobsData, loadJobs}) { // this is equivalent to cons
     )
 }
 
-export default EditCurrentJob
+export default EditJobPage

@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import HomeCarousel from './HomeCarousel.js'
-import AboutUs from './AboutUs.js'
+import HomeCarousel from '../components/HomeCarousel.js'
+import AboutUs from '../components/AboutUs.js'
 
 
 function HomePage() {

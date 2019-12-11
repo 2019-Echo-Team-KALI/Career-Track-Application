@@ -2,9 +2,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import Carousel from 'react-bootstrap/Carousel'
 import { useState } from 'react'
-import hero1 from './hero1.jpg'
-import hero2 from './hero2.jpg'
-import hero3 from './hero3.jpg'
+import hero1 from '../images/hero1.jpg'
+import hero2 from '../images/hero2.jpg'
+import hero3 from '../images/hero3.jpg'
 
 function HomeCarousel() {
 

@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { Form, ButtonToolbar, Button, DropdownButton, SplitButton, Dropdown } from 'react-bootstrap'
 
 
-function CreateJob(){
+function CreateJobPage(){
     const [jobSuccess, setJobSuccess] = useState(false)
     const [goBack, setGoBack] = useState(false)
     const [currentJobId, setCurrentJobId] = useState()
@@ -134,4 +134,4 @@ function CreateJob(){
     );
 }
 
-export default CreateJob
+export default CreateJobPage
