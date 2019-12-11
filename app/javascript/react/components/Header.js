@@ -25,7 +25,7 @@ function Header(props) {
                         <Link to="/careermainpage" className="nav-link">Listings</Link> <span className="sr-only">(current)</span>
                       </li>
                       <li className="nav-item">
-                        <Link to="/createjob" className="nav-link">Create Job Listing </Link>
+                        <Link to="/createjobpage" className="nav-link">Create Job Listing </Link>
                       </li>
                       <li className="nav-item">
                         <Link to="/homepage" className="nav-link">About Us</Link>

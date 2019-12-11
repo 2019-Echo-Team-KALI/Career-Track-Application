@@ -1,18 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
-import HomePage from './HomePage'
-import CareerMainPage from './CareerMainPage'
-import CreateJob from './pages/jobs/CreateJob'
-import CreateTaskPage from './pages/jobs/CreateTaskPage'
+import HomePage from './pages/HomePage'
+import CareerMainPage from './pages/CareerMainPage'
+import CreateJobPage from './pages/jobs/CreateJobPage'
+import CreateTaskPage from './pages/tasks/CreateTaskPage'
 import EditTaskPage from './pages/tasks/EditTaskPage'
-import CurrentJobCard from './pages/jobs/CurrentJobCard'
-import EditCurrentJob from './pages/jobs/EditCurrentJob'
+import CurrentJobPage from './pages/jobs/CurrentJobPage'
+import EditJobPage from './pages/jobs/EditJobPage'
 import "bootswatch/dist/lux/bootstrap.min.css";
 
 
 import { useState, useEffect } from 'react'
 
-import Header from "./pages/Header"
+import Header from "./components/Header"
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
 
 function App(props) {
@@ -126,14 +126,14 @@ function App(props) {
                             </Route>
                             */}
                             <Route exact path="/jobs/edit/:paramEditId">
-                                <EditCurrentJob
+                                <EditJobPage
                                     apiJobsData={apiJobsData}
                                     loadJobs={loadJobs}
                                 />
                             </Route>
 
-                            <Route exact path="/createjob">
-                                <CreateJob />
+                            <Route exact path="/createjobpage">
+                                <CreateJobPage />
                             </Route>
 
                             <Route exact path="/jobs/:paramJobId/createtaskpage">
@@ -154,7 +154,7 @@ function App(props) {
                             </Route>
 
                             <Route exact path='/jobs/:paramJobId' >
-                                <CurrentJobCard
+                                <CurrentJobPage
                                     apiJobsData={apiJobsData}
                                     loadJobs={loadJobs}
                                     loadTasks={loadTasks}

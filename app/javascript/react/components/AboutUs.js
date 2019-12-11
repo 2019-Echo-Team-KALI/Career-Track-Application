@@ -1,11 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
-import lisa from './lisakamino.jpg'
-import kalvin from './kalvinkang.jpg'
-import ian from './ianthompson.jpg'
-import arvin from './arvinlleva.jpg'
-import github from './github.png'
-import linkedin from './linkedin.png'
+import lisa from '../images/lisakamino.jpg'
+import kalvin from '../images/kalvinkang.jpg'
+import ian from '../images/ianthompson.jpg'
+import arvin from '../images/arvinlleva.jpg'
+import github from '../images/github.png'
+import linkedin from '../images/linkedin.png'
 
 function AboutUs() {
     return (

@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
-import arvin from './arvinlleva.jpg'
-import MainTaskList from './pages/tasks/tasklist/MainTaskList'
+import arvin from '../images/arvinlleva.jpg'
+import MainTaskList from './MainTaskList'
 import { Accordion, Card, Button, Navbar, Nav, ListGroup, ListGroupItem, CardGroup, Jumbotron  } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
 

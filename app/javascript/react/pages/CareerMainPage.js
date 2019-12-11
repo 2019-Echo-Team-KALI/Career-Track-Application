@@ -1,11 +1,11 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { Link } from 'react-router-dom'
-import arvin from './arvinlleva.jpg'
-import ProfileCard from './ProfileCard'
+import arvin from '../images/arvinlleva.jpg'
+import ProfileCard from '../components/ProfileCard'
 import { Accordion, Card, Button, Navbar, Nav, ListGroup, ListGroupItem, CardGroup, Jumbotron  } from 'react-bootstrap'
-import google_logo from './google_logo.png'
-import facebook_logo from './facebook_logo.png'
+import google_logo from '../images/google_logo.png'
+import facebook_logo from '../images/facebook_logo.png'
 import { useState, useEffect } from 'react'
 
 
