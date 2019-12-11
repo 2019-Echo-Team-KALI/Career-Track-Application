@@ -129,6 +129,13 @@ function CurrentJobPage(props) { // this should be called JobCard component
                 </Link>
               </Button>
 
+
+              <Button className="centerbutton">
+                <Link to={`/jobs/${paramJobId}/createtaskpage`}>
+                    <span style = {{color: 'white'}}>Add Tasks</span>
+                </Link>
+              </Button>
+
               </ButtonToolbar>
             </div>
             {goBack &&
