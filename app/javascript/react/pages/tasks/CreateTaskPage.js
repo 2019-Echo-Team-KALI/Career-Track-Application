@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import { createTask } from "../../api/tasks/tasks-api"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem } from 'react-bootstrap'
@@ -18,22 +19,6 @@ function CreateTaskPage(props) { // this should be called JobCard component
             job_id: parseInt(paramJobId, 10)
         }
     )
-
-    function createTask(task) {
-        return fetch('/tasks', {
-            body: JSON.stringify(task),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST'
-        })
-        .then( resp => {
-            let json = resp.json()
-            console.log("fetch resp", resp)
-            console.log("fetch json", json)
-            return json
-        })
-    }
 
     useEffect(() => {
         console.log(apiTasksData)

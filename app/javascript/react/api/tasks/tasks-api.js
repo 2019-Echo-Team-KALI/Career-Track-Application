@@ -1,4 +1,4 @@
-function getTask() {
+function getTasks() {
     return fetch('/tasks')
         .then( resp => {
             if (resp.status === 200) {
@@ -88,4 +88,12 @@ function deleteTask(id) {
             })
         }
     })
+}
+
+export {
+    getTasks,
+    createTask,
+    getTask,
+    editTask,
+    deleteTask
 }
