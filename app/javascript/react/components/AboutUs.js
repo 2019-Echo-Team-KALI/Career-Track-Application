@@ -11,47 +11,43 @@ function AboutUs() {
     return (
       <React.Fragment>
         <div className = "aboutus">
-          <h2>Meet the Devs</h2>
-            <div className = "firstbios">
-              <div className="bio">
-                <img src={arvin} className="biophoto"/>
-                <p>Arvin Lleva<br />
-                Full-Stack Web Developer</p>
-                <div className="logo">
-                  <a href = "https://github.com/adclleva"><img src={github} /></a>
-                  <a href = "https://www.linkedin.com/in/arvinlleva/"><img src={linkedin} /></a>
-                </div>
+          <h4>Meet the Devs</h4>
+            <div className="bio">
+              <img src={arvin} className="biophoto"/>
+              <p>Arvin Lleva</p>
+              <div className="logo">
+                <a href = "https://github.com/adclleva" target="_blank"><img src={github} /></a>
+                <a href = "https://www.linkedin.com/in/arvinlleva/" target="_blank"><img src={linkedin} /></a>
               </div>
+            </div>
+
               <div className="bio">
                 <img src={ian} className="biophoto"/>
-                <p>Ian Thompson<br />
-                Full-Stack Web Developer</p>
+                <p>Ian Thompson</p>
                 <div className="logo">
-                  <a href="https://github.com/thompsian"><img src={github} /></a>
-                  <a href= "https://www.linkedin.com/in/thompsian/"><img src={linkedin} /></a>
+                  <a href="https://github.com/thompsian" target="_blank"><img src={github} /></a>
+                  <a href= "https://www.linkedin.com/in/thompsian/" target="_blank"><img src={linkedin} /></a>
                 </div>
               </div>
-            </div>
-            <div className="secondbios">
+
               <div className="bio">
                 <img src={kalvin} className="biophoto"/>
-                <p>Kalvin Kang<br />
-                Full-Stack Web Developer</p>
+                <p>Kalvin Kang</p>
                 <div className="logo">
-                  <a href="https://github.com/kalvin-k"><img src={github} /></a>
-                  <a href="https://www.linkedin.com/in/kalvin-k/"><img src={linkedin} /></a>
+                  <a href="https://github.com/kalvin-k" target="_blank"><img src={github} /></a>
+                  <a href="https://www.linkedin.com/in/kalvin-k/" target="_blank"><img src={linkedin} /></a>
                 </div>
               </div>
+
               <div className="bio">
                 <img src={lisa} className="biophoto"/>
-                <p>Lisa Kamino<br />
-                Full-Stack Web Developer</p>
+                <p>Lisa Kamino</p>
                 <div className="logo">
-                  <a href="https://github.com/lk15"><img src={github} /></a>
-                  <a href="https://www.linkedin.com/in/lisakamino/"><img src={linkedin} /></a>
+                  <a href="https://github.com/lk15" target="_blank"><img src={github} /></a>
+                  <a href="https://www.linkedin.com/in/lisakamino/" target="_blank"><img src={linkedin} /></a>
                 </div>
               </div>
-            </div>
+
         </div>
       </React.Fragment>
     );

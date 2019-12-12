@@ -13,35 +13,47 @@ function Header(props) {
     return (
         <React.Fragment>
 
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark" >
-            <Link to="/" className="navbar-brand"><b>KALI</b></Link>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
+            <nav>
 
-            <div className="collapse navbar-collapse" id="navbarColor02">
-              <ul className="navbar-nav mr-auto">
-                <li className="nav-item active">
-                  <Link to="/careermainpage" className="nav-link">Listings</Link> <span className="sr-only">(current)</span>
-                </li>
-                <li className="nav-item">
-                  <Link to="/createjobpage" className="nav-link">Create Job Listing </Link>
-                </li>
-                <li className="nav-item">
-                  <Link to="/homepage" className="nav-link">About Us</Link>
-                </li>
+                <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                  <Link to="/" className="navbar-brand"><b>KALI</b></Link>
+                  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                  </button>
+                  <div className="collapse navbar-collapse" id="navbarColor02">
+                    <ul className="navbar-nav mr-auto">
+                    {logged_in &&
+                      <li className="nav-item active">
+                        <Link to="/careermainpage" className="nav-link">Listings</Link> <span className="sr-only">(current)</span>
+                      </li>
+                    }
+                    {logged_in &&
+                      <li className="nav-item">
+                        <Link to="/createjobpage" className="nav-link">Create Job Listing </Link>
+                      </li>
+                    }
 
-              </ul>
+                    {logged_in &&
+                      <li className="nav-item">
+                        <a href="homepage/" className="nav-link">Meet the Devs</a>
+                      </li>
+                    }
 
-              <form className='form-inline my-2 my-lg-0'>
-                {logged_in &&
-                  <div>
-                    <a  href={sign_out_route}><button className="btn btn-warning" type="submit">Sign Out</button></a>
-                  </div>
-                }
-                {!logged_in &&
-                  <div>
-                    <a href={sign_in_route}><button className="btn btn-warning" type="submit">Sign In</button></a>
+                    </ul>
+
+                    <form className="form-inline my-2 my-lg-0">
+                      {logged_in &&
+                        <div>
+                          <a className="nav-link" href={sign_out_route}><button className="btn btn-warning" type="submit">Sign Out</button></a>
+                        </div>
+                      }
+                      {!logged_in &&
+                        <div>
+                          <a className="nav-link" href={sign_in_route}><button className="btn btn-warning" type="submit">Sign In</button></a>
+                        </div>
+                      }
+                    </form>
+
                   </div>
                 }
               </form>

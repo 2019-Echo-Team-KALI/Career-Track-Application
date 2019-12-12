@@ -17,6 +17,7 @@ function HomeCarousel() {
   };
 
   return (
+    <div style= {{maxWidth: '65%', display: 'inlineBlock'}}>
     <Carousel interval={20000} activeIndex={index} direction={direction} onSelect={handleSelect}>
       <Carousel.Item>
         <img
@@ -40,6 +41,7 @@ function HomeCarousel() {
         />
       </Carousel.Item>
     </Carousel>
+    </div>
   );
 }
 
