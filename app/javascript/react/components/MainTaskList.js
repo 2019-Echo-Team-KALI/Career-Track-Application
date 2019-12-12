@@ -15,9 +15,9 @@ function MainTaskList(props) { // this is being called from the App.js
         const {description, job_id, user_id} = task // we need the job id to compare
         
         return(
-            <div key={index} style={{textAlign: 'center'}}>
+            <div key={index} style={{textAlign: 'center', marginBottom: '0.5em'}}>
                 <Link to={`/jobs/${job_id}`}>
-                    <button style={{borderWidth: 'thin', width: '93%', color: 'black', textAlign: 'left'}}type="button" className="btn btn-outline-secondary"> 
+                    <button className="btn btn-outline-warning" style={{borderRight: 'none',borderLeft: 'none',borderBottom: 'none',  width: '87%', color: 'black', textAlign: 'left'}}type="button" > 
                         COMPANY <br /><div style={{textTransform: 'lowercase', opacity: 0.6}}>{description}</div> 
                     </button>
                 </Link>
