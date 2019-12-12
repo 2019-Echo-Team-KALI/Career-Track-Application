@@ -21,14 +21,16 @@ function ProfileCard(props) {
     
       
       
-      <Card style={{ width: '16%', borderOpacity: 1, height: '59%',  marginTop: '2em', display: 'inline-block', marginLeft: '2.5em', marginBottom: '15em'}}>
-        <Card.Img variant="top" src={arvin} />
-          <Card.Body style={{marginBottom: '-0.8em'}}>
-            <Card.Title style={{textAlign: 'center'}}>ARVIN:</Card.Title>
+      <Card style={{ width: '16%', borderOpacity: 1, height: '59%',  marginTop: '1.5em', display: 'inline-block', marginLeft: '2.5em', marginBottom: '15em'}}>
+        <Card.Img variant="top" src={arvin} style={{marginBottom: '-0.7em'}} />
+        
+          <Card.Body >
+            <Card.Title style={{textAlign: 'center', marginBottom: '-5em'}}>ARVIN</Card.Title>
           </Card.Body>  
+          <hr  style={{marginBottom: '0.em', marginTop: '-0.1em'}} />
           <div >
           <Card.Body >
-            <Card.Title style={{marginBottom: '-0.5em', textAlign: 'center'}}>Task List:</Card.Title>
+            <Card.Text style={{marginBottom: '-0.5em', textAlign: 'center'}}>TASK LIST:</Card.Text>
           </Card.Body>
 
             <div style ={{maxHeight: '20%'}}> 

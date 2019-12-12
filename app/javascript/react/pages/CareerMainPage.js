@@ -70,7 +70,7 @@ function CareerMainPage(props) {
 
           <div className='jumbotron' id = {id} key = {index}>
             <h1 className="display-3" style = {{marginTop: '-0.6em'}}>{title}</h1>
-            <p className="lead">{description}</p>
+            <p className="lead" style={{marginLeft:'5em'}}>{description}</p>
             <hr className="my-4" />
             {displayJobs2}
           </div>
@@ -82,7 +82,7 @@ function CareerMainPage(props) {
       <React.Fragment>
           <div style={{borderStyle: 'edge', width: '80%', float: 'right', marginTop: '1em'}}>
 
-          <div style={{marginBottom: '2em' }}> 
+          <div style={{marginBottom: '1em' }}> 
             <Sticky>
               <Nav  fill variant="tabs" defaultActiveKey="#1" style={{border: '1px solid rgba(0, 0, 0, .2)',position: 'aboslute', marginRight: '1.7em', zIndex: 2}}>
                 <Nav.Item>
