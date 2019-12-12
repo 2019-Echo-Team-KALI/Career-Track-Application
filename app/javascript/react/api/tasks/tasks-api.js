@@ -78,7 +78,7 @@ function deleteTask(id) {
     })
     .then(resp => {
         if (resp.status === 200) {
-            setGoBack(true)
+            // setGoBack(true)
         } else {
             resp.json()
             .then(payload => {

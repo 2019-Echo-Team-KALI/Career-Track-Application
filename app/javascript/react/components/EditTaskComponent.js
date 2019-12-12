@@ -3,12 +3,12 @@ import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Form, ButtonToolbar, Button } from 'react-bootstrap'
-import { editTask, getTask } from '../api/tasks/tasks-api'
+import { editTask, getTask, deleteTask } from '../api/tasks/tasks-api'
 
 function EditTaskComponent(props) {
     const {id, name, job_id, description} = props
-
-    const [taskEditSuccess, setTaskEditSuccess] = useState(false)
+    const [ taskDeleteSuccess, setTaskDeleteSuccess ] = useState(false)
+    const [ taskEditSuccess, setTaskEditSuccess ] = useState(false)
     const [ taskData, setTaskData ] = useState(
         {
             description: ""
@@ -37,7 +37,13 @@ function EditTaskComponent(props) {
         setTaskData(newTaskData)
     }
 
-
+    function handleTaskDelete() {
+        deleteTask(id)
+        .then(() => {
+            setTaskDeleteSuccess(true)
+            console.log("Deleted")
+        })
+    }
 
     useEffect(() => {
         loadTask(id)
@@ -56,7 +62,12 @@ function EditTaskComponent(props) {
                 value={taskData.description}
               />
             </Form.Group>
-
+            <Button
+                className="centerbutton"
+                onClick={handleTaskDelete}
+            >
+                Delete Tasks
+            </Button>
                 <Button
                     className="centerbutton"
                     onClick={handleTaskEdit}
@@ -68,7 +79,9 @@ function EditTaskComponent(props) {
             {taskEditSuccess &&
                 <Redirect to={`/jobs/${job_id}/edittaskpage`}/>
             }
-
+            {setTaskDeleteSuccess &&
+                <Redirect to={`/jobs/${job_id}/edittaskpage`}/>
+            }
 
 
         </div>

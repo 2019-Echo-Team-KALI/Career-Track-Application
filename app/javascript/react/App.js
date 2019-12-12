@@ -63,7 +63,6 @@ function App(props) {
                 if(tasks.errors) {
                     setErrors(tasks.errors)
                 }
-                console.log("App Tasks", tasks)
                 setApiTasksData(tasks)
             })
     }
