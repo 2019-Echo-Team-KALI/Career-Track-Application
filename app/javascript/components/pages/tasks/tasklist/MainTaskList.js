@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 
 
 function MainTaskList(props) { // this is being called from the App.js
-    const { current_user_id, apiTasksData, apiJobsData} = props
+    const { current_user_id, apiTasksData, apiJobsData } = props
 
 
 
@@ -16,14 +16,14 @@ function MainTaskList(props) { // this is being called from the App.js
 
         return(
             <div key={index} >
-                  <Link to={`/jobs/${job_id}`}><button style={{width: '100%', color: 'black', textAlign: 'left'}}type="button" className="btn btn-outline-secondary" >{description}</button></Link>
+                <Link to={`/jobs/${job_id}`}><button style={{width: '100%', color: 'black', textAlign: 'left'}}type="button" className="btn btn-outline-secondary" ><u>Company</u><br /> {description}</button></Link>
             </div>
         )
     })
 
     return(
       <div>
-            {taskList}
+        {taskList}
       </div>
 
     )

@@ -11,7 +11,6 @@ function Header(props) {
 
     return (
         <React.Fragment>
-            <nav>
 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                   <Link to="/" className="navbar-brand"><b>KALI</b></Link>
@@ -49,7 +48,6 @@ function Header(props) {
                 </nav>
 
 
-            </nav>
         </React.Fragment>
   )
 }

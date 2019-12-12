@@ -9,8 +9,7 @@ function ProfileCard(props) {
 
   const {current_user_id, loadJobs, loadTasks, apiJobsData ,apiTasksData } = props
 
-  useEffect(() => { // we need lifecycle hook here to reload the data whenever we create a page, we may need to rename the load functions to make things easier
-      // the load functions set the data
+  useEffect(() => { 
       loadJobs()
       loadTasks()
   },[])
@@ -19,7 +18,7 @@ function ProfileCard(props) {
 
     <Sticky>
 
-    <Card style={{ width: '16%', height: '59%',  display: 'inline-block', marginLeft: '2.5em', marginTop: '3em', marginBottom: '15em'}}>
+    <Card style={{ width: '16%', height: '59%',  display: 'inline-block', marginLeft: '2.5em', marginTop: '2em', marginBottom: '15em'}}>
       <Card.Img variant="top" src={arvin} />
         <Card.Body style={{marginBottom: '-0.8em'}}>
           <Card.Title><u> Arvin</u>: DEVELOPER</Card.Title>

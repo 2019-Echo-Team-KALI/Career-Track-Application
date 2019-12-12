@@ -13,6 +13,23 @@ function CareerMainPage(props) {
 
     const {current_user_id, loadJobs, loadTasks, apiJobsData ,apiTasksData, getTask } = props
 
+    const [ category, setCategory ] = useState([
+      {
+        title: 'Applied', 
+        description: 'You have applied to these jobs',
+        id: 1
+      }, 
+      {
+        title: 'Wish List', 
+        description: 'Your Wish List of jobs',
+        id: 2
+      }, 
+      {
+        title: 'Get More Information', 
+        description: 'Look up more info on these Companies',
+        id: 3
+      }
+    ])
 
     useEffect(() => { // we need lifecycle hook here to reload the data whenever we create a page, we may need to rename the load functions to make things easier
         // the load functions set the data
@@ -20,23 +37,6 @@ function CareerMainPage(props) {
         loadTasks()
     },[])
 
-
-    const displayJobs = [...apiJobsData].reverse().map((jobObj, index) => {
-
-        const { name, title, description, tasks, url, user_id, id } = jobObj
-
-
-                return(
-                    <div key={index} >
-                        <Link to={`/jobs/${id}`}>
-                            <div style = {{borderStyle: 'inset'}}>
-                                <h1> Name: {name} - Title: {title}</h1>
-                            </div>
-                        </Link>
-                    </div>
-                )
-
-    })
 
     const displayJobs2 = [...apiJobsData].reverse().map((jobObj, index) => {
 
@@ -63,24 +63,21 @@ function CareerMainPage(props) {
                 )
     })
 
+    const displayCategory = category.map((categoryObj, index) => {
 
-    // const displayTask = [...apiTasksData].reverse().map((taskObj, index) => {
-    //   const { description } = taskObj
-    //
-    //   return(
-    //     <Card>
-    //       <Card.Header>
-    //         <Accordion.Toggle as={Card.Header} eventKey="1">
-    //           Task:
-    //         </Accordion.Toggle>
-    //       </Card.Header>
-    //       <Accordion.Collapse eventKey="{1}">
-    //         <Card.Body>{description}</Card.Body>
-    //       </Accordion.Collapse>
-    //     </Card>
-    //   )
-    // })
+      const { title, description, id } = categoryObj 
 
+      return (
+
+          <div className='jumbotron' id='applied' key = {index}>
+            <h1 className="display-3" style = {{marginTop: '-0.6em'}}>{title}</h1>
+            <p className="lead">{description}</p>
+            <hr className="my-4" />
+            {displayJobs2}
+          </div>
+
+      )
+    })
 
     return (
       <React.Fragment>
@@ -99,34 +96,11 @@ function CareerMainPage(props) {
               </Nav.Item>
             </Nav>
           </Sticky>
+         
 
-            <div style={{display: 'inline-block', marginRight: '1.7em', width: '98.3%'}}>
-
-                <div className='jumbotron' id='applied'>
-                  <h1 className="display-3" style = {{marginTop: '-0.6em'}}>Applied</h1>
-                  <p className="lead"> You have applied to these jobs</p>
-                  <hr className="my-4" />
-                  {displayJobs2}
-                </div>
-
-
-
-                <div className="jumbotron" id='wishlist'>
-                  <h1 className="display-3" style = {{marginTop: '-0.6em'}}>Wish List</h1>
-                  <p className="lead"> This is your wish list for jobs</p>
-                  <hr className="my-4" />
-                  {displayJobs2}
-                </div>
-
-                <div className="jumbotron" id = 'moreInfo'>
-                  <h1 className="display-3" style = {{marginTop: '-0.6em'}}>Get More Information</h1>
-                  <p className="lead">Look up more information on these companies to do well on the interview </p>
-                  <hr className="my-4" />
-                  {displayJobs2}
-                </div>
-
-            </div>
-
+          <div style={{display: 'inline-block', marginRight: '1.7em', width: '98.3%'}}>
+            {displayCategory}
+          </div>
 
           <br></br>
           <br></br>
@@ -148,3 +122,20 @@ function CareerMainPage(props) {
 }
 
 export default CareerMainPage
+
+    // const displayTask = [...apiTasksData].reverse().map((taskObj, index) => {
+    //   const { description } = taskObj
+    //
+    //   return(
+    //     <Card>
+    //       <Card.Header>
+    //         <Accordion.Toggle as={Card.Header} eventKey="1">
+    //           Task:
+    //         </Accordion.Toggle>
+    //       </Card.Header>
+    //       <Accordion.Collapse eventKey="{1}">
+    //         <Card.Body>{description}</Card.Body>
+    //       </Accordion.Collapse>
+    //     </Card>
+    //   )
+    // })
