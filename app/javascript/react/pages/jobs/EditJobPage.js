@@ -10,6 +10,8 @@ function EditJobPage({apiJobsData, loadJobs}) { // this is equivalent to const {
     const [goBack, setGoBack] = useState(false)
     const [goEdit, setGoEdit] = useState(false)
     const [editComplete, setEditComplete] = useState(false)
+    const [taskEditSuccess, setTaskEditSuccess] = useState(false)
+
     const [ currentJob, setCurrentJob ] = useState({
         name: '',
         title: '',
