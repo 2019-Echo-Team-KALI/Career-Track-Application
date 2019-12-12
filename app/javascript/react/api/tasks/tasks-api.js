@@ -61,7 +61,6 @@ function editTask(task, id){ // this takes in a task object and an id
     .then(resp => {
         if (resp.status === 200) {
             let json = resp.json()
-            setEditComplete(true)
             return json
         } else {
             resp.json()

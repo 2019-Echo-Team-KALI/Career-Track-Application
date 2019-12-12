@@ -11,7 +11,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
     const {paramJobId} = useParams() // the id of the job that we are using
     const [ taskSuccess, setTaskSuccess ] = useState(false)
-    const [goBack, setGoBack] = useState(false)
+    const [ goBack, setGoBack ] = useState(false)
     const [ tasksCreatedDone, setTasksCreatedDone ] = useState(false)
     const [ taskData, setTaskData ] = useState(
         {
@@ -19,10 +19,6 @@ function CreateTaskPage(props) { // this should be called JobCard component
             job_id: parseInt(paramJobId, 10)
         }
     )
-
-    useEffect(() => {
-        console.log(apiTasksData)
-    },[])
 
     function handleChange(event) {
         const newTaskData = {...taskData, [event.target.name]: event.target.value}
@@ -54,7 +50,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
         loadTasks()
     },[taskSuccess])
 
-    const currentJobTasks = apiTasksData.map((task, index) => {
+    const currentJobTasks = [...apiTasksData].reverse().map((task, index) => {
         const {id, name, job_id, description} = task
 
         return (

@@ -10,6 +10,7 @@ import EditTaskComponent from "../../components/EditTaskComponent"
 function EditTaskPage(props) {
     const {paramJobId} = useParams() // we can use this to grab the tasks for the job
     const [ apiTasksData, setApiTasksData ] = useState([])
+    const [goBack, setGoBack] = useState(false)
 
     function loadTasks(){
         getTasks()
@@ -44,11 +45,26 @@ function EditTaskPage(props) {
         )
     })
 
+    function handleBack() {
+        console.log("back edit")
+        setGoBack(true)
+    }
+
     return (
         <div>
             <h1> Edit Task page for Job # {paramJobId} </h1>
-            <h1> Current </h1>
+            <h1> Current Tasks  </h1>
              {currentJobTasks}
+             <Button
+                 className="centerbutton"
+                 onClick={handleBack}
+             >
+                 Back
+             </Button>
+
+             {goBack &&
+                 <Redirect to={`/jobs/${paramJobId}`}/>
+             }
         </div>
     )
 }
