@@ -12,9 +12,7 @@ function Header(props) {
 
     return (
         <React.Fragment>
-
             <nav>
-
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                   <Link to="/" className="navbar-brand"><b>KALI</b></Link>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,9 +36,7 @@ function Header(props) {
                         <a href="homepage/" className="nav-link">Meet the Devs</a>
                       </li>
                     }
-
                     </ul>
-
                     <form className="form-inline my-2 my-lg-0">
                       {logged_in &&
                         <div>
@@ -53,15 +49,9 @@ function Header(props) {
                         </div>
                       }
                     </form>
-
                   </div>
-                }
-              </form>
-            </div>
-          </nav>                      
-
-                
-
+            </nav>
+          </nav>
         </React.Fragment>
   )
 }
