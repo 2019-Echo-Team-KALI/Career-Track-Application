@@ -82,7 +82,7 @@ function EditTaskComponent(props) {
             <Form.Group>
                <Form.Label>Start Time:</Form.Label>
                <Form.Control
-                 type="text"
+                 type="datetime-local"
                  name="startTime"
                  onChange={handleChange}
                  value={taskData.startTime}
@@ -91,7 +91,7 @@ function EditTaskComponent(props) {
             <Form.Group>
                <Form.Label>End Time:</Form.Label>
                <Form.Control
-                 type="text"
+                 type="datetime-local"
                  name="endTime"
                  onChange={handleChange}
                  value={taskData.endTime}

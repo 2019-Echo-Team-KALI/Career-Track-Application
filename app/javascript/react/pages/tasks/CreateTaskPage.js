@@ -4,6 +4,7 @@ import { createTask } from "../../api/tasks/tasks-api"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem } from 'react-bootstrap'
+import AddToCalendar from 'react-add-to-calendar'
 
 
 function CreateTaskPage(props) { // this should be called JobCard component
@@ -51,13 +52,17 @@ function CreateTaskPage(props) { // this should be called JobCard component
     },[taskSuccess])
 
     const currentJobTasks = [...apiTasksData].reverse().map((task, index) => {
-        const {id, name, job_id, description} = task
+        const {id, job_id, description, title, startTime, endTime, location} = task
+
 
         return (
             <div key={index}>
                 {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
                 {job_id == paramJobId &&
                 <ListGroupItem> {description} </ListGroupItem>
+                }
+                {job_id == paramJobId &&
+                <AddToCalendar event={task}/>
                 }
             </div>
         )
