@@ -7,10 +7,9 @@ import AboutApp from '../components/AboutApp.js'
 function HomePage() {
     return (
       <React.Fragment>
-
+        <AboutUs />
         <HomeCarousel />
         <AboutApp />
-        <AboutUs />
       </React.Fragment>
     );
 }

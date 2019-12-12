@@ -30,9 +30,10 @@ function Header(props) {
                         <Link to="/createjobpage" className="nav-link">Create Job Listing </Link>
                       </li>
                     }
+
                     {logged_in &&
                       <li className="nav-item">
-                        <Link to="/homepage" className="nav-link">About Us</Link>
+                        <a href="homepage/" className="nav-link">Meet the Devs</a>
                       </li>
                     }
 
