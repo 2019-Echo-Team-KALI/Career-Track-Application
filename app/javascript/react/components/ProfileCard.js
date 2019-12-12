@@ -34,7 +34,7 @@ function ProfileCard(props) {
           </Card.Body>
 
             <div style ={{maxHeight: '20%'}}> 
-              <div style={{ height: '500px', overflowY: 'scroll' }}>
+              <div style={{ height: '475px', overflowY: 'scroll' }}>
                 <MainTaskList
                       apiTasksData={apiTasksData}
                       apiJobsData={apiJobsData}

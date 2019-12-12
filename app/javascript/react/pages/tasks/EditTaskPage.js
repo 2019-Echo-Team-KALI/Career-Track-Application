@@ -59,29 +59,31 @@ function EditTaskPage(props) {
 
     }
 
+    if (reload) {
+        return <Redirect to={`/jobs/${paramJobId}/edittaskpage`}/>
+    }
+
+    if (goBack) {
+        return <Redirect to={`/jobs/${paramJobId}`}/>
+    }
+
     return (
         <div>
             <h1> Edit Task page for Job # {paramJobId} </h1>
             <h1> Current Tasks  </h1>
              {currentJobTasks}
              <Button
-                 className="centerbutton"
-                 onClick={handleBack}
+                className="centerbutton"
+                onClick={handleBack}
              >
-                 Back
+                Back
              </Button>
              <Button
-                 className="centerbutton"
-                 onClick={handleReload}
+                className="centerbutton"
+                onClick={handleReload}
              >
-                 Reload
+                Reload
              </Button>
-             {reload &&
-                 <Redirect to={`/jobs/${paramJobId}/edittaskpage`}/>
-             }
-             {goBack &&
-                 <Redirect to={`/jobs/${paramJobId}`}/>
-             }
         </div>
     )
 }

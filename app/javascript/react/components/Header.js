@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Fragment } from "react"
 import { Link } from "react-router-dom"
 
 
@@ -11,7 +11,6 @@ function Header(props) {
     } = props
 
     return (
-        <React.Fragment>
             <nav>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                   <Link to="/" className="navbar-brand"><b>KALI</b></Link>
@@ -20,22 +19,19 @@ function Header(props) {
                   </button>
                   <div className="collapse navbar-collapse" id="navbarColor02">
                     <ul className="navbar-nav mr-auto">
-                    {logged_in &&
-                      <li className="nav-item active">
-                        <Link to="/careermainpage" className="nav-link">Listings</Link> <span className="sr-only">(current)</span>
-                      </li>
-                    }
-                    {logged_in &&
-                      <li className="nav-item">
-                        <Link to="/createjobpage" className="nav-link">Create Job Listing </Link>
-                      </li>
-                    }
-
-                    {logged_in &&
-                      <li className="nav-item">
-                        <a href="homepage/" className="nav-link">Meet the Devs</a>
-                      </li>
-                    }
+                      {logged_in &&
+                        <Fragment>
+                          <li className="nav-item active">
+                            <Link to="/careermainpage" className="nav-link">Listings</Link> <span className="sr-only">(current)</span>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="/createjobpage" className="nav-link">Create Job Listing </Link>
+                          </li>
+                          <li className="nav-item">
+                            <Link to="homepage/" className="nav-link">Meet the Devs</Link>
+                          </li>
+                        </Fragment>
+                      }
                     </ul>
                     <form className="form-inline my-2 my-lg-0">
                       {logged_in &&
@@ -52,7 +48,6 @@ function Header(props) {
                   </div>
             </nav>
           </nav>
-        </React.Fragment>
   )
 }
 

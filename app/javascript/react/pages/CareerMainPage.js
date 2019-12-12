@@ -31,16 +31,16 @@ function CareerMainPage(props) {
           <div style={{paddingLeft: '2em', borderStyle: 'edge', width: '80%', float: 'right', marginTop: '1em'}}>
 
           
-
-            <Category 
-              current_user_id={current_user_id}
-              loadJobs = {loadJobs}
-              loadTasks = {loadTasks}
-              apiJobsData={apiJobsData}
-              apiTasksData={apiTasksData}
-              getTask = {getTask}
-            /> 
-          
+            <div> 
+              <Category 
+                current_user_id={current_user_id}
+                loadJobs = {loadJobs}
+                loadTasks = {loadTasks}
+                apiJobsData={apiJobsData}
+                apiTasksData={apiTasksData}
+                getTask = {getTask}
+              /> 
+            </div>
 
           <br></br>
           <br></br>

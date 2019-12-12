@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { ButtonToolbar, Button } from 'react-bootstrap'
+import { ButtonToolbar, Button, Card, ListGroup, Jumbotron } from 'react-bootstrap'
 
 
 
@@ -62,7 +62,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
             <div key={index}>
                 {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
                 {job_id == paramJobId &&
-                <h1> Task: {id} - {description} </h1>
+                <h4> Task #{id}: {description} </h4>
                 }
             </div>
         )
@@ -98,46 +98,53 @@ function CurrentJobPage(props) { // this should be called JobCard component
 
 
     return (
-        <div>
             <div className = "currentjob">
-              <h1><span style = {{fontWeight: 'bold'}}>Company Name:</span> {name}</h1>
-              <h2><span style = {{fontWeight: 'bold'}}>Title:</span> {title}</h2>
-              <h3><span style = {{fontWeight: 'bold'}}>Url:</span>{url}</h3>
-              <br />
-              <h4><span style = {{fontWeight: 'bold'}}>Description:</span> {description} </h4>
-              <h4><span style = {{fontWeight: 'bold'}}>Tasks:</span> {currentJobTasks} </h4>
-            </div>
-            <div className = "buttons">
-            <ButtonToolbar>
-              <Button onClick={handleBack}>Go Back to Main Page</Button>
+            
+            <Jumbotron>
+                <h1>{name}</h1>
+                <p>
+                {description}
+                </p>
+                <ListGroup >
+                    <ListGroup.Item>{currentJobTasks} </ListGroup.Item>
+                </ListGroup>
+                <br />
+                <br /> 
+                <ButtonToolbar style={{display: 'flex'}}>
+                        
+                        <Button onClick={handleBack}>Go Back to Main Page</Button>
 
-              <Button
-                  className="centerbutton"
-                  onClick={() => handleDelete(paramJobId)}>
-                  Delete
-              </Button>
+                        <Button
+                            className="centerbutton"
+                            onClick={() => handleDelete(paramJobId)}>
+                            Delete
+                        </Button>
 
-              <Button className="centerbutton">
-                <Link to={`/jobs/edit/${paramJobId}`}>
-                    <span style = {{color: 'white'}}>Edit Job Details</span>
-                </Link>
-              </Button>
+                        <Button className="centerbutton">
+                            <Link to={`/jobs/edit/${paramJobId}`}>
+                                <span style = {{color: 'white'}}>Edit Job Details</span>
+                            </Link>
+                        </Button>
 
-              <Button className="centerbutton">
-                <Link to={`/jobs/${paramJobId}/edittaskpage`}>
-                    <span style = {{color: 'white'}}>Edit Task Details</span>
-                </Link>
-              </Button>
+                        <Button className="centerbutton">
+                            <Link to={`/jobs/${paramJobId}/edittaskpage`}>
+                                <span style = {{color: 'white'}}>Edit Task Details</span>
+                            </Link>
+                        </Button>
 
 
-              <Button className="centerbutton">
-                <Link to={`/jobs/${paramJobId}/createtaskpage`}>
-                    <span style = {{color: 'white'}}>Add Tasks</span>
-                </Link>
-              </Button>
+                        <Button className="centerbutton">
+                            <Link to={`/jobs/${paramJobId}/createtaskpage`}>
+                                <span style = {{color: 'white'}}>Add Tasks</span>
+                            </Link>
+                        </Button>
+                    </ButtonToolbar>
+            </Jumbotron>
 
-              </ButtonToolbar>
-            </div>
+            
+
+
+            
             {goBack &&
                 <Redirect to='/careermainpage'/>
             }

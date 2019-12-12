@@ -8,7 +8,7 @@ import EditTaskPage from './pages/tasks/EditTaskPage'
 import CurrentJobPage from './pages/jobs/CurrentJobPage'
 import EditJobPage from './pages/jobs/EditJobPage'
 import "bootswatch/dist/lux/bootstrap.min.css";
-
+import Sticky from 'react-sticky-el'
 
 import { useState, useEffect } from 'react'
 
@@ -79,7 +79,8 @@ function App(props) {
 
     return (
         <Router>
-          <React.Fragment>
+          <React.Fragment >
+            
             <Header
                 logged_in={logged_in}
                 sign_in_route={sign_in_route}
@@ -94,19 +95,8 @@ function App(props) {
                 {logged_in &&
                     <div>
                         <Switch>
-
-                            <Route exact path="/">
-                            <CareerMainPage
-                                current_user_id={current_user_id}
-                                loadJobs = {loadJobs}
-                                loadTasks = {loadTasks}
-                                apiJobsData={apiJobsData}
-                                apiTasksData={apiTasksData}
-                                getTask = {getTask}
-                             />
-                             </Route>
-                            <Route path="/careermainpage">
-
+                            
+                                <Route exact path="/">
                                 <CareerMainPage
                                     current_user_id={current_user_id}
                                     loadJobs = {loadJobs}
@@ -114,9 +104,20 @@ function App(props) {
                                     apiJobsData={apiJobsData}
                                     apiTasksData={apiTasksData}
                                     getTask = {getTask}
-                                 />
-                            </Route>
+                                />
+                                </Route>
+                                <Route path="/careermainpage">
 
+                                    <CareerMainPage
+                                        current_user_id={current_user_id}
+                                        loadJobs = {loadJobs}
+                                        loadTasks = {loadTasks}
+                                        apiJobsData={apiJobsData}
+                                        apiTasksData={apiTasksData}
+                                        getTask = {getTask}
+                                    />
+                                </Route>    
+                            
                             {/* <Route exact path='/jobs/:id' >
                                 <ShowCurrentJob
                                     getJobs={getJobs}
