@@ -10,21 +10,14 @@ const JobCard = (props) => {
         const { name, title, description, tasks, url, user_id, id } = jobObj 
         
         return(
-          <div className="card mb-3" key={index}>
-    
-            <Card style={{zIndex: 1, border: 'warning'}}>
-              <Card.Body>
-                <Card.Title><a href={`/jobs/${id}`}><b>{name}</b></a></Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">{title}</Card.Subtitle>
-                
+          <div className="card mb-3" key={index} >
+              <Button href={`/jobs/${id}`} variant="outline-dark" style={{zIndex: 1, borderTop: 'none', borderRight: 'none', borderLeft: 'none'}}>
+                <Card.Title >{name}</Card.Title>
+                <Card.Title style ={{fontSize: '65%'}}>{title}</Card.Title>
                 <Card.Footer>
-                  <small className="text-muted" style={{borderStyle: 'edge'}}>{description}</small>
-                </Card.Footer>
-              </Card.Body>
-            </Card>
-
-            
-
+                    <small  style={{borderStyle: 'edge', fontSize: '95%', textTransform: 'capitalize'}}>{description}</small>
+                  </Card.Footer>  
+              </Button>
           </div>
         )
     })

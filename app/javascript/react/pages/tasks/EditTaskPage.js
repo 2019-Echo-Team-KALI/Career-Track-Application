@@ -56,7 +56,6 @@ function EditTaskPage(props) {
     function handleBack() {
         console.log("back edit")
         setGoBack(true)
-
     }
 
     if (reload) {
