@@ -73,7 +73,7 @@ function editJob(job,id){
 }
 
 function deleteJob(id) {
- 
+
     return fetch(`/jobs/${id}`, {
         method: 'DELETE'
     })
@@ -87,4 +87,12 @@ function deleteJob(id) {
             })
         }
     })
+}
+
+export {
+    getJobs,
+    createJob,
+    getJob,
+    editJob,
+    deleteJob
 }

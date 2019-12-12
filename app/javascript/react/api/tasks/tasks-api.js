@@ -1,4 +1,4 @@
-function getTask() {
+function getTasks() {
     return fetch('/tasks')
         .then( resp => {
             if (resp.status === 200) {
@@ -10,7 +10,6 @@ function getTask() {
             }
         })
 }
-
 
 function createTask(task) { // this is the object
     return fetch('/tasks', {
@@ -62,7 +61,6 @@ function editTask(task, id){ // this takes in a task object and an id
     .then(resp => {
         if (resp.status === 200) {
             let json = resp.json()
-            setEditComplete(true)
             return json
         } else {
             resp.json()
@@ -80,7 +78,7 @@ function deleteTask(id) {
     })
     .then(resp => {
         if (resp.status === 200) {
-            setGoBack(true)
+            // setGoBack(true)
         } else {
             resp.json()
             .then(payload => {
@@ -88,4 +86,12 @@ function deleteTask(id) {
             })
         }
     })
+}
+
+export {
+    getTasks,
+    createTask,
+    getTask,
+    editTask,
+    deleteTask
 }

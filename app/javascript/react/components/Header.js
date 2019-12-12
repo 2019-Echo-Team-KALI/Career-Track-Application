@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
+
 function Header(props) {
     const {
       logged_in,
@@ -11,6 +12,7 @@ function Header(props) {
 
     return (
         <React.Fragment>
+
             <nav>
 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -51,11 +53,15 @@ function Header(props) {
                         </div>
                       }
                     </form>
+
                   </div>
-                </nav>
+                }
+              </form>
+            </div>
+          </nav>                      
 
+                
 
-            </nav>
         </React.Fragment>
   )
 }
