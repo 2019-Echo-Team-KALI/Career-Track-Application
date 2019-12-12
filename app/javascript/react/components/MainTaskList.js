@@ -7,27 +7,28 @@ import { useState, useEffect } from 'react'
 
 
 function MainTaskList(props) { // this is being called from the App.js
-    const { current_user_id, apiTasksData, apiJobsData} = props
+    const { current_user_id, apiTasksData, apiJobsData } = props
 
-    // const {apiJobsData}
 
 
     const taskList = apiTasksData.map((task, index) => {
         const {description, job_id, user_id} = task // we need the job id to compare
-
+        
         return(
-            <div key={index} >
-              <Card body >
-                  <Link to={`/jobs/${job_id}`}>{description}</Link>
-              </Card>
+            <div key={index} style={{textAlign: 'center'}}>
+                <Link to={`/jobs/${job_id}`}>
+                    <button style={{borderWidth: 'thin', width: '93%', color: 'black', textAlign: 'left'}}type="button" className="btn btn-outline-secondary"> 
+                        COMPANY <br /><div style={{textTransform: 'lowercase', opacity: 0.6}}>{description}</div> 
+                    </button>
+                </Link>
             </div>
         )
     })
 
     return(
-        <ListGroup className="list-group-flush">
-            {taskList}
-        </ListGroup>
+      <div>
+        {taskList}
+      </div>
 
     )
 }

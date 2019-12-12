@@ -4,44 +4,46 @@ import arvin from '../images/arvinlleva.jpg'
 import MainTaskList from './MainTaskList'
 import { Accordion, Card, Button, Navbar, Nav, ListGroup, ListGroupItem, CardGroup, Jumbotron  } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
+import Sticky from 'react-sticky-el';
 
 function ProfileCard(props) {
 
   const {current_user_id, loadJobs, loadTasks, apiJobsData ,apiTasksData } = props
 
-  useEffect(() => { // we need lifecycle hook here to reload the data whenever we create a page, we may need to rename the load functions to make things easier
-      // the load functions set the data
+  useEffect(() => { 
       loadJobs()
       loadTasks()
   },[])
 
   return(
 
-  <Card style={{ width: '16%',  position: 'sticky',  display: 'inline-block', marginLeft: '2.5em', marginTop: '4.3em'}}>
-    <Card.Img variant="top" src={arvin} />
-    <Card.Body>
-      <Card.Title><b> Arvin</b></Card.Title>
-      <Card.Text>
-        Hi I am Arvin and this is my description section where I get to tell you all about me!!
-      </Card.Text>
-    </Card.Body>
-      <div >
-      <Card.Body >
-        <Card.Title><u>Task List:</u></Card.Title>
-      </Card.Body>
-        <MainTaskList
-            apiTasksData={apiTasksData}
-            apiJobsData={apiJobsData}
-            current_user_id={current_user_id}
-            />
-          <br /> 
-      </div>
-    <Card.Body>
-      <Card.Link href="#">Random Link 1</Card.Link>
-      <Card.Link href="#">Random Link2</Card.Link>
-    </Card.Body>
+    <Sticky>
 
-  </Card>
+    <Card style={{ width: '16%', height: '59%',  display: 'inline-block', marginLeft: '2.5em', marginTop: '2em', marginBottom: '15em'}}>
+      <Card.Img variant="top" src={arvin} />
+        <Card.Body style={{marginBottom: '-0.8em'}}>
+          <Card.Title><u> Arvin</u>: DEVELOPER</Card.Title>
+        </Card.Body>  
+        <div >
+        <Card.Body >
+          <Card.Title style={{marginBottom: '-0.5em'}}><u>Task List:</u></Card.Title>
+        </Card.Body>
+          <div style ={{maxHeight: '20%'}}> 
+            <div style={{ height: '500px', overflowY: 'scroll' }}>
+              <MainTaskList
+                    apiTasksData={apiTasksData}
+                    apiJobsData={apiJobsData}
+                    current_user_id={current_user_id}
+                    />
+                  <br />
+            </div> 
+          </div>
+        </div>
+    
+
+    </Card>
+
+    </Sticky>
 
 
  )
