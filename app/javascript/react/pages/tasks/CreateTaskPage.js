@@ -24,6 +24,12 @@ function CreateTaskPage(props) { // this should be called JobCard component
             end_time: new Date()
         }
     )
+    const [ test, setTest ] = useState (
+      {
+        startTime: '2019-12-22T16:52:01.655Z',
+        endTime: '2019-12-22T17:52:01.655Z'
+      }
+    )
 
     function handleChange(event) {
         const newTaskData = {...taskData, [event.target.name]: event.target.value}
@@ -147,6 +153,8 @@ function CreateTaskPage(props) { // this should be called JobCard component
             </Button>
             </ButtonToolbar>
             </Form>
+
+                <AddToCalendar event={test} />
           </div>
 
             {tasksCreatedDone &&
