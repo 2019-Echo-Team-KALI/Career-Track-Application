@@ -37,7 +37,10 @@ function CreateTaskPage(props) { // this should be called JobCard component
     }
 
     function handleCreateTask() {
-        createTask(taskData)
+        const normalizedTaskData = {...taskData,
+        startTime:new Date(taskData.startTime).toUTCString(),
+        endTime:new Date(taskData.endTime).toUTCString()}
+        createTask(normalizedTaskData)
         .then(() => {
             taskCreatedSuccess()
         })
@@ -58,6 +61,9 @@ function CreateTaskPage(props) { // this should be called JobCard component
         return (
             <div key={index}>
                 {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
+                {job_id == paramJobId &&
+                <ListGroupItem> {startTime} </ListGroupItem>
+                }
                 {job_id == paramJobId &&
                 <ListGroupItem> {description} </ListGroupItem>
                 }
