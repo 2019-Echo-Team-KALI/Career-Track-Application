@@ -24,12 +24,12 @@ function CreateTaskPage(props) { // this should be called JobCard component
             end_time: new Date()
         }
     )
-    const [ test, setTest ] = useState (
-      {
-        startTime: '2019-12-22T16:52:01.655Z',
-        endTime: '2019-12-22T17:52:01.655Z'
-      }
-    )
+    // const [ test, setTest ] = useState (
+    //   {
+    //     startTime: '2019-12-22T16:52:01.655Z',
+    //     endTime: '2019-12-22T17:52:01.655Z'
+    //   }
+    // )
 
     function handleChange(event) {
         const newTaskData = {...taskData, [event.target.name]: event.target.value}
@@ -75,6 +75,13 @@ function CreateTaskPage(props) { // this should be called JobCard component
     const currentJobTasks = [...apiTasksData].reverse().map((task, index) => {
         const {job_id, title, description, start_time, end_time, location} = task
 
+        let modifiedTask =
+         {title: task.title,
+          description: task.description,
+          startTime: task.start_time,
+          endTime: task.end_time,
+          location: task.location}
+
         return (
             <div key={index}>
                 {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
@@ -85,7 +92,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
                 <ListGroupItem> {start_time} </ListGroupItem>
                 }
                 {job_id == paramJobId &&
-                <AddToCalendar event={task} />
+                <AddToCalendar event={modifiedTask} />
                 }
 
             </div>
@@ -153,8 +160,6 @@ function CreateTaskPage(props) { // this should be called JobCard component
             </Button>
             </ButtonToolbar>
             </Form>
-
-                <AddToCalendar event={test} />
           </div>
 
             {tasksCreatedDone &&
