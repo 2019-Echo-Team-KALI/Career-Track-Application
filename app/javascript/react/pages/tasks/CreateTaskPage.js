@@ -71,13 +71,49 @@ function CreateTaskPage(props) { // this should be called JobCard component
                   {currentJobTasks}
                 </ListGroup>
             <Form>
-              <Form.Group style={{marginTop: "60px"}}>
-                 <Form.Label>Task Description:</Form.Label>
+              <Form.Group>
+                 <Form.Label>Title:</Form.Label>
+                 <Form.Control
+                   type="text"
+                   name="title"
+                   onChange={handleChange}
+                   value={taskData.title}
+                 />
+              </Form.Group>
+              <Form.Group>
+                 <Form.Label>Description:</Form.Label>
                  <Form.Control
                    type="text"
                    name="description"
                    onChange={handleChange}
                    value={taskData.description}
+                 />
+              </Form.Group>
+              <Form.Group>
+                 <Form.Label>Location:</Form.Label>
+                 <Form.Control
+                   type="text"
+                   name="location"
+                   onChange={handleChange}
+                   value={taskData.location}
+                 />
+              </Form.Group>
+              <Form.Group>
+                 <Form.Label>Start Time:</Form.Label>
+                 <Form.Control
+                   type="datetime-local"
+                   name="start_time"
+                   onChange={handleChange}
+                   value={taskData.start_time}
+                 />
+              </Form.Group>
+              <Form.Group>
+                 <Form.Label>End Time:</Form.Label>
+                 <Form.Control
+                   type="datetime-local"
+                   name="end_time"
+                   onChange={handleChange}
+                   value={taskData.end_time}
                  />
               </Form.Group>
             <ButtonToolbar className="formbuttons">
