@@ -5,24 +5,18 @@ import { Accordion, Card, Button, Navbar, Nav, ListGroup, ListGroupItem, CardGro
 import { useState, useEffect } from 'react'
 import Sticky from 'react-sticky-el';
 
-function JobCardComponent({jobObj}) { // this should be called JobCard component
+const JobCardComponent = ({jobObj}) => {
 
-    return (
-        <div className="card mb-3" style= {{width: '22%', display: 'inline-block', marginLeft: '1em', marginRight: '1em', position: 'aboslute', zIndex: 1}}>
 
-          <Card style={{zIndex: 1}}>
-            <Card.Body>
-              <Card.Title><a href={`/jobs/${jobObj.id}`}><b>{jobObj.name}</b></a></Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{jobObj.title}</Card.Subtitle>
-              <Card.Text>
-                {jobObj.description}
-              </Card.Text>
+    return(
+        <div className="card mb-3" >
+          <Button href ={`/jobs/${jobObj.id}`} variant="outline-dark" style={{zIndex: 1, borderTop: 'none', borderRight: 'none', borderLeft: 'none'}}>
+            <Card.Title >{jobObj.name}</Card.Title>
+            <Card.Title style ={{fontSize: '65%'}}>{jobObj.title}</Card.Title>
               <Card.Footer>
-                <small className="text-muted" style={{borderStyle: 'edge'}}>{jobObj.url}</small>
+                  <small  style={{borderStyle: 'edge', fontSize: '95%', textTransform: 'capitalize'}}>{jobObj.description}</small>
               </Card.Footer>
-            </Card.Body>
-          </Card>
-
+          </Button>
         </div>
     )
 }
