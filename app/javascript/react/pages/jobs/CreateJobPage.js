@@ -15,7 +15,7 @@ function CreateJobPage(){
             title: '',
             description: '',
             url: '',
-            category: 0
+            category: ''
         }
     )
 
