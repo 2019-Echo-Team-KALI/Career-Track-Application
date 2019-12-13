@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import HomePage from './pages/HomePage'
-import CareerMainPage from './pages/CareerMainPage'
+import MainCareerPage from './pages/MainCareerPage'
 import CreateJobPage from './pages/jobs/CreateJobPage'
 import CreateTaskPage from './pages/tasks/CreateTaskPage'
 import EditTaskPage from './pages/tasks/EditTaskPage'
@@ -96,7 +96,7 @@ function App(props) {
                         <Switch>
 
                             <Route exact path="/">
-                            <CareerMainPage
+                            <MainCareerPage
                                 current_user_id={current_user_id}
                                 loadJobs = {loadJobs}
                                 loadTasks = {loadTasks}
@@ -105,9 +105,9 @@ function App(props) {
                                 getTask = {getTask}
                              />
                              </Route>
-                            <Route path="/careermainpage">
+                            <Route path="/maincareerpage">
 
-                                <CareerMainPage
+                                <MainCareerPage
                                     current_user_id={current_user_id}
                                     loadJobs = {loadJobs}
                                     loadTasks = {loadTasks}
