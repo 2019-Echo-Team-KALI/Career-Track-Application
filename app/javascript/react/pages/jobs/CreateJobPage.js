@@ -128,7 +128,7 @@ function CreateJobPage(){
                 <Redirect to={`/jobs/${currentJobId}/createtaskpage`}/>
              }
              {goBack &&
-                 <Redirect to="/careermainpage"/>
+                 <Redirect to="/maincareerpage"/>
              }
       </React.Fragment>
     );

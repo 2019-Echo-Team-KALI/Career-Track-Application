@@ -10,7 +10,7 @@ import facebook_logo from '../images/facebook_logo.png'
 import { useState, useEffect } from 'react'
 import Sticky from 'react-sticky-el';
 
-function CareerMainPage(props) {
+function MainCareerPage(props) {
 
     const {current_user_id, loadJobs, loadTasks, apiJobsData ,apiTasksData, getTask } = props
 
@@ -50,4 +50,4 @@ function CareerMainPage(props) {
 
 }
 
-export default CareerMainPage
+export default MainCareerPage

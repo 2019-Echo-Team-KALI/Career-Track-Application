@@ -139,7 +139,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
               </ButtonToolbar>
             </div>
             {goBack &&
-                <Redirect to='/careermainpage'/>
+                <Redirect to='/maincareerpage'/>
             }
 
         </div>
