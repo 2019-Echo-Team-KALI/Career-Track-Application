@@ -140,13 +140,13 @@ function CreateTaskPage(props) { // this should be called JobCard component
                  />
               </Form.Group>
             <ButtonToolbar className="formbuttons">
-            <Button className="centerbutton" onClick={handleBackClick}>
+            <Button variant = 'info' style={{marginRight: '1em'}} onClick={handleBackClick}>
             Back
             </Button>
-            <Button className="centerbutton" onClick={handleCreateTask}>
+            <Button variant = 'info' style={{marginRight: '1em'}} onClick={handleCreateTask}>
             Create Task
             </Button>
-            <Button className="centerbutton" onClick={handleDoneClick}>
+            <Button variant = 'info' style={{marginRight: '1em'}} onClick={handleDoneClick}>
             Done
             </Button>
             </ButtonToolbar>

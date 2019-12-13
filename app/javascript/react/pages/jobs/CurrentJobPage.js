@@ -114,28 +114,29 @@ function CurrentJobPage(props) { // this should be called JobCard component
                 <br />
                 <ButtonToolbar style={{display: 'flex'}}>
 
-                        <Button onClick={handleBack}>Go Back to Main Page</Button>
+                        <Button variant='info' onClick={handleBack} style={{marginRight: '1em'}}>Go Back to Main Page</Button>
 
                         <Button
-                            className="centerbutton"
+                            variant='info' 
+                            style={{marginRight: '1em'}}
                             onClick={() => handleDelete(paramJobId)}>
                             Delete
                         </Button>
 
-                        <Button className="centerbutton">
+                        <Button variant='info' style={{marginRight: '1em'}} >
                             <Link to={`/jobs/edit/${paramJobId}`}>
                                 <span style = {{color: 'white'}}>Edit Job Details</span>
                             </Link>
                         </Button>
 
-                        <Button className="centerbutton">
+                        <Button variant='info'  style={{marginRight: '1em'}}>
                             <Link to={`/jobs/${paramJobId}/edittaskpage`}>
                                 <span style = {{color: 'white'}}>Edit Task Details</span>
                             </Link>
                         </Button>
 
 
-                        <Button className="centerbutton">
+                        <Button variant='info'  style={{marginRight: '1em'}}>
                             <Link to={`/jobs/${paramJobId}/createtaskpage`}>
                                 <span style = {{color: 'white'}}>Add Tasks</span>
                             </Link>

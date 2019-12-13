@@ -118,8 +118,8 @@ function CreateJobPage(){
                   </Form.Group>
 
                   <ButtonToolbar>
-                    <Button className="centerbutton" onClick={handleBack}>Go Back to Main Page</Button>
-                    <Button className="centerbutton" onClick={handleClick}>Create New Job</Button>
+                    <Button variant = 'info' onClick={handleBack} style={{marginRight: '1em'}}>Go Back to Main Page</Button>
+                    <Button variant = 'info' onClick={handleClick}>Create New Job</Button>
                  </ButtonToolbar>
              </Form>
              </div>
