@@ -46,14 +46,14 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
     function taskCreatedSuccess() { // this function occurs once a task is created so we can create another task
         setTaskSuccess(true)
-        setTaskData({ description: '', job_id: parseInt(paramJobId, 10)})
+        setTaskData({ description: '', job_id: parseInt(paramJobId, 10), title: '', location: '', start_time: new Date(), end_time: new Date()})
         loadTasks()
     }
 
     function handleCreateTask() {
-      console.log(taskData)
         createTask(taskData)
-        .then(() => {
+        .then(successTask => {
+            console.log("Success! New Task: ", successTask)
             taskCreatedSuccess()
         })
     }
