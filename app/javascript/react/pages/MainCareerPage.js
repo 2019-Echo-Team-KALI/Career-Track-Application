@@ -24,7 +24,7 @@ function MainCareerPage(props) {
       <React.Fragment>
           <div style={{borderStyle: 'edge', width: '80%', float: 'right', marginTop: '1em'}}>
 
-              <div style={{display: 'inline-block', marginRight: '1.7em', width: '98.3%'}}>
+              <div style={{display: 'inline-block', width: '98.3%'}}>
 
                   <CategoriesSection
                     apiJobsData={apiJobsData}
