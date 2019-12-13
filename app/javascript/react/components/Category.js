@@ -39,7 +39,7 @@ const Category = (props) => {
   
             <div className='jumbotron' id = {id} key = {index} style ={{ width: '22%', display: 'inline-block', marginRight: '2.5em', padding: '0.7em'}}>
               <h1 className="display-3" style = {{ textAlign: 'center', fontSize: '200%'}}><u>{title}</u></h1>
-              <p className="lead" style={{textAlign: 'center'}}>{description}</p>
+              <p className="lead" style={{textAlign: 'center', opacity: 0.6}}>{description}</p>
               <hr className="my-4" />
 
               <JobCard 
