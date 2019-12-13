@@ -117,7 +117,7 @@ function CreateJobPage(){
                     </Form.Control>
                   </Form.Group>
 
-                  <ButtonToolbar> 
+                  <ButtonToolbar>
                     <Button className="centerbutton" onClick={handleBack}>Go Back to Main Page</Button>
                     <Button className="centerbutton" onClick={handleClick}>Create New Job</Button>
                  </ButtonToolbar>
