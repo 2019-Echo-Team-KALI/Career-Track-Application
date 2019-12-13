@@ -4,6 +4,8 @@ import { createTask } from "../../api/tasks/tasks-api"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem } from 'react-bootstrap'
+import DateTimePicker from 'react-datetime-picker'
+import AddToCalendar from 'react-add-to-calendar';
 
 
 function CreateTaskPage(props) { // this should be called JobCard component
@@ -16,13 +18,26 @@ function CreateTaskPage(props) { // this should be called JobCard component
     const [ taskData, setTaskData ] = useState(
         {
             description: '',
-            job_id: parseInt(paramJobId, 10)
+            job_id: parseInt(paramJobId, 10),
+            title: '',
+            start_time: new Date(),
+            end_time: new Date()
         }
     )
 
     function handleChange(event) {
         const newTaskData = {...taskData, [event.target.name]: event.target.value}
         setTaskData(newTaskData)
+    }
+
+    function onStartChange(start) {
+      const newStartData = {...taskData, start_time: start}
+      setTaskData(newStartData)
+    }
+
+    function onEndChange(end) {
+      const newEndData = {...taskData, end_time: end}
+      setTaskData(newEndData)
     }
 
     function handleBackClick() {
@@ -36,6 +51,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
     }
 
     function handleCreateTask() {
+      console.log(taskData)
         createTask(taskData)
         .then(() => {
             taskCreatedSuccess()
@@ -51,14 +67,21 @@ function CreateTaskPage(props) { // this should be called JobCard component
     },[taskSuccess])
 
     const currentJobTasks = [...apiTasksData].reverse().map((task, index) => {
-        const {id, name, job_id, description} = task
+        const {job_id, title, description, start_time, end_time, location} = task
 
         return (
             <div key={index}>
                 {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
                 {job_id == paramJobId &&
-                <ListGroupItem> {description} </ListGroupItem>
+                <ListGroupItem> {title} </ListGroupItem>
                 }
+                {job_id == paramJobId &&
+                <ListGroupItem> {start_time} </ListGroupItem>
+                }
+                {job_id == paramJobId &&
+                <AddToCalendar event={task} />
+                }
+
             </div>
         )
     })
@@ -100,19 +123,15 @@ function CreateTaskPage(props) { // this should be called JobCard component
               </Form.Group>
               <Form.Group>
                  <Form.Label>Start Time:</Form.Label>
-                 <Form.Control
-                   type="datetime-local"
-                   name="start_time"
-                   onChange={handleChange}
+                 <DateTimePicker
+                   onChange={onStartChange}
                    value={taskData.start_time}
                  />
               </Form.Group>
               <Form.Group>
                  <Form.Label>End Time:</Form.Label>
-                 <Form.Control
-                   type="datetime-local"
-                   name="end_time"
-                   onChange={handleChange}
+                 <DateTimePicker
+                   onChange={onEndChange}
                    value={taskData.end_time}
                  />
               </Form.Group>
