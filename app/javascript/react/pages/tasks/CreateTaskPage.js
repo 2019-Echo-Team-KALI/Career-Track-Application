@@ -24,12 +24,6 @@ function CreateTaskPage(props) { // this should be called JobCard component
             end_time: new Date()
         }
     )
-    // const [ test, setTest ] = useState (
-    //   {
-    //     startTime: '2019-12-22T16:52:01.655Z',
-    //     endTime: '2019-12-22T17:52:01.655Z'
-    //   }
-    // )
 
     function handleChange(event) {
         const newTaskData = {...taskData, [event.target.name]: event.target.value}
@@ -87,9 +81,6 @@ function CreateTaskPage(props) { // this should be called JobCard component
                 {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
                 {job_id == paramJobId &&
                 <ListGroupItem> {title} </ListGroupItem>
-                }
-                {job_id == paramJobId &&
-                <ListGroupItem> {start_time} </ListGroupItem>
                 }
                 {job_id == paramJobId &&
                 <AddToCalendar event={modifiedTask} />
