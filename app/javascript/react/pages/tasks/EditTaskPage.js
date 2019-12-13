@@ -61,21 +61,23 @@ function EditTaskPage(props) {
 
     return (
         <div>
-            <h1> Edit Task page for Job # {paramJobId} </h1>
-            <h1> Current Tasks  </h1>
+            <h1 style={{textAlign: 'center', marginTop: '2em', marginBottom: '-1.4em'}}><u> Tasks</u></h1>
              {currentJobTasks}
-             <Button
-                 className="centerbutton"
-                 onClick={handleBack}
-             >
-                 Back
-             </Button>
-             <Button
-                 className="centerbutton"
-                 onClick={handleReload}
-             >
-                 Reload
-             </Button>
+            
+            <div style ={{marginBottom: '2em', width: '60.4%', marginLeft: '20%'}}> 
+                <div style ={{float: 'left'}}> 
+                    <Button variant = 'info' onClick={handleBack} style={{}} >
+                        Back
+                    </Button>
+                </div> 
+
+                <div style ={{float: 'right'}}> 
+                    <Button variant = 'info' onClick={handleReload}>
+                        Reload
+                    </Button>
+                </div> 
+            </div> 
+
              {reload &&
                  <Redirect to={`/jobs/${paramJobId}/edittaskpage`}/>
              }

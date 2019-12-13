@@ -132,8 +132,8 @@ function EditJobPage({apiJobsData, loadJobs}) { // this is equivalent to const {
                 </Form.Group>
 
             <ButtonToolbar className="formbuttons">
-              <Button className="centerbutton" onClick={handleBack}>Go Back to Main Page</Button>
-              <Button className="centerbutton" onClick={handleFinishEdit}>
+              <Button variant = 'info' style={{marginRight: '1em'}} onClick={handleBack}>Go Back to Main Page</Button>
+              <Button variant = 'info' style={{marginRight: '1em'}}  onClick={handleFinishEdit}>
                   Complete Edits
               </Button>
             </ButtonToolbar>
