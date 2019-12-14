@@ -72,7 +72,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
                             
                             <Accordion.Collapse eventKey="1">
                                 <Card.Body>
-                                    {location}: {start_time.toString()} - {end_time}
+                                    {location}: {start_time} - {end_time}
                                 </Card.Body>
                             </Accordion.Collapse>
                             </Card>
