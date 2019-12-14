@@ -54,6 +54,15 @@ function EditTaskComponent(props) {
             <Form className = "formContainer">
 
             <Form.Group controlId="formGroupDescription">
+              <Form.Label>Title:</Form.Label>
+              <Form.Control
+                type="text"
+                name="title"
+                onChange={handleChange}
+                value={taskData.title}
+              />
+            </Form.Group>
+            <Form.Group controlId="formGroupDescription">
               <Form.Label>Description:</Form.Label>
               <Form.Control
                 type="text"
@@ -61,6 +70,15 @@ function EditTaskComponent(props) {
                 onChange={handleChange}
                 value={taskData.description}
               />
+            </Form.Group>
+            <Form.Group>
+               <Form.Label>Location:</Form.Label>
+               <Form.Control
+                 type="text"
+                 name="location"
+                 onChange={handleChange}
+                 value={taskData.location}
+               />
             </Form.Group>
             <Button
                 className="centerbutton"
