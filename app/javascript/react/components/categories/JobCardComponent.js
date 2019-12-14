@@ -13,9 +13,10 @@ const JobCardComponent = ({jobObj}) => {
           <Button href ={`/jobs/${jobObj.id}`} variant="outline-dark" style={{zIndex: 1, borderTop: 'none', borderRight: 'none', borderLeft: 'none'}}>
             <Card.Title >{jobObj.name}</Card.Title>
             <Card.Title style ={{fontSize: '65%'}}>{jobObj.title}</Card.Title>
-              <Card.Footer>
-                  <small  style={{borderStyle: 'edge', fontSize: '95%', textTransform: 'capitalize'}}>{jobObj.description}</small>
-              </Card.Footer>
+            <hr  style={{marginBottom: '0.em', marginTop: '-0.1em'}} />
+              <Card.Text>
+                  <small  style={{ fontSize: '95%', textTransform: 'capitalize'}}>{jobObj.description}</small>
+              </Card.Text>
           </Button>
         </div>
     )
