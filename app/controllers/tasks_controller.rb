@@ -6,7 +6,7 @@ class TasksController < ApplicationController
     end
 
     def create
-        @task = current_user.tasks.create(task_params)
+        @task = Task.create(task_params)
 
         if @task.save
             render json: @task, status: 200
@@ -40,7 +40,7 @@ class TasksController < ApplicationController
 
     private
     def task_params
-        params.require(:task).permit(:description, :job_id)
+        params.require(:task).permit(:description, :job_id, :title, :start_time, :end_time, :location)
     end
 
 end

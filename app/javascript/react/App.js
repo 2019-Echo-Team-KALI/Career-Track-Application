@@ -1,16 +1,18 @@
 import React from "react"
 import PropTypes from "prop-types"
-import HomePage from './HomePage'
-import CareerMainPage from './CareerMainPage'
-import CreateJob from './pages/jobs/CreateJob'
-import AddTask from './pages/jobs/AddTask'
-import ShowCurrentJob from './pages/jobs/ShowCurrentJob'
-import CurrentJobCard from './pages/jobs/CurrentJobCard'
+import HomePage from './pages/HomePage'
+import MainCareerPage from './pages/MainCareerPage'
+import CreateJobPage from './pages/jobs/CreateJobPage'
+import CreateTaskPage from './pages/tasks/CreateTaskPage'
+import EditTaskPage from './pages/tasks/EditTaskPage'
+import CurrentJobPage from './pages/jobs/CurrentJobPage'
+import EditJobPage from './pages/jobs/EditJobPage'
+import "bootswatch/dist/lux/bootstrap.min.css";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { useState, useEffect } from 'react'
 
-import Header from "./pages/Header"
+import Header from "./components/Header"
 import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
 
 function App(props) {
@@ -71,7 +73,6 @@ function App(props) {
                 if(jobs.errors) {
                     setErrors(jobs.errors)
                 }
-                console.log("ALJ", jobs)
                 setApiJobsData(jobs)
             })
     }
@@ -79,24 +80,40 @@ function App(props) {
     return (
         <Router>
           <React.Fragment>
-
             <Header
                 logged_in={logged_in}
                 sign_in_route={sign_in_route}
                 sign_out_route={sign_out_route}
                 current_user_id={current_user_id}
             />
+                {!logged_in &&
+                    <HomePage />
+                }
+
 
                 {logged_in &&
                     <div>
                         <Switch>
+
                             <Route exact path="/">
-                                <CareerMainPage
+                            <MainCareerPage
+                                current_user_id={current_user_id}
+                                loadJobs = {loadJobs}
+                                loadTasks = {loadTasks}
+                                apiJobsData={apiJobsData}
+                                apiTasksData={apiTasksData}
+                                getTask = {getTask}
+                             />
+                             </Route>
+                            <Route path="/maincareerpage">
+
+                                <MainCareerPage
                                     current_user_id={current_user_id}
                                     loadJobs = {loadJobs}
                                     loadTasks = {loadTasks}
                                     apiJobsData={apiJobsData}
                                     apiTasksData={apiTasksData}
+                                    getTask = {getTask}
                                  />
                             </Route>
 
@@ -107,17 +124,36 @@ function App(props) {
                                 />
                             </Route>
                             */}
-
-                            <Route exact path="/createjob">
-                                <CreateJob />
+                            <Route exact path="/jobs/edit/:paramEditId">
+                                <EditJobPage
+                                    apiJobsData={apiJobsData}
+                                    loadJobs={loadJobs}
+                                />
                             </Route>
 
-                            <Route exact path="/addtask">
-                                <AddTask />
+                            <Route exact path="/createjobpage">
+                                <CreateJobPage />
+                            </Route>
+
+                            <Route exact path="/jobs/:paramJobId/createtaskpage">
+                                <CreateTaskPage
+                                    loadJobs = {loadJobs}
+                                    loadTasks = {loadTasks}
+                                    apiJobsData={apiJobsData}
+                                    apiTasksData={apiTasksData}
+                                />
+                            </Route>
+
+                            <Route exact path='/jobs/:paramJobId/edittaskpage' >
+                                <EditTaskPage />
+                            </Route>
+
+                            <Route exact path='/homepage'>
+                              <HomePage />
                             </Route>
 
                             <Route exact path='/jobs/:paramJobId' >
-                                <CurrentJobCard
+                                <CurrentJobPage
                                     apiJobsData={apiJobsData}
                                     loadJobs={loadJobs}
                                     loadTasks={loadTasks}
@@ -128,7 +164,6 @@ function App(props) {
                     </div>
                 }
 
-          <HomePage />
           </React.Fragment>
       </Router>
     );

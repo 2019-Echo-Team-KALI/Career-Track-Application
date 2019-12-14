@@ -174,7 +174,7 @@ function ShowCurrentJob(props) { // this should be called JobCard component
                     }
 
                     <button onClick = {() => deleteJob(id)}>Delete</button>
-                    <button onClick = {() => handleClick()}>Edit</button>
+                    <button onClick = {() => handleEditClick()}>Edit</button>
                 </div>
             }
         </React.Fragment>
@@ -184,3 +184,13 @@ function ShowCurrentJob(props) { // this should be called JobCard component
 }
 
 export default ShowCurrentJob
+
+//
+// <button onClick = {() => handleBackClick()}>
+//     Back to Main Career Page
+// </button>
+//
+//
+// {goBack &&
+//     <Redirect to='/careermainpage'/>
+// }
