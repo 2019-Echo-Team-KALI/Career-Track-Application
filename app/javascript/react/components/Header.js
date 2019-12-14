@@ -33,7 +33,7 @@ function Header(props) {
 
                     {logged_in &&
                       <li className="nav-item">
-                        <a href="homepage/" className="nav-link">Meet the Devs</a>
+                        <Link to="/homepage" className="nav-link">Meet the Devs</Link>
                       </li>
                     }
                     </ul>
