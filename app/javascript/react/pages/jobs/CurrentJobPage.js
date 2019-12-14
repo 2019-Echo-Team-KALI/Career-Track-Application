@@ -2,8 +2,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { ButtonToolbar, Button, Card, ListGroup, Jumbotron } from 'react-bootstrap'
-
+import { ButtonToolbar, Button, Card, ListGroup, Jumbotron, Accordion, InputGroup, FormControl } from 'react-bootstrap'
+import { moment } from 'moment'
 
 
 function CurrentJobPage(props) { // this should be called JobCard component
@@ -56,13 +56,29 @@ function CurrentJobPage(props) { // this should be called JobCard component
     const { name, title, description, tasks, url, user_id } = currentJob
 
     const currentJobTasks = apiTasksData.map((task, index) => {
-        const {id, name, job_id, description} = task
-
+        const {id, name, job_id, title, location, start_time, end_time, description} = task
+        
+       
+        
         return (
             <div key={index}>
-                {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
                 {job_id == paramJobId &&
-                <h4> Task #{id}: {description} </h4>
+                    <div> 
+                        <Accordion defaultActiveKey="0">
+                            <Card>
+                            <Accordion.Toggle as={Card.Header} eventKey="1" >
+                                {title}: {description}
+                            </Accordion.Toggle>
+                            
+                            <Accordion.Collapse eventKey="1">
+                                <Card.Body>
+                                    {location}: {start_time.toString()} - {end_time}
+                                </Card.Body>
+                            </Accordion.Collapse>
+                            </Card>
+                        </Accordion > 
+
+                    </div> 
                 }
             </div>
         )
@@ -108,7 +124,12 @@ function CurrentJobPage(props) { // this should be called JobCard component
                 </p>
 
                 <ListGroup >
-                    <ListGroup.Item>{currentJobTasks} </ListGroup.Item>
+                    
+                    <ListGroup.Item>
+                      <h4 style ={{textAlign: 'center'}}>Tasks </h4> 
+                        <br /> 
+                        {currentJobTasks} 
+                    </ListGroup.Item>
                 </ListGroup>
                 <br />
                 <br />
