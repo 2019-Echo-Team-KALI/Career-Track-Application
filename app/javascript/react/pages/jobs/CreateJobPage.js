@@ -39,6 +39,7 @@ function CreateJobPage(){
             // we're able to get the payload id once the job is created
             // here's a link to show the https://stackoverflow.com/questions/28916710/what-do-double-brackets-mean-in-javascript-and-how-to-access-them
             console.log("job's id", typeof data.id, data.id)
+            console.log("data", data)
             setCurrentJobId(data.id)
         })
     }
@@ -108,11 +109,17 @@ function CreateJobPage(){
 
                  <Form.Group controlId="exampleForm.ControlSelect1">
                     <Form.Label>Category Select:</Form.Label>
-                    <Form.Control as="select">
-                      <option>New</option>
-                      <option>Applied</option>
-                      <option>Wish List</option>
-                      <option>Get More Info </option>
+                    <Form.Control
+                        as="select"
+                        name="category"
+                        onChange={handleChange}
+                        value={jobData.category}
+                    >
+                      <option  defaultValue='Wish List'>Wish List</option>
+                      <option value="Applied">Applied</option>
+                      <option value="Interview">Interview</option>
+                      <option value="Offer/Rejected">Offer/Rejected</option>
+
 
                     </Form.Control>
                   </Form.Group>
