@@ -22,7 +22,6 @@ function CurrentJobPage(props) { // this should be called JobCard component
     })
 
 
-
     useEffect(() => {
         loadJob()
         loadTasks()

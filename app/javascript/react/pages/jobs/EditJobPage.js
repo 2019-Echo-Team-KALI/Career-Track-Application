@@ -17,6 +17,7 @@ function EditJobPage({apiJobsData, loadJobs}) { // this is equivalent to const {
         title: '',
         description: '',
         url: '',
+        category: ''
     })
 
     useEffect(() => {
@@ -110,17 +111,6 @@ function EditJobPage({apiJobsData, loadJobs}) { // this is equivalent to const {
                   />
                   </Form.Group>
 
-
-                  <Form.Group controlId="formGroupUrl">
-                    <Form.Label>URL:</Form.Label>
-                    <Form.Control
-                      type="text"
-                      name="url"
-                      onChange={handleChange}
-                      value={currentJob.url}
-                    />
-                    </Form.Group>
-
                 <Form.Group controlId="formGroupDescription">
                   <Form.Label>Description:</Form.Label>
                   <Form.Control
@@ -130,6 +120,34 @@ function EditJobPage({apiJobsData, loadJobs}) { // this is equivalent to const {
                     value={currentJob.description}
                   />
                 </Form.Group>
+
+                <Form.Group controlId="formGroupUrl">
+                    <Form.Label>URL:</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="url"
+                      onChange={handleChange}
+                      value={currentJob.url}
+                    />
+                </Form.Group>
+
+                <Form.Group controlId="controlSelect1">
+                    <Form.Label>Category Select:</Form.Label>
+                    <Form.Control
+                        as="select"
+                        name="category"
+                        onChange={handleChange}
+                        value={currentJob.category}
+                    >
+                      <option value='Wish List'>Wish List</option>
+                      <option value="Applied">Applied</option>
+                      <option value="Interview">Interview</option>
+                      <option value="Offer/Rejected">Offer/Rejected</option>
+
+
+                    </Form.Control>
+                  </Form.Group>
+
 
             <ButtonToolbar className="formbuttons">
               <Button variant = 'info' style={{marginRight: '1em'}} onClick={handleBack}>Go Back to Main Page</Button>
