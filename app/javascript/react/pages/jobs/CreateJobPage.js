@@ -15,7 +15,7 @@ function CreateJobPage(){
             title: '',
             description: '',
             url: '',
-            category: ''
+            category: 'Wish List'
         }
     )
 
@@ -47,9 +47,6 @@ function CreateJobPage(){
     function handleChange(event) {
         const newJobData = {...jobData, [event.target.name]: event.target.value}
         setJobData(newJobData)
-        console.log('category', jobData.category )
-        console.log('name', jobData.name )
-
     }
 
     function handleClick() {

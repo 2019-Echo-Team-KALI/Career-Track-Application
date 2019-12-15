@@ -13,13 +13,17 @@ function CategoryComponent(props) { // this should be called JobCard component
 
     const displayJobs = [...apiJobsData].reverse().map((jobObj, index) => {
 
-        const { name, title, description, tasks, url, user_id, id } = jobObj
+        const { name, description, tasks, url, user_id, id, category } = jobObj
 
         return(
-            <JobCardComponent
-                jobObj={jobObj}
-                key={index}
-            />
+            <div key={index}>
+                {category == title &&
+
+                    <JobCardComponent
+                        jobObj={jobObj}
+                        />
+                }
+            </div>
         )
     })
 
