@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { Form, ButtonToolbar, Button } from 'react-bootstrap'
+import {getJob} from "../../api/jobs/jobs-api"
 
 import { getTasks } from "../../api/tasks/tasks-api"
 import EditTaskComponent from "../../components/EditTaskComponent"
@@ -12,6 +13,7 @@ function EditTaskPage(props) {
     const [ apiTasksData, setApiTasksData ] = useState([])
     const [ goBack, setGoBack ] = useState(false)
     const [ reload, setReload ] = useState(false)
+    const [jobOfTask, setJobOfTask] = useState({})
 
     function loadTasks(){
         getTasks()
@@ -25,6 +27,7 @@ function EditTaskPage(props) {
     }
     useEffect(() => { // to constantly load the tasks
         loadTasks()
+        loadJob() 
     },[])
     // taskSuccess we need this so it can reload
 
@@ -60,9 +63,22 @@ function EditTaskPage(props) {
 
     }
 
+
+    
+
+    function loadJob(){
+        getJob(paramJobId) 
+            .then(job => {
+                if(job.errors) {
+                    setErrors(job.errors)
+                }
+                setJobOfTask(job)
+            })
+    }
+
     return (
         <div>
-            <h1 style={{textAlign: 'center', marginTop: '2em', marginBottom: '-1.4em'}}><u> Tasks</u></h1>
+<h1 style={{textAlign: 'center', marginTop: '2em', marginBottom: '-1.4em'}}><u> Tasks</u> for {jobOfTask.name}: {jobOfTask.title}</h1>
              {currentJobTasks}
             
             <div style ={{marginBottom: '2em', width: '60.4%', marginLeft: '20%'}}> 

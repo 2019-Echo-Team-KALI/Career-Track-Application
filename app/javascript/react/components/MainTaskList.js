@@ -9,11 +9,8 @@ import { useState, useEffect } from 'react'
 function MainTaskList(props) { // this is being called from the App.js
     const { current_user_id, apiTasksData, apiJobsData } = props
 
-    console.log(apiTasksData, "tasks ")
-
     const taskList = apiTasksData.reverse().map((task, index) => {
         const {description, job_id, user_id, title, id} = task // we need the job id to compare
-        console.log("id:", id, "---", "title:", title)
         return(
             <MainTaskComponent
                 apiJobsData={apiJobsData}
