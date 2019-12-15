@@ -72,8 +72,12 @@ function EditJobPage({apiJobsData, loadJobs}) { // this is equivalent to const {
     const { name, title, description, tasks, url, user_id } = currentJob
 
     function handleFinishEdit() {
-        console.log("Edit,", paramEditId)
-        editJob(currentJob)
+        if (!currentJob.name || !currentJob.title) {
+            alert("Please enter a name and title")
+        } else {
+            console.log("Edit,", paramEditId)
+            editJob(currentJob)
+        }
     }
 
     function handleBack() {
