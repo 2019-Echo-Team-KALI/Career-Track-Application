@@ -38,7 +38,6 @@ function CreateJobPage(){
         .then(data => {
             // we're able to get the payload id once the job is created
             // here's a link to show the https://stackoverflow.com/questions/28916710/what-do-double-brackets-mean-in-javascript-and-how-to-access-them
-            console.log("job's id", typeof data.id, data.id)
             console.log("data", data)
             setCurrentJobId(data.id)
         })
@@ -48,6 +47,9 @@ function CreateJobPage(){
     function handleChange(event) {
         const newJobData = {...jobData, [event.target.name]: event.target.value}
         setJobData(newJobData)
+        console.log('category', jobData.category )
+        console.log('name', jobData.name )
+
     }
 
     function handleClick() {
@@ -64,6 +66,7 @@ function CreateJobPage(){
 
     return (
       <React.Fragment>
+        <h1>{jobData.category}</h1>
          <div className="editorcreateforms">
             <h1>Create a New Job Listing</h1>
             <Form className = "formContainer">
@@ -107,7 +110,7 @@ function CreateJobPage(){
                      />
                  </Form.Group>
 
-                 <Form.Group controlId="exampleForm.ControlSelect1">
+                 <Form.Group controlId="controlSelect1">
                     <Form.Label>Category Select:</Form.Label>
                     <Form.Control
                         as="select"
@@ -115,7 +118,7 @@ function CreateJobPage(){
                         onChange={handleChange}
                         value={jobData.category}
                     >
-                      <option  defaultValue='Wish List'>Wish List</option>
+                      <option value='Wish List'>Wish List</option>
                       <option value="Applied">Applied</option>
                       <option value="Interview">Interview</option>
                       <option value="Offer/Rejected">Offer/Rejected</option>
