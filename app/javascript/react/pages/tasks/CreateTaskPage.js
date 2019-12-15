@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem } from 'react-bootstrap'
 import DateTimePicker from 'react-datetime-picker'
 import AddToCalendar from 'react-add-to-calendar';
-
+import {getJob} from "../../api/jobs/jobs-api"
 
 function CreateTaskPage(props) { // this should be called JobCard component
     const {apiJobsData, loadJobs, loadTasks, apiTasksData} = props
@@ -15,6 +15,8 @@ function CreateTaskPage(props) { // this should be called JobCard component
     const [ taskSuccess, setTaskSuccess ] = useState(false)
     const [ goBack, setGoBack ] = useState(false)
     const [ tasksCreatedDone, setTasksCreatedDone ] = useState(false)
+    const [ jobOfTask, setJobOfTask ] = useState({})
+
     const [ taskData, setTaskData ] = useState(
         {
             description: '',
@@ -66,10 +68,24 @@ function CreateTaskPage(props) { // this should be called JobCard component
         setTasksCreatedDone(true)
     }
 
+    function loadJob(){
+      getJob(paramJobId) 
+          .then(job => {
+              if(job.errors) {
+                  setErrors(job.errors)
+              }
+              setJobOfTask(job)
+          })
+  }
+
     useEffect(() => { // to constantly load the tasks
         loadTasks()
     },[taskSuccess])
 
+    useEffect(() => {
+      loadJob()
+    },[])
+    
     const currentJobTasks = [...apiTasksData].reverse().map((task, index) => {
         const {job_id, title, description, start_time, end_time, location} = task
 
@@ -97,7 +113,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
     return (
         <React.Fragment>
             <div className="formContainer editorcreateforms">
-                <h1> Add Tasks for this Job </h1>
+                <h1> Add Tasks for this {jobOfTask.title} position </h1>
                 <ListGroup className="tasks">
                   {currentJobTasks}
                 </ListGroup>
