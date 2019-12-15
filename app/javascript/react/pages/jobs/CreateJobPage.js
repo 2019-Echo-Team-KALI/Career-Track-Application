@@ -9,6 +9,7 @@ function CreateJobPage(){
     const [jobSuccess, setJobSuccess] = useState(false)
     const [goBack, setGoBack] = useState(false)
     const [currentJobId, setCurrentJobId] = useState()
+    const [errorCheck, setErrorCheck] = useState(false) // this is if we want to have the validations be displayed on the page instead of an alert
     const [ jobData, setJobData ] = useState(
         {
             name: '',
@@ -50,11 +51,15 @@ function CreateJobPage(){
     }
 
     function handleClick() {
-        createJob(jobData)
-        .then(() => {
-
-            setJobSuccess(true)
-        })
+        if (!jobData.name || !jobData.title) {
+            alert("Please enter a name and title")
+        } else {
+            createJob(jobData)
+            .then(() => {
+    
+                setJobSuccess(true)
+            })
+        }
     }
 
     function handleBack() {
