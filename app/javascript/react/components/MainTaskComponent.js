@@ -8,13 +8,13 @@ import { useState, useEffect } from 'react'
 
 function MainTaskComponent(props) { // this is being called from the App.js
 
-    const {description, job_id, user_id} = props // we need the job id to compare
+    const { title, description, job_id, user_id} = props // we need the job id to compare
 
         return(
             <div style={{textAlign: 'center', marginBottom: '0.5em'}}>
                 <Link to={`/jobs/${job_id}`}>
                     <button className="btn btn-outline-warning" style={{borderRight: 'none',borderLeft: 'none',borderBottom: 'none',  width: '87%', color: 'black', textAlign: 'left'}}type="button" > 
-                        COMPANY <br /><div style={{textTransform: 'lowercase', opacity: 0.6}}>{description}</div> 
+                        COMPANY <br /><div style={{textTransform: 'lowercase', opacity: 0.6}}>{title}</div> 
                     </button>
                 </Link>
             </div>
