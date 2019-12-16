@@ -13,7 +13,7 @@ const JobCardComponent = ({jobObj}) => {
     const [ currentJob, setCurrentJob ] = useState(
     {
         ...jobObj,
-        category:jobObj.category
+        category: jobObj.category
     })
 
     const [ renderDropDown, setRenderDropDown ] = useState(false)
