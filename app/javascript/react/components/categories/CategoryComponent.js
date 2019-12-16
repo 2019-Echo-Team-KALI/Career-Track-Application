@@ -28,10 +28,10 @@ function CategoryComponent(props) { // this should be called JobCard component
     })
 
     return (
-        <div className='jumbotron' id = {id} key = {index} style ={{ width: '22%', display: 'inline-block', marginRight: '2.5em', padding: '0.7em'}}>
+        <div className='jumbotron' id = {id} key = {index} style ={{ width: '22%', verticalAlign: 'top', display: 'inline-block', marginRight: '2.5em', padding: '0.7em'}}>
               <h1 className="display-3" style = {{ textAlign: 'center', fontSize: '200%'}}><u>{title}</u></h1>
               <p className="lead" style={{textAlign: 'center', opacity: 0.6}}>{description}</p>
-              <hr className="my-4" />
+              <hr className="my-4" />   
               {displayJobs}
         </div>
     )
