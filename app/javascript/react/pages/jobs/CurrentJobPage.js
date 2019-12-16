@@ -18,8 +18,8 @@ function CurrentJobPage(props) { // this should be called JobCard component
         title: '',
         description: '',
         url: '',
+        category: ''
     })
-
 
 
     useEffect(() => {
@@ -48,12 +48,12 @@ function CurrentJobPage(props) { // this should be called JobCard component
                 if(job.errors) {
                     setErrors(job.errors)
                 }
+                console.log("job", job)
                 setCurrentJob(job)
             })
     }
 
 
-    const { name, title, description, tasks, url, user_id } = currentJob
 
     const currentJobTasks = apiTasksData.map((task, index) => {
         const {id, name, job_id, title, location, start_time, end_time, description} = task
@@ -112,10 +112,11 @@ function CurrentJobPage(props) { // this should be called JobCard component
         setGoBack(true)
     }
 
+    const { name, title, description, tasks, url, user_id, category } = currentJob
 
     return (
             <div className = "currentjob">
-
+                <h1>Status: {category}  </h1>
             <Jumbotron>
                 <h1 style={{display: 'inline'}}><b>{name}:  </b></h1>
                 <h3 style={{textTransform: 'capitalize',display: 'inline'}}>{title}</h3>
