@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { ButtonToolbar, Button, Card, ListGroup, Jumbotron, Accordion, InputGroup, FormControl } from 'react-bootstrap'
-import { moment } from 'moment'
+import  moment  from 'moment'
 
 
 function CurrentJobPage(props) { // this should be called JobCard component
@@ -72,7 +72,9 @@ function CurrentJobPage(props) { // this should be called JobCard component
                             
                             <Accordion.Collapse eventKey="1">
                                 <Card.Body>
-                                    {location}: {start_time} - {end_time}
+                                    <b><u>{location}</u></b>: 
+                                    <br /> <b>Start:</b> {moment(start_time).format('MMMM Do YYYY, h:mm:ss a ')} 
+                                    <br /> <b>End:</b>  {moment(end_time).format('MMMM Do YYYY, h:mm:ss a ')}
                                 </Card.Body>
                             </Accordion.Collapse>
                             </Card>
