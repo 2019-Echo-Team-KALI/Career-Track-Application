@@ -11,6 +11,7 @@ function EditTaskComponent(props) {
     const [ taskEditSuccess, setTaskEditSuccess ] = useState(false)
     const [ taskData, setTaskData ] = useState(
         {
+            title: "",
             description: ""
         }
     )
@@ -29,7 +30,12 @@ function EditTaskComponent(props) {
     }
 
     function handleTaskEdit() {
-        editTask(taskData, id)
+        if (!taskData.title) {
+            alert("Please Enter a title for the task")
+        } else {
+            editTask(taskData, id)
+        }
+
     }
 
     function handleChange(event) {
@@ -71,15 +77,7 @@ function EditTaskComponent(props) {
                 value={taskData.description}
               />
             </Form.Group>
-            <Form.Group>
-               <Form.Label>Location:</Form.Label>
-               <Form.Control
-                 type="text"
-                 name="location"
-                 onChange={handleChange}
-                 value={taskData.location}
-               />
-            </Form.Group>
+   
             <Button
                 className="centerbutton"
                 onClick={handleTaskDelete}

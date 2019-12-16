@@ -51,11 +51,15 @@ function CreateTaskPage(props) { // this should be called JobCard component
     }
 
     function handleCreateTask() {
+      if (!taskData.title) {
+        alert("Please Enter a title for the task")
+      }  else {
         createTask(taskData)
         .then(successTask => {
             console.log("Success! New Task: ", successTask)
             taskCreatedSuccess()
         })
+       }
     }
 
     function handleDoneClick() {
