@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { createTask } from "../../api/tasks/tasks-api"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem } from 'react-bootstrap'
+import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem, Jumbotron } from 'react-bootstrap'
 import DateTimePicker from 'react-datetime-picker'
 import AddToCalendar from 'react-add-to-calendar';
 import {getJob} from "../../api/jobs/jobs-api"
@@ -69,7 +69,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
     }
 
     function loadJob(){
-      getJob(paramJobId) 
+      getJob(paramJobId)
           .then(job => {
               if(job.errors) {
                   setErrors(job.errors)
@@ -85,7 +85,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
     useEffect(() => {
       loadJob()
     },[])
-    
+
     const currentJobTasks = [...apiTasksData].reverse().map((task, index) => {
         const {job_id, title, description, start_time, end_time, location} = task
 
@@ -110,68 +110,134 @@ function CreateTaskPage(props) { // this should be called JobCard component
         )
     })
 
+
+/*
+    <Jumbotron style ={{width: '48%', height: '38.5em', display: 'inline-block', marginRight: '2%', verticalAlign: 'top'}}>
+            <div style = {{height: '22.3em'}}>
+                <h1><u>{category}</u> </h1>
+                <h1 style={{display: 'inline'}}><b>{name}:  </b></h1>
+                <h3 style={{textTransform: 'capitalize',display: 'inline'}}>{title}</h3>
+                <p>
+                    {description}
+                </p>
+            </div>
+            <br />
+            <br />
+
+            <div style = {{}}>
+                <hr  style={{marginBottom: '0.em'}} />
+
+                <ButtonToolbar style={{display: 'flex'}}>
+
+                        <div>
+                            <Button variant='info'>
+                                <Link to={`/jobs/edit/${paramJobId}`}>
+                                    <span style = {{color: 'white'}}>Edit Job</span>
+                                </Link>
+                            </Button>
+                        </div>
+
+                        <div style = {{float: 'right', marginLeft: 'auto'}} >
+                            <Button
+                                variant='info'
+
+                                onClick={() => handleDelete(paramJobId)}>
+                                Delete
+                            </Button>
+                        </div>
+                </ButtonToolbar>
+            </div>
+
+        </Jumbotron>
+*/
+
+
+
+
+
     return (
         <React.Fragment>
-            <div className="formContainer editorcreateforms">
-                <h1> Add Tasks for this {jobOfTask.title} position </h1>
-                <ListGroup className="tasks">
-                  {currentJobTasks}
-                </ListGroup>
-            <Form>
-              <Form.Group>
-                 <Form.Label>Title:</Form.Label>
-                 <Form.Control
-                   type="text"
-                   name="title"
-                   onChange={handleChange}
-                   value={taskData.title}
-                 />
-              </Form.Group>
-              <Form.Group>
-                 <Form.Label>Description:</Form.Label>
-                 <Form.Control
-                   type="text"
-                   name="description"
-                   onChange={handleChange}
-                   value={taskData.description}
-                 />
-              </Form.Group>
-              <Form.Group>
-                 <Form.Label>Location:</Form.Label>
-                 <Form.Control
-                   type="text"
-                   name="location"
-                   onChange={handleChange}
-                   value={taskData.location}
-                 />
-              </Form.Group>
-              <Form.Group>
-                 <Form.Label>Start Time:</Form.Label>
-                 <DateTimePicker
-                   onChange={onStartChange}
-                   value={taskData.start_time}
-                 />
-              </Form.Group>
-              <Form.Group>
-                 <Form.Label>End Time:</Form.Label>
-                 <DateTimePicker
-                   onChange={onEndChange}
-                   value={taskData.end_time}
-                 />
-              </Form.Group>
-            <ButtonToolbar className="formbuttons">
-            <Button variant = 'info' style={{marginRight: '1em'}} onClick={handleBackClick}>
-            Back
-            </Button>
-            <Button variant = 'info' style={{marginRight: '1em'}} onClick={handleCreateTask}>
-            Create Task
-            </Button>
-            <Button variant = 'info' style={{marginRight: '1em'}} onClick={handleDoneClick}>
-            Done
-            </Button>
-            </ButtonToolbar>
-            </Form>
-          </div>
+            <div style={{width: '37%', marginLeft: '12%', marginRight: '1%', marginTop: '3em', display: 'inline-block'}}>
+                <Jumbotron>
+                    <h1 style={{textAlign: 'center'}}> Add Tasks for this {jobOfTask.title} position </h1>
+                    <Form style={{marginTop: '2em'}}>
+                        <Form.Group>
+                            <Form.Label>Title:</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="title"
+                                onChange={handleChange}
+                                value={taskData.title}
+                                style={{backgroundColor: 'white'}}
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Description:</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="description"
+                                onChange={handleChange}
+                                value={taskData.description}
+                                style={{backgroundColor: 'white'}}
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Location:</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="location"
+                                onChange={handleChange}
+                                value={taskData.location}
+                                style={{backgroundColor: 'white'}}
+                                />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Start Time:</Form.Label>
+                            <DateTimePicker
+                                onChange={onStartChange}
+                                value={taskData.start_time}
+                            />
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>End Time:</Form.Label>
+                            <DateTimePicker
+                                onChange={onEndChange}
+                                value={taskData.end_time}
+                            />
+                        </Form.Group>
+
+                        <ButtonToolbar style={{marginTop: '2em'}}>
+                                <Button variant = 'info' style={{marginRight: '1em'}} onClick={handleCreateTask}>
+                                Create Task
+                                </Button>
+
+
+                                <Button variant = 'info' onClick={handleDoneClick}>
+                                Done
+                                </Button>
+                        </ButtonToolbar>
+
+                    </Form>
+                </Jumbotron>
+            </div>
+
+
+            <div style={{display: 'inline-block', float: 'right', width: '37%', marginRight: '12%', marginLeft: '1%', marginTop: '3em'}}>
+                <Jumbotron>
+                    <h4 style ={{textAlign: 'center'}}><u>Tasks</u> </h4>
+                    <ListGroup className="tasks">
+                        {currentJobTasks}
+                    </ListGroup>
+                </Jumbotron>
+            </div>
+
+            <div style={{display: 'block', width: '66%', marginLeft: '12%'}}>
+                <ButtonToolbar>
+                    <Button variant = 'dark' style={{marginRight: '1em'}} onClick={handleBackClick}>
+                    Main Page
+                    </Button>
+                </ButtonToolbar>
+            </div>
 
             {tasksCreatedDone &&
                <Redirect to={`/jobs/${paramJobId}`} />
