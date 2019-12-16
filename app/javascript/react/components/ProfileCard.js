@@ -22,7 +22,7 @@ function ProfileCard(props) {
     
       
       
-      <Card style={{ width: '16%', borderOpacity: 1, height: '59%',  marginTop: '1.5em', display: 'inline-block', marginLeft: '2.5em', marginBottom: '15em'}}>
+      <Card style={{ width: '16%', borderOpacity: 1, height: '59%', marginTop: '-1.5em', display: 'inline-block', marginLeft: '2.5em', marginBottom: '15em'}}>
         <Card.Img variant="top" src={profilePic} style={{marginBottom: '-0.7em'}} />
         
           <Card.Body >
