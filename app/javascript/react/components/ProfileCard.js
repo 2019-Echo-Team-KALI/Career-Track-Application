@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import arvin from '../images/arvinlleva.jpg'
+import profilePic from '../images/default-profile2.png'
 import MainTaskList from './MainTaskList'
 import { Accordion, Card, Button, Navbar, Nav, ListGroup, ListGroupItem, CardGroup, Jumbotron  } from 'react-bootstrap'
 import { useState, useEffect } from 'react'
@@ -22,10 +23,10 @@ function ProfileCard(props) {
       
       
       <Card style={{ width: '16%', borderOpacity: 1, height: '59%',  marginTop: '1.5em', display: 'inline-block', marginLeft: '2.5em', marginBottom: '15em'}}>
-        <Card.Img variant="top" src={arvin} style={{marginBottom: '-0.7em'}} />
+        <Card.Img variant="top" src={profilePic} style={{marginBottom: '-0.7em'}} />
         
           <Card.Body >
-            <Card.Title style={{textAlign: 'center', marginBottom: '-5em'}}>ARVIN</Card.Title>
+            <Card.Title style={{textAlign: 'center', marginBottom: '-5em'}}>User Name</Card.Title>
           </Card.Body>  
           <hr  style={{marginBottom: '0.em', marginTop: '-0.1em'}} />
           <div >
