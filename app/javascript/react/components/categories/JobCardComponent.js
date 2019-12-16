@@ -9,6 +9,17 @@ import { editJob } from "../../api/jobs/jobs-api"
 
 const JobCardComponent = ({jobObj}) => {
     const [ reload, setReload ] = useState(false)
+    const [ buttonOpen, setButtonOpen ] = useState(true)
+
+    const [ categoryOpen, setCategoryOpen ] = useState(false)
+    const opener = () => {
+      setCategoryOpen(!categoryOpen)
+      setButtonOpen(!buttonOpen)
+    }
+
+    
+
+
 
     const [ currentJob, setCurrentJob ] = useState(
     {
@@ -44,10 +55,17 @@ const JobCardComponent = ({jobObj}) => {
 
                   </Link>
               </Button>
+              
+                <Button style = {{textAlign: 'center', textTransform: 'capitalize'}} variant = 'secondary'onClick = {opener}> Select Category </Button> 
+              
+
               <Card.Text>
-              <Form>
-                  <Form.Group controlId="controlSelect1">
-                      <Form.Label>Category Select:</Form.Label>
+
+
+              {categoryOpen && 
+
+                <Form style = {{display: 'flex', marginTop: '3%'}}>
+                  <Form.Group controlId="controlSelect1" style = {{display: 'flex', marginLeft: '1%', marginBottom: '0em', width: '150%'}}>
                       <Form.Control
                           as="select"
                           name="category"
@@ -58,16 +76,17 @@ const JobCardComponent = ({jobObj}) => {
                         <option value="Applied">Applied</option>
                         <option value="Interview">Interview</option>
                         <option value="Offer/Rejected">Offer/Rejected</option>
-
-
                       </Form.Control>
-                    </Form.Group>
+                  </Form.Group>
+                  <Button variant = 'success' style = {{display: 'inlineBlock', height: '70%',marginRight: '0.5%', marginLeft: '21%', marginBottom: '0.5em'}}onClick={handleFinishEdit}>Change</Button>
+                  
 
-                    <ButtonToolbar className="formbuttons">
-                      <Button variant = 'info' style={{marginRight: '1em'}}  onClick={handleFinishEdit}>Change</Button>
-                    </ButtonToolbar>
-                    </Form>
+              </Form>
+              }
+              
+
               </Card.Text>
+
           </div>
 
 
