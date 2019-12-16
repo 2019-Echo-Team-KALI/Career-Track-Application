@@ -6,7 +6,7 @@ import { Form, ButtonToolbar, Button } from 'react-bootstrap'
 import { editTask, getTask, deleteTask } from '../api/tasks/tasks-api'
 
 function EditTaskComponent(props) {
-    const {id, name, job_id, description} = props
+    const {id, name, job_id, description, handleReload} = props
     const [ taskDeleteSuccess, setTaskDeleteSuccess ] = useState(false)
     const [ taskEditSuccess, setTaskEditSuccess ] = useState(false)
     const [ taskData, setTaskData ] = useState(
@@ -34,6 +34,8 @@ function EditTaskComponent(props) {
             alert("Please Enter a title for the task")
         } else {
             editTask(taskData, id)
+            alert("Task successfully updated!")
+
         }
 
     }
@@ -47,7 +49,7 @@ function EditTaskComponent(props) {
         deleteTask(id)
         .then(() => {
             setTaskDeleteSuccess(true)
-            console.log("Deleted")
+            handleReload()
         })
     }
 
@@ -95,9 +97,9 @@ function EditTaskComponent(props) {
             {taskEditSuccess &&
                 <Redirect to={`/jobs/${job_id}/edittaskpage`}/>
             }
-            {setTaskDeleteSuccess &&
+            {/*setTaskDeleteSuccess &&
                 <Redirect to={`/jobs/${job_id}/edittaskpage`}/>
-            }
+            */}
 
 
         </div>
