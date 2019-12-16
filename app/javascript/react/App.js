@@ -7,7 +7,6 @@ import CreateTaskPage from './pages/tasks/CreateTaskPage'
 import EditTaskPage from './pages/tasks/EditTaskPage'
 import CurrentJobPage from './pages/jobs/CurrentJobPage'
 import EditJobPage from './pages/jobs/EditJobPage'
-import "bootswatch/dist/lux/bootstrap.min.css";
 
 
 import { useState, useEffect } from 'react'

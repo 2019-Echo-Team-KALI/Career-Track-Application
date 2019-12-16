@@ -23,7 +23,7 @@ function MainCareerPage(props) {
     return (
       <React.Fragment>
 
-          
+
 
             <CategoriesSection
               apiJobsData={apiJobsData}
