@@ -115,60 +115,91 @@ function CurrentJobPage(props) { // this should be called JobCard component
     const { name, title, description, tasks, url, user_id, category } = currentJob
 
     return (
-            <div className = "currentjob">
-                <h1>Status: {category}  </h1>
-            <Jumbotron>
-                <h1 style={{display: 'inline'}}><b>{name}:  </b></h1>
-                <h3 style={{textTransform: 'capitalize',display: 'inline'}}>{title}</h3>
-                <p>
-                {description}
-                </p>
+        <div className = "currentjob" style={{ marginBottom: '3%'}}>
+            
+            
 
-                <ListGroup >
-                    
-                    <ListGroup.Item>
-                      <h4 style ={{textAlign: 'center'}}>Tasks </h4> 
-                        <br /> 
-                        {currentJobTasks} 
-                    </ListGroup.Item>
-                </ListGroup>
-                <br />
-                <br />
-                <ButtonToolbar style={{display: 'flex'}}>
+            <Jumbotron style ={{width: '48%', height: '38.5em', display: 'inline-block', marginRight: '2%', verticalAlign: 'top'}}>
+                    <div style = {{height: '22.3em'}}> 
+                        <h1><u>{category}</u> </h1>
+                        <h1 style={{display: 'inline'}}><b>{name}:  </b></h1>
+                        <h3 style={{textTransform: 'capitalize',display: 'inline'}}>{title}</h3>
+                        <p>
+                            {description}
+                        </p>
+                    </div> 
+                    <br />
+                    <br />
 
-                        <Button variant='info' onClick={handleBack} style={{marginRight: '1em'}}>Go Back to Main Page</Button>
+                    <div style = {{}}> 
+                        <hr  style={{marginBottom: '0.em'}} />
 
-                        <Button
-                            variant='info' 
-                            style={{marginRight: '1em'}}
-                            onClick={() => handleDelete(paramJobId)}>
-                            Delete
-                        </Button>
+                        <ButtonToolbar style={{display: 'flex'}}>
 
-                        <Button variant='info' style={{marginRight: '1em'}} >
-                            <Link to={`/jobs/edit/${paramJobId}`}>
-                                <span style = {{color: 'white'}}>Edit Job Details</span>
-                            </Link>
-                        </Button>
+                                <div> 
+                                    <Button variant='info'>
+                                        <Link to={`/jobs/edit/${paramJobId}`}>
+                                            <span style = {{color: 'white'}}>Edit Job</span>
+                                        </Link>
+                                    </Button>
+                                </div> 
 
-                        <Button variant='info'  style={{marginRight: '1em'}}>
-                            <Link to={`/jobs/${paramJobId}/edittaskpage`}>
-                                <span style = {{color: 'white'}}>Edit Task Details</span>
-                            </Link>
-                        </Button>
+                                <div style = {{float: 'right', marginLeft: 'auto'}} > 
+                                    <Button
+                                        variant='info' 
+                                        
+                                        onClick={() => handleDelete(paramJobId)}>
+                                        Delete
+                                    </Button>
+                                </div> 
+                        </ButtonToolbar>
+                    </div> 
 
+                </Jumbotron>
 
-                        <Button variant='info'  style={{marginRight: '1em'}}>
-                            <Link to={`/jobs/${paramJobId}/createtaskpage`}>
-                                <span style = {{color: 'white'}}>Add Tasks</span>
-                            </Link>
-                        </Button>
-                    </ButtonToolbar>
-            </Jumbotron>
+                <Jumbotron style ={{width: '48%', height: '38.5em', display: 'inline-block'}}>
+                    {/*<h1>Status: {category}  </h1>
+                    <h1 style={{display: 'inline'}}><b>{name}:  </b></h1>
+                    <h3 style={{textTransform: 'capitalize',display: 'inline'}}>{title}</h3>
+                    <p>
+                    {description}
+                    </p>*/}
 
+                    <ListGroup >
+                        <h4 style ={{textAlign: 'center'}}><u>Tasks</u> </h4> 
+                        <ListGroup.Item style = {{height: '20em', overflowY: 'scroll'}}>    
+                            {currentJobTasks} 
+                        </ListGroup.Item>
+                    </ListGroup>
 
+                    <br />
+                    <br />
+                    <hr  style={{marginBottom: '0.em'}} />
 
+                    <ButtonToolbar style={{display: 'flex'}}>
 
+                            <div> 
+                                <Button variant='info'>
+                                    <Link to={`/jobs/${paramJobId}/edittaskpage`}>
+                                        <span style = {{color: 'white'}}>Edit Task</span>
+                                    </Link>
+                                </Button>
+                            </div> 
+
+                            <div style = {{float: 'right', marginLeft: 'auto'}}> 
+                                <Button variant='info'>
+                                    <Link to={`/jobs/${paramJobId}/createtaskpage`}>
+                                        <span style = {{color: 'white'}}>Add Tasks</span>
+                                    </Link>
+                                </Button>
+                            </div> 
+                            
+                        </ButtonToolbar>
+                </Jumbotron>
+            
+            <div style = {{display: 'block', marginBottom: '3%'}}> 
+                <Button variant='dark' onClick={handleBack} style={{display: 'block'}}> Main Page</Button>
+            </div> 
 
             {goBack &&
                 <Redirect to='/maincareerpage'/>
