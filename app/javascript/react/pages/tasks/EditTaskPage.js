@@ -77,7 +77,7 @@ function EditTaskPage(props) {
 
     return (
         <div>
-<h1 style={{textAlign: 'center', marginTop: '2em', marginBottom: '-1.4em'}}><u> Tasks</u> for {jobOfTask.name}: {jobOfTask.title}</h1>
+            <h1 style={{textAlign: 'center', marginTop: '2em', marginBottom: '-1.4em'}}><u> Tasks</u> for {jobOfTask.name}: {jobOfTask.title}</h1>
              {currentJobTasks}
 
             <div style ={{marginBottom: '2em', width: '60.4%', marginLeft: '20%'}}>
@@ -89,13 +89,13 @@ function EditTaskPage(props) {
 
                 <div style ={{float: 'right'}}>
                     <Button variant = 'info' onClick={handleReload}>
-                        Reload
+                        Add Task
                     </Button>
                 </div>
             </div>
 
              {reload &&
-                 <Redirect to={`/jobs/${paramJobId}/edittaskpage`}/>
+                 <Redirect to={`/jobs/${paramJobId}/createtaskpage`}/>
              }
              {goBack &&
                  <Redirect to={`/jobs/${paramJobId}`}/>
