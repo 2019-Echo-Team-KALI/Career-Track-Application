@@ -71,8 +71,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
     }
 
     function handleAddEvent() {
-        setAddEvent(true)
-        console.log(addEvent)
+        setAddEvent(!addEvent)
 
     }
 
@@ -145,8 +144,8 @@ function CreateTaskPage(props) { // this should be called JobCard component
                             />
                         </Form.Group>
 
-                        <ButtonToolbar>
-                            <Button onClick={handleAddEvent}>Add Event
+                        <ButtonToolbar style={{marginBottom: '2em'}}>
+                            <Button variant="outline-secondary" style={{marginTop: '1em'}}onClick={handleAddEvent} block>Add Event
                             </Button>
                         </ButtonToolbar>
 
@@ -182,8 +181,9 @@ function CreateTaskPage(props) { // this should be called JobCard component
                         </Form.Group>
                         }
 
+                        <hr style={{marginTop: '4em', marginBottom: '2em'}}/>
 
-                        <ButtonToolbar style={{display: 'flex', marginTop: '2em'}}>
+                        <ButtonToolbar style={{display: 'flex'}}>
                             <div>
                                 <Button variant = 'info' style={{marginRight: '1em'}} onClick={handleCreateTask}>
                                     Create Task
