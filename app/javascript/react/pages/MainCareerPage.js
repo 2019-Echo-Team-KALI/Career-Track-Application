@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import arvin from '../images/arvinlleva.jpg'
 import ProfileCard from '../components/ProfileCard'
 import CategoriesSection from '../components/categories/CategoriesSection'
@@ -13,12 +13,18 @@ import Sticky from 'react-sticky-el';
 function MainCareerPage(props) {
 
     const {current_user_id, loadJobs, loadTasks, apiJobsData ,apiTasksData, getTask } = props
+    const [ reload, setReload ] = useState(false)
 
     useEffect(() => { // we need lifecycle hook here to reload the data whenever we create a page, we may need to rename the load functions to make things easier
         // the load functions set the data
         loadJobs()
         loadTasks()
     },[])
+
+    function handleReload() {
+        loadJobs()
+        loadTasks()
+    }
 
     return (
       <React.Fragment>
@@ -27,6 +33,7 @@ function MainCareerPage(props) {
 
             <CategoriesSection
               apiJobsData={apiJobsData}
+              handleReload={handleReload}
             />
 
 
@@ -42,6 +49,7 @@ function MainCareerPage(props) {
             apiTasksData={apiTasksData}
             getTask = {getTask}
           />
+
       </React.Fragment>
     );
 

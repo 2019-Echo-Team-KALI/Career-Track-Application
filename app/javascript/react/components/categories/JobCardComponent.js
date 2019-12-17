@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 import Sticky from 'react-sticky-el';
 import { editJob } from "../../api/jobs/jobs-api"
 
-const JobCardComponent = ({jobObj}) => {
+const JobCardComponent = ({jobObj, handleReload}) => {
     const [ reload, setReload ] = useState(false)
     const [ buttonOpen, setButtonOpen ] = useState(true)
 
@@ -17,7 +17,7 @@ const JobCardComponent = ({jobObj}) => {
       setButtonOpen(!buttonOpen)
     }
 
-    
+
 
 
 
@@ -34,11 +34,34 @@ const JobCardComponent = ({jobObj}) => {
         setCurrentJob(newJobData)
     }
 
+    // function editJob(job,id){
+    //     return fetch(`/jobs/${id}`, {
+    //         body: JSON.stringify(job),
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         method: 'PATCH',
+    //     })
+    //     .then(resp => {
+    //         if (resp.status === 200) {
+    //             let json = resp.json()
+    //             return json
+    //         } else {
+    //             resp.json()
+    //             .then(payload => {
+    //                 setErrors(payload.error)
+    //             })
+    //         }
+    //     })
+    // }
+
     function handleFinishEdit() {
         console.log(jobObj)
         console.log("edit complete")
         editJob(currentJob,currentJob.id)
-
+        .then(() => {
+            handleReload()
+        })
     }
     console.log(currentJob)
 
@@ -55,14 +78,14 @@ const JobCardComponent = ({jobObj}) => {
 
                   </Link>
               </Button>
-              
-                <Button style = {{textAlign: 'center', textTransform: 'capitalize'}} variant = 'secondary'onClick = {opener}> Select Category </Button> 
-              
+
+                <Button style = {{textAlign: 'center', textTransform: 'capitalize'}} variant = 'secondary'onClick = {opener}> Change Job Status </Button>
+
 
               <Card.Text>
 
 
-              {categoryOpen && 
+              {categoryOpen &&
 
                 <Form style = {{display: 'flex', marginTop: '3%'}}>
                   <Form.Group controlId="controlSelect1" style = {{display: 'flex', marginLeft: '1%', marginBottom: '0em', width: '150%'}}>
@@ -79,11 +102,11 @@ const JobCardComponent = ({jobObj}) => {
                       </Form.Control>
                   </Form.Group>
                   <Button variant = 'success' style = {{display: 'inlineBlock', height: '70%',marginRight: '0.5%', marginLeft: '21%', marginBottom: '0.5em'}}onClick={handleFinishEdit}>Change</Button>
-                  
+
 
               </Form>
               }
-              
+
 
               </Card.Text>
 

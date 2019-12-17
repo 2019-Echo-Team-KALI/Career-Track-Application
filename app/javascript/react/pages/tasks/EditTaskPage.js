@@ -27,7 +27,7 @@ function EditTaskPage(props) {
     }
     useEffect(() => { // to constantly load the tasks
         loadTasks()
-        loadJob() 
+        loadJob()
     },[])
     // taskSuccess we need this so it can reload
 
@@ -54,7 +54,6 @@ function EditTaskPage(props) {
         console.log("back edit")
         loadTasks()
         setReload(true)
-
     }
 
     function handleBack() {
@@ -64,10 +63,10 @@ function EditTaskPage(props) {
     }
 
 
-    
+
 
     function loadJob(){
-        getJob(paramJobId) 
+        getJob(paramJobId)
             .then(job => {
                 if(job.errors) {
                     setErrors(job.errors)
@@ -80,20 +79,20 @@ function EditTaskPage(props) {
         <div>
 <h1 style={{textAlign: 'center', marginTop: '2em', marginBottom: '-1.4em'}}><u> Tasks</u> for {jobOfTask.name}: {jobOfTask.title}</h1>
              {currentJobTasks}
-            
-            <div style ={{marginBottom: '2em', width: '60.4%', marginLeft: '20%'}}> 
-                <div style ={{float: 'left'}}> 
+
+            <div style ={{marginBottom: '2em', width: '60.4%', marginLeft: '20%'}}>
+                <div style ={{float: 'left'}}>
                     <Button variant = 'info' onClick={handleBack} style={{}} >
                         Back
                     </Button>
-                </div> 
+                </div>
 
-                <div style ={{float: 'right'}}> 
+                <div style ={{float: 'right'}}>
                     <Button variant = 'info' onClick={handleReload}>
                         Reload
                     </Button>
-                </div> 
-            </div> 
+                </div>
+            </div>
 
              {reload &&
                  <Redirect to={`/jobs/${paramJobId}/edittaskpage`}/>
