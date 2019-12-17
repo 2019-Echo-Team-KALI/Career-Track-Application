@@ -64,17 +64,17 @@ function CurrentJobPage(props) { // this should be called JobCard component
             <div key={index}>
                 {job_id == paramJobId &&
                     <div>
-                        <Accordion defaultActiveKey="0">
+                        <Accordion defaultActiveKey="0" style = {{marginBottom: '2%'}}>
                             <Card>
-                            <Accordion.Toggle as={Card.Header} eventKey="1" style = {{borderStyle: 'solid',borderWidth: 'thin', borderBottom: 'none', borderLeft: 'none', borderRight: 'none'}} >
-                                Task: {title}
+                            <Accordion.Toggle as={Card.Header} eventKey="1" style = {{borderWidth: 'thin'}} >
+                                {title}
                                 <br /> <hr style ={{marginTop: '0em'}}/>
-                                 Task Description: {description}
+                                 Description: {description}
                             </Accordion.Toggle>
 
                             <Accordion.Collapse eventKey="1" >
                                 <Card.Body>
-                                    <b><u>Task Location: {location}</u></b>
+                                    <b><u>Location: {location}</u></b>
                                     <br /> <b>Start time :</b> {moment(start_time).format('MMMM Do YYYY, h:mm:ss a ')}
                                     <br /> <b>End time:</b>  {moment(end_time).format('MMMM Do YYYY, h:mm:ss a ')}
                                 </Card.Body>
