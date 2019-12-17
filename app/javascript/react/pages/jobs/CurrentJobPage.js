@@ -141,17 +141,16 @@ function CurrentJobPage(props) { // this should be called JobCard component
                         <ButtonToolbar style={{display: 'flex'}}>
 
                                 <div> 
-                                    <Button variant='info'>
-                                        <Link to={`/jobs/edit/${paramJobId}`}>
-                                            <span style = {{color: 'white'}}>Edit Job</span>
-                                        </Link>
-                                    </Button>
+                                    <Link to={`/jobs/edit/${paramJobId}`}>
+                                        <Button variant='info'>
+                                                <span style = {{color: 'white'}}>Edit Job</span>
+                                        </Button>
+                                    </Link>
                                 </div> 
 
                                 <div style = {{float: 'right', marginLeft: 'auto'}} > 
                                     <Button
                                         variant='info' 
-                                        
                                         onClick={() => handleDelete(paramJobId)}>
                                         Delete
                                     </Button>
@@ -183,19 +182,19 @@ function CurrentJobPage(props) { // this should be called JobCard component
                     <ButtonToolbar style={{display: 'flex'}}>
 
                             <div> 
-                                <Button variant='info'>
-                                    <Link to={`/jobs/${paramJobId}/edittaskpage`}>
-                                        <span style = {{color: 'white'}}>Edit Task</span>
-                                    </Link>
-                                </Button>
+                                <Link to={`/jobs/${paramJobId}/edittaskpage`}>
+                                    <Button variant='info'>
+                                            <span style = {{color: 'white'}}>Edit Task</span>
+                                    </Button>
+                                </Link> 
                             </div> 
 
                             <div style = {{float: 'right', marginLeft: 'auto'}}> 
-                                <Button variant='info'>
-                                    <Link to={`/jobs/${paramJobId}/createtaskpage`}>
-                                        <span style = {{color: 'white'}}>Add Tasks</span>
-                                    </Link>
-                                </Button>
+                                <Link to={`/jobs/${paramJobId}/createtaskpage`}>
+                                    <Button variant='info'>
+                                            <span style = {{color: 'white'}}>Add Tasks</span>
+                                    </Button>
+                                </Link> 
                             </div> 
                             
                         </ButtonToolbar>
