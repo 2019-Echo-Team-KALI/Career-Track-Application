@@ -9,7 +9,9 @@ import JobCardComponent from "./JobCardComponent"
 
 function CategoryComponent(props) { // this should be called JobCard component
 
-    const { title, description, id, index, apiJobsData, categories} = props // we have the apiJ
+
+    const { title, description, id, index, apiJobsData, handleReload} = props // we have the apiJ
+
 
     const displayJobs = [...apiJobsData].reverse().map((jobObj, index) => {
 
@@ -21,6 +23,7 @@ function CategoryComponent(props) { // this should be called JobCard component
 
                     <JobCardComponent
                         jobObj={jobObj}
+                        handleReload={handleReload}
                         />
                 }
             </div>
@@ -31,7 +34,7 @@ function CategoryComponent(props) { // this should be called JobCard component
         <div className='jumbotron' id = {id} key = {index} style ={{ width: '22%', verticalAlign: 'top', display: 'inline-block', marginRight: '2.5em', padding: '0.7em'}}>
               <h1 className="display-3" style = {{ textAlign: 'center', fontSize: '200%'}}><u>{title}</u></h1>
               <p className="lead" style={{textAlign: 'center', opacity: 0.6}}>{description}</p>
-              <hr className="my-4" />   
+              <hr className="my-4" />
               {displayJobs}
         </div>
     )

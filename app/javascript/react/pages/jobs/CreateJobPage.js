@@ -56,7 +56,7 @@ function CreateJobPage(){
         } else {
             createJob(jobData)
             .then(() => {
-    
+
                 setJobSuccess(true)
             })
         }

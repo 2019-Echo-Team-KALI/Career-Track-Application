@@ -7,7 +7,8 @@ import Sticky from 'react-sticky-el';
 import CategoryComponent from './CategoryComponent'
 
 function CategoriesSection(props) { // this should be called JobCard component
-    const { apiJobsData } = props
+
+    const { apiJobsData, handleReload } = props
 
     const [ categories, setCategories ] = useState([
         {
@@ -37,6 +38,7 @@ function CategoriesSection(props) { // this should be called JobCard component
         }
     ])
 
+
     const displayCategories = categories.map((categoryObj, index) => {
       const { title, description, id } = categoryObj
       /* here is where we wrap it into a the Droppable*/
@@ -48,13 +50,20 @@ function CategoriesSection(props) { // this should be called JobCard component
             description={description}
             id={id}
             key={index}
+            handleReload={handleReload}
          />
       )
     })
 
+    function handleReloadButton() {
+        handleReload()
+    }
+
     return (
-        <div style={{borderStyle: 'edge', width: '80%', float: 'right', marginTop: '1em', marginLeft: '1em', display: 'inline-block'}}>       
+        <div style={{borderStyle: 'edge', width: '80%', float: 'right', marginTop: '1em', marginLeft: '1em', display: 'inline-block'}}>
             {displayCategories}
+            <button onClick={handleReloadButton}>Reload </button>
+
         </div>
     )
 }

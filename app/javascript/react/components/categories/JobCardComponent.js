@@ -7,8 +7,7 @@ import { useState, useEffect } from 'react'
 import Sticky from 'react-sticky-el';
 import { editJob } from "../../api/jobs/jobs-api"
 
-const JobCardComponent = ({jobObj}) => {
-
+const JobCardComponent = ({jobObj, handleReload}) => {
 
     const [ reload, setReload ] = useState(false)
     const [ buttonOpen, setButtonOpen ] = useState(true)
@@ -19,14 +18,14 @@ const JobCardComponent = ({jobObj}) => {
       setButtonOpen(!buttonOpen)
     }
 
-    
+
 
 
 
     const [ currentJob, setCurrentJob ] = useState(
     {
         ...jobObj,
-        category:jobObj.category
+        category: jobObj.category
     })
 
     const [ renderDropDown, setRenderDropDown ] = useState(false)
@@ -40,7 +39,9 @@ const JobCardComponent = ({jobObj}) => {
         console.log(jobObj)
         console.log("edit complete")
         editJob(currentJob,currentJob.id)
-
+        .then(() => {
+            handleReload()
+        })
     }
     console.log(currentJob)
 
@@ -54,15 +55,15 @@ const JobCardComponent = ({jobObj}) => {
                   <Card.Title style ={{fontSize: '75%'}}>{jobObj.title}</Card.Title>
                 <hr  style={{marginBottom: '0em', marginTop: '-0.1em'}} />
               </Button>
+
             </Link> 
               
-              <Button style = {{textAlign: 'center', textTransform: 'capitalize',padding: '2%'}} variant = 'secondary'onClick = {opener}>change category </Button> 
-              
+              <Button style = {{textAlign: 'center', textTransform: 'capitalize',padding: '2%'}} variant = 'secondary'onClick = {opener}> Change Job Status </Button> 
 
               <Card.Text>
 
 
-              {categoryOpen && 
+              {categoryOpen &&
 
                 <Form style = {{display: 'flex', marginTop: '3%'}}>
                   <Form.Group controlId="controlSelect1" style = {{display: 'inline-block', marginLeft: '2%', marginBottom: '0em'}}>
@@ -79,12 +80,14 @@ const JobCardComponent = ({jobObj}) => {
                         <option value="Offer/Rejected">Offer/Rejected</option>
                       </Form.Control>
                   </Form.Group>
+
                   <Button variant = 'success' style = {{ display: 'inlineBlock', height: '70%',marginRight: '1%', marginLeft: '21%', marginBottom: '0.5em'}}onClick={handleFinishEdit}>Change</Button>
                   
 
+
               </Form>
               }
-              
+
 
               </Card.Text>
 

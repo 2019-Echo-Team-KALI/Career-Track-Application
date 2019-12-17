@@ -61,7 +61,6 @@ function editJob(job,id){
     .then(resp => {
         if (resp.status === 200) {
             let json = resp.json()
-            setEditComplete(true)
             return json
         } else {
             resp.json()
