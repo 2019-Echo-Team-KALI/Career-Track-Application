@@ -35,27 +35,6 @@ const JobCardComponent = ({jobObj, handleReload}) => {
         setCurrentJob(newJobData)
     }
 
-    // function editJob(job,id){
-    //     return fetch(`/jobs/${id}`, {
-    //         body: JSON.stringify(job),
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         method: 'PATCH',
-    //     })
-    //     .then(resp => {
-    //         if (resp.status === 200) {
-    //             let json = resp.json()
-    //             return json
-    //         } else {
-    //             resp.json()
-    //             .then(payload => {
-    //                 setErrors(payload.error)
-    //             })
-    //         }
-    //     })
-    // }
-
     function handleFinishEdit() {
         console.log(jobObj)
         console.log("edit complete")
