@@ -97,17 +97,19 @@ function CreateTaskPage(props) { // this should be called JobCard component
         const {job_id, title, description, start_time, end_time, location} = task
 
         let modifiedTask =
-         {title: task.title,
-          description: task.description,
-          startTime: task.start_time,
-          endTime: task.end_time,
-          location: task.location}
+         {
+            title: task.title,
+            description: task.description,
+            startTime: task.start_time,
+            endTime: task.end_time,
+            location: task.location
+        }
 
         return (
             <div key={index}>
                 {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
                 {job_id == paramJobId &&
-                <ListGroupItem> {title} </ListGroupItem>
+                <ListGroupItem>Task: {title} </ListGroupItem>
                 }
                 {job_id == paramJobId &&
                 <AddToCalendar event={modifiedTask} />
@@ -121,10 +123,10 @@ function CreateTaskPage(props) { // this should be called JobCard component
         <React.Fragment>
             <div style={{width: '37%', marginLeft: '12%', marginRight: '1%', marginTop: '3em', display: 'inline-block'}}>
                 <Jumbotron>
-                    <h1 style={{textAlign: 'center'}}> Add Tasks for this {jobOfTask.title} position </h1>
+                    <h1 style={{textAlign: 'center'}}> Add Tasks for this {jobOfTask.title} position at {jobOfTask.name}</h1>
                     <Form style={{marginTop: '2em'}}>
                         <Form.Group>
-                            <Form.Label>Title:</Form.Label>
+                            <Form.Label>Task Name:</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="title"
@@ -134,7 +136,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
                             />
                         </Form.Group>
                         <Form.Group>
-                            <Form.Label>Description:</Form.Label>
+                            <Form.Label>Task Description:</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="description"
@@ -151,7 +153,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
                         {addEvent &&
                         <Form.Group>
-                            <Form.Label>Location:</Form.Label>
+                            <Form.Label>Task Location:</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="location"
@@ -186,7 +188,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
                         <ButtonToolbar style={{display: 'flex'}}>
                             <div>
                                 <Button variant = 'info' style={{marginRight: '1em'}} onClick={handleCreateTask}>
-                                    Create Task
+                                    Add the Task
                                 </Button>
                             </div>
 
@@ -204,7 +206,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
             <div style={{display: 'inline-block', float: 'right', width: '37%', marginRight: '12%', marginLeft: '1%', marginTop: '3em'}}>
                 <Jumbotron>
-                    <h4 style ={{textAlign: 'center'}}><u>Tasks</u> </h4>
+                    <h4 style ={{textAlign: 'center'}}><u>Tasks List</u> </h4>
                     <ListGroup className="tasks">
                         {currentJobTasks}
                     </ListGroup>
@@ -214,7 +216,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
             <div style={{display: 'block', width: '66%', marginLeft: '12%'}}>
                 <ButtonToolbar>
                     <Button variant = 'dark' style={{marginRight: '1em'}} onClick={handleBackClick}>
-                    Back
+                    Back to Job Details
                     </Button>
                 </ButtonToolbar>
             </div>

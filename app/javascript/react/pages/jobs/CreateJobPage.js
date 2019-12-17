@@ -69,12 +69,14 @@ function CreateJobPage(){
     return (
       <React.Fragment>
          <div className="editorcreateforms">
+
             <Button variant = 'info' onClick={handleBack} style={{marginLeft: '20%',marginTop: '2%'}}>Back To Dashboard</Button>
 
             <h1 style = {{marginBottom: '-4%'}}>Track A New Job</h1>
+
             <Form className = "formContainer">
               <Form.Group controlId="formGroupName">
-                     <Form.Label>Name:</Form.Label>
+                     <Form.Label>Company Name:</Form.Label>
                      <Form.Control
                        type="text"
                        name="name"
@@ -84,7 +86,7 @@ function CreateJobPage(){
                 </Form.Group>
 
                  <Form.Group controlId="formGroupTitle">
-                     <Form.Label>Title</Form.Label>
+                     <Form.Label>Position Title:</Form.Label>
                      <Form.Control
                        type="text"
                        name="title"
@@ -94,7 +96,7 @@ function CreateJobPage(){
                  </Form.Group>
 
                  <Form.Group>
-                     <Form.Label>Description</Form.Label>
+                     <Form.Label>Job Description:</Form.Label>
                      <Form.Control
                        type="text"
                        name="description"
@@ -104,7 +106,7 @@ function CreateJobPage(){
                  </Form.Group>
 
                  <Form.Group>
-                     <Form.Label>URL</Form.Label>
+                     <Form.Label>Job post URL:</Form.Label>
                      <Form.Control
                        type="text"
                        name="url"
@@ -114,7 +116,7 @@ function CreateJobPage(){
                  </Form.Group>
 
                  <Form.Group controlId="controlSelect1">
-                    <Form.Label>Category Select:</Form.Label>
+                    <Form.Label>Select Current Job Status:</Form.Label>
                     <Form.Control
                         as="select"
                         name="category"
@@ -131,7 +133,9 @@ function CreateJobPage(){
                   </Form.Group>
 
                   <ButtonToolbar>
+
                     <Button variant = 'info' onClick={handleClick} style = {{}}>Save Job</Button>
+
                  </ButtonToolbar>
              </Form>
              </div>

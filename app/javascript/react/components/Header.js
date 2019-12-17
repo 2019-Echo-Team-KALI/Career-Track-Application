@@ -14,7 +14,7 @@ function Header(props) {
         <React.Fragment>
             <nav>
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                  <Link to="/" className="navbar-brand"><b>KALI</b></Link>
+                  <Link to="/" className="navbar-brand"><b>CAREER TRACK</b></Link>
                   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                   </button>
@@ -22,12 +22,12 @@ function Header(props) {
                     <ul className="navbar-nav mr-auto">
                     {logged_in &&
                       <li className="nav-item active">
-                        <Link to="/maincareerpage" className="nav-link">Listings</Link> <span className="sr-only">(current)</span>
+                        <Link to="/maincareerpage" className="nav-link">Career Dashboard</Link> <span className="sr-only">(current)</span>
                       </li>
                     }
                     {logged_in &&
                       <li className="nav-item">
-                        <Link to="/createjobpage" className="nav-link">Create Job Listing </Link>
+                        <Link to="/createjobpage" className="nav-link">Add a job to track </Link>
                       </li>
                     }
 

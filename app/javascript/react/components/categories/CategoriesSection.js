@@ -62,6 +62,7 @@ function CategoriesSection(props) { // this should be called JobCard component
     return (
         <div style={{borderStyle: 'edge', width: '80%', float: 'right', marginTop: '1em', marginLeft: '1em', display: 'inline-block'}}>
             {displayCategories}
+
         </div>
     )
 }
