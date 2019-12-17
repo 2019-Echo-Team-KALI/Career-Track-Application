@@ -14,7 +14,7 @@ function CategoriesSection(props) { // this should be called JobCard component
         {
             title: 'Wish List',
             id: 0,
-            description: 'Your Wish List of jobs to apply for',
+            description: 'Your Wish List of jobs',
             jobs: []
         },
         {

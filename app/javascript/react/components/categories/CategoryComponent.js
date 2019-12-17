@@ -9,7 +9,9 @@ import JobCardComponent from "./JobCardComponent"
 
 function CategoryComponent(props) { // this should be called JobCard component
 
+
     const { title, description, id, index, apiJobsData, handleReload} = props // we have the apiJ
+
 
     const displayJobs = [...apiJobsData].reverse().map((jobObj, index) => {
 
