@@ -202,7 +202,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
                 </Jumbotron>
             
             <div style = {{display: 'block', marginBottom: '3%'}}> 
-                <Button variant='dark' onClick={handleBack} style={{display: 'block'}}> Main Page</Button>
+                <Button variant='dark' onClick={handleBack} style={{display: 'block'}}>Dash Board</Button>
             </div> 
 
             {goBack &&
