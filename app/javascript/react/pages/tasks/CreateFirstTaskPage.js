@@ -239,19 +239,19 @@ function CreateTaskPage(props) { // this should be called JobCard component
             <div style={{display: 'block', width: '66%', marginLeft: '12%'}}>
                 <ButtonToolbar>
                     <Button variant = 'dark' style={{marginRight: '1em'}} onClick={handleBackClick}>
-                    Back to Job Details
+                    Back to Career Dashboard
                     </Button>
                 </ButtonToolbar>
             </div>
 
             {tasksCreatedDone &&
-               <Redirect to={`/jobs/${paramJobId}`} />
+               <Redirect to={`/maincareerpage`} />
             }
             {goBack &&
                 <Redirect to={`/jobs/${paramJobId}`} />
             }
             {taskSuccess &&
-                <Redirect to={`/jobs/${paramJobId}/createtaskpage`} />
+                <Redirect to={`/jobs/${paramJobId}/createfirsttaskpage`} />
             }
         </React.Fragment>
     )

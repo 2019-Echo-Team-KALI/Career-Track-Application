@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 import { Form, ButtonToolbar, Button, DropdownButton, SplitButton, Dropdown } from 'react-bootstrap'
 
 
-function CreateJobPage(){
+function CreateFirstTaskPage(){
     const [jobSuccess, setJobSuccess] = useState(false)
     const [goBack, setGoBack] = useState(false)
     const [currentJobId, setCurrentJobId] = useState()
@@ -141,7 +141,7 @@ function CreateJobPage(){
              </div>
 
              {jobSuccess &&
-                <Redirect to={`/jobs/${currentJobId}/createtaskpage`}/>
+                <Redirect to={`/jobs/${currentJobId}/createfirsttaskpage`}/>
              }
              {goBack &&
                  <Redirect to="/maincareerpage"/>
@@ -150,4 +150,4 @@ function CreateJobPage(){
     );
 }
 
-export default CreateJobPage
+export default CreateFirstTaskPage
