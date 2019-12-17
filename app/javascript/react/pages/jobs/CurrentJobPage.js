@@ -57,32 +57,32 @@ function CurrentJobPage(props) { // this should be called JobCard component
 
     const currentJobTasks = apiTasksData.map((task, index) => {
         const {id, name, job_id, title, location, start_time, end_time, description} = task
-        
-       
-        
+
+
+
         return (
             <div key={index}>
                 {job_id == paramJobId &&
-                    <div> 
+                    <div>
                         <Accordion defaultActiveKey="0">
                             <Card>
                             <Accordion.Toggle as={Card.Header} eventKey="1" style = {{borderStyle: 'solid',borderWidth: 'thin', borderBottom: 'none', borderLeft: 'none', borderRight: 'none'}} >
-                                {title}: 
-                                <br /> <hr style ={{marginTop: '0em'}}/> 
-                                 {description}
+                                Task: {title}
+                                <br /> <hr style ={{marginTop: '0em'}}/>
+                                 Task Description: {description}
                             </Accordion.Toggle>
-                            
+
                             <Accordion.Collapse eventKey="1" >
                                 <Card.Body>
-                                    <b><u>{location}</u></b>: 
-                                    <br /> <b>Start:</b> {moment(start_time).format('MMMM Do YYYY, h:mm:ss a ')} 
-                                    <br /> <b>End:</b>  {moment(end_time).format('MMMM Do YYYY, h:mm:ss a ')}
+                                    <b><u>Task Location: {location}</u></b>
+                                    <br /> <b>Start time :</b> {moment(start_time).format('MMMM Do YYYY, h:mm:ss a ')}
+                                    <br /> <b>End time:</b>  {moment(end_time).format('MMMM Do YYYY, h:mm:ss a ')}
                                 </Card.Body>
                             </Accordion.Collapse>
                             </Card>
-                        </Accordion > 
+                        </Accordion >
 
-                    </div> 
+                    </div>
                 }
             </div>
         )
@@ -109,7 +109,9 @@ function CurrentJobPage(props) { // this should be called JobCard component
     }
 
     function handleDelete(){
-        deleteJob(paramJobId)
+        if (confirm("Are you sure?")) { // built in the browser methods, you can style it with online tools
+            deleteJob(paramJobId)
+        }
     }
 
     function handleBack() {
@@ -120,44 +122,47 @@ function CurrentJobPage(props) { // this should be called JobCard component
 
     return (
         <div className = "currentjob" style={{ marginBottom: '3%'}}>
-            
-            
+
+
 
             <Jumbotron style ={{width: '48%', height: '38.5em', display: 'inline-block', marginRight: '2%', verticalAlign: 'top'}}>
-                    <div style = {{height: '22.3em'}}> 
-                        <h1 style ={{marginBottom: '7%', textAlign: 'center'}}><u>{category}</u> </h1>
-                        <h1 style={{display: 'inline'}}><b>{name}:  </b></h1>
-                        <h3 style={{textTransform: 'capitalize',display: 'inline'}}>{title}</h3>
+                    <div style = {{height: '22.3em'}}>
+                        <h1 style ={{marginBottom: '7%', textAlign: 'center'}}><u>Job Details</u> </h1>
+                        <h1 style={{textTransform: 'capitalize'}}><b>Company Name: {name}  </b></h1>
+                        <h3 style={{textTransform: 'capitalize'}}>Position Title: {title}</h3>
                         <p>
-                            {description}
+                            Job Description: {description}
                         </p>
-                    </div> 
+                        <h3 style={{textTransform: 'capitalize'}}>Job post URL: {url}</h3>
+                        <h3 style={{textTransform: 'capitalize'}}>Current Status: {category}</h3>
+
+                    </div>
                     <br />
                     <br />
 
-                    <div style = {{}}> 
+                    <div style = {{}}>
                         <hr  style={{marginBottom: '0.em'}} />
 
                         <ButtonToolbar style={{display: 'flex'}}>
 
-                                <div> 
+                                <div>
                                     <Button variant='info'>
                                         <Link to={`/jobs/edit/${paramJobId}`}>
-                                            <span style = {{color: 'white'}}>Edit Job</span>
+                                            <span style = {{color: 'white'}}>Edit Job Details</span>
                                         </Link>
                                     </Button>
-                                </div> 
+                                </div>
 
-                                <div style = {{float: 'right', marginLeft: 'auto'}} > 
+                                <div style = {{float: 'right', marginLeft: 'auto'}} >
                                     <Button
-                                        variant='info' 
-                                        
+                                        variant='info'
+
                                         onClick={() => handleDelete(paramJobId)}>
-                                        Delete
+                                        Delete Job
                                     </Button>
-                                </div> 
+                                </div>
                         </ButtonToolbar>
-                    </div> 
+                    </div>
 
                 </Jumbotron>
 
@@ -170,9 +175,9 @@ function CurrentJobPage(props) { // this should be called JobCard component
                     </p>*/}
 
                     <ListGroup >
-                        <h4 style ={{textAlign: 'center'}}>Tasks </h4> 
-                        <ListGroup.Item style = {{height: '20em', overflowY: 'scroll'}}>    
-                            {currentJobTasks} 
+                        <h4 style ={{textAlign: 'center'}}>Tasks </h4>
+                        <ListGroup.Item style = {{height: '20em', overflowY: 'scroll'}}>
+                            {currentJobTasks}
                         </ListGroup.Item>
                     </ListGroup>
 
@@ -182,28 +187,28 @@ function CurrentJobPage(props) { // this should be called JobCard component
 
                     <ButtonToolbar style={{display: 'flex'}}>
 
-                            <div> 
+                            <div>
                                 <Button variant='info'>
                                     <Link to={`/jobs/${paramJobId}/edittaskpage`}>
-                                        <span style = {{color: 'white'}}>Edit Task</span>
+                                        <span style = {{color: 'white'}}>Edit Tasks</span>
                                     </Link>
                                 </Button>
-                            </div> 
+                            </div>
 
-                            <div style = {{float: 'right', marginLeft: 'auto'}}> 
+                            <div style = {{float: 'right', marginLeft: 'auto'}}>
                                 <Button variant='info'>
                                     <Link to={`/jobs/${paramJobId}/createtaskpage`}>
                                         <span style = {{color: 'white'}}>Add Tasks</span>
                                     </Link>
                                 </Button>
-                            </div> 
-                            
+                            </div>
+
                         </ButtonToolbar>
                 </Jumbotron>
-            
-            <div style = {{display: 'block', marginBottom: '3%'}}> 
+
+            <div style = {{display: 'block', marginBottom: '3%'}}>
                 <Button variant='dark' onClick={handleBack} style={{display: 'block'}}> Main Page</Button>
-            </div> 
+            </div>
 
             {goBack &&
                 <Redirect to='/maincareerpage'/>
