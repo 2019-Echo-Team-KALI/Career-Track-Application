@@ -58,7 +58,6 @@ function CreateTaskPage(props) { // this should be called JobCard component
         alert("Please Enter a title for the task")
       }  else {
         createTask(taskData)
-        setAddEvent(false)
         .then(successTask => {
             console.log("Success! New Task: ", successTask)
             taskCreatedSuccess()
@@ -72,6 +71,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
     function handleAddEvent() {
         setAddEvent(!addEvent)
+
 
     }
 
