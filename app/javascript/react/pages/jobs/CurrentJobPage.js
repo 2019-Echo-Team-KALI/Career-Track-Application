@@ -121,12 +121,13 @@ function CurrentJobPage(props) { // this should be called JobCard component
     const { name, title, description, tasks, url, user_id, category } = currentJob
 
     return (
-        <div className = "currentjob" style={{ marginBottom: '3%'}}>
+        <div className = "currentjob" style={{ marginBottom: '3%', alignContent: 'center'}}>
 
 
+{/* */}
+            <Jumbotron style ={{width: '48%', display: 'inline-block',height: '38.5em', marginRight: '2%', verticalAlign: 'top'}}>
 
-            <Jumbotron style ={{width: '48%', height: '38.5em', display: 'inline-block', marginRight: '2%', verticalAlign: 'top'}}>
-                    <div style = {{height: '22.3em'}}>
+                    {/*<div style = {{height: '22.3em'}}>
                         <h1 style ={{marginBottom: '7%', textAlign: 'center'}}><u>Job Details</u> </h1>
                         <h1 style={{textTransform: 'capitalize'}}><b>Company Name: {name}  </b></h1>
                         <h3 style={{textTransform: 'capitalize'}}>Position Title: {title}</h3>
@@ -136,7 +137,26 @@ function CurrentJobPage(props) { // this should be called JobCard component
                         <h3 style={{textTransform: 'capitalize'}}>Job post URL: {url}</h3>
                         <h3 style={{textTransform: 'capitalize'}}>Current Status: {category}</h3>
 
+                    /div>*/}
+                    <div style = {{marginTop: '-4%', marginBottom: '17.5%'}}> 
+                        <Card.Header style ={{textTransform: 'uppercase', fontSize: '200%', textAlign: 'center'}}>{name} </Card.Header>
+                        <Card variant="light" style={{ width: '100%' }}>
+                            <Card.Body>
+
+                                <Card.Title>Position Title: {title} </Card.Title>
+                                <Card.Title>Current Status: {category}</Card.Title>
+                                <Card.Title>Job Post URL: {url}</Card.Title> 
+                                <Card.Title style = {{display: 'inline'}}>
+                                    Description: 
+                                </Card.Title>
+                                <Card.Text> 
+                                    {description}
+                                </Card.Text>
+
+                            </Card.Body>
+                        </Card>
                     </div>
+                    
                     <br />
                     <br />
 
@@ -168,15 +188,10 @@ function CurrentJobPage(props) { // this should be called JobCard component
                 </Jumbotron>
 
                 <Jumbotron style ={{width: '48%', height: '38.5em', display: 'inline-block'}}>
-                    {/*<h1>Status: {category}  </h1>
-                    <h1 style={{display: 'inline'}}><b>{name}:  </b></h1>
-                    <h3 style={{textTransform: 'capitalize',display: 'inline'}}>{title}</h3>
-                    <p>
-                    {description}
-                    </p>*/}
+                    
 
-                    <ListGroup >
-                        <h4 style ={{textAlign: 'center'}}>Tasks </h4>
+                    <ListGroup style = {{marginTop: '-4%'}} >
+                        <Card.Header variant = 'light' style ={{textTransform: 'uppercase',textAlign: 'center', fontSize: '200%'}}>Tasks </Card.Header>
                         <ListGroup.Item style = {{height: '20em', overflowY: 'scroll'}}>
                             {currentJobTasks}
                         </ListGroup.Item>
@@ -216,7 +231,6 @@ function CurrentJobPage(props) { // this should be called JobCard component
             }
 
         </div>
-
     )
 }
 
