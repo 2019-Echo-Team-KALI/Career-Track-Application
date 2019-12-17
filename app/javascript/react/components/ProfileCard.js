@@ -18,8 +18,8 @@ function ProfileCard(props) {
 
   return(
 
-    <Sticky holderCmp={Card} holderProps={{style:{ width: '16%', borderOpacity: 1, height: '59%', marginTop: '-1.5em', display: 'inline-block', marginLeft: '2.5em', marginBottom: '15em'}}}>
-
+    <Sticky holderProps={{style:{ width: '16%', borderOpacity: 1, height: '59%', marginTop: '-1.5em', display: 'inline-block', marginLeft: '2.5em', marginBottom: '15em'}}}>
+      <Card> 
         <Card.Img variant="top" src={profilePic} style={{marginBottom: '-0.7em'}} />
 
           <Card.Body >
@@ -32,7 +32,7 @@ function ProfileCard(props) {
           </Card.Body>
 
             <div style ={{maxHeight: '20%'}}>
-              <div style={{ height: '500px', overflowY: 'scroll' }}>
+              <div style={{ height: '440px', overflowY: 'scroll' }}>
                 <MainTaskList
                       apiTasksData={apiTasksData}
                       apiJobsData={apiJobsData}
@@ -42,7 +42,7 @@ function ProfileCard(props) {
               </div>
             </div>
           </div>
-
+      </Card> 
     </Sticky>
 
  )
