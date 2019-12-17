@@ -18,9 +18,9 @@ function ProfileCard(props) {
 
   return(
 
-    <Sticky holderProps={{style:{ width: '16%', borderOpacity: 1, height: '59%', marginTop: '-1.5em', display: 'inline-block', marginLeft: '2.5em', marginBottom: '15em'}}}>
+    <Sticky holderProps={{style:{ width: '16%', borderOpacity: 1, height: '59%', marginTop: '-2em', display: 'inline-block', marginLeft: '2.5em', marginBottom: '15em'}}}>
       <Card> 
-        <Card.Img variant="top" src={profilePic} style={{marginBottom: '-0.7em'}} />
+        <Card.Img variant="top" src={profilePic} style={{marginBottom: '-0.9em'}} />
 
           <Card.Body >
             <Card.Title style={{textAlign: 'center', marginBottom: '-5em'}}>User Name</Card.Title>

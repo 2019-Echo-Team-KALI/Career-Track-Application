@@ -69,7 +69,11 @@ function CreateJobPage(){
     return (
       <React.Fragment>
          <div className="editorcreateforms">
-            <h1>What job do you want to track?</h1>
+
+            <Button variant = 'info' onClick={handleBack} style={{marginLeft: '20%',marginTop: '2%'}}>Back To Dashboard</Button>
+
+            <h1 style = {{marginBottom: '-4%'}}>Track A New Job</h1>
+
             <Form className = "formContainer">
               <Form.Group controlId="formGroupName">
                      <Form.Label>Company Name:</Form.Label>
@@ -129,8 +133,9 @@ function CreateJobPage(){
                   </Form.Group>
 
                   <ButtonToolbar>
-                    <Button variant = 'info' onClick={handleBack} style={{marginRight: '1em'}}>Go Back to Main Page</Button>
-                    <Button variant = 'info' onClick={handleClick}>Save Job</Button>
+
+                    <Button variant = 'info' onClick={handleClick} style = {{}}>Save Job</Button>
+
                  </ButtonToolbar>
              </Form>
              </div>

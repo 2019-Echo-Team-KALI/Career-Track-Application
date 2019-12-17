@@ -48,7 +48,7 @@ function EditTaskComponent(props) {
     function handleTaskDelete() {
         deleteTask(id)
         .then(() => {
-            setTaskDeleteSuccess(true)
+            setTaskDeleteSuccess(!taskDeleteSuccess)
             handleReload()
         })
     }
