@@ -15,6 +15,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
     const [ taskSuccess, setTaskSuccess ] = useState(false)
     const [ goBack, setGoBack ] = useState(false)
     const [ tasksCreatedDone, setTasksCreatedDone ] = useState(false)
+    const [ addEvent, setAddEvent ] = useState(false)
     const [ jobOfTask, setJobOfTask ] = useState({})
 
     const [ taskData, setTaskData ] = useState(
@@ -68,6 +69,12 @@ function CreateTaskPage(props) { // this should be called JobCard component
         setTasksCreatedDone(true)
     }
 
+    function handleAddEvent() {
+        setAddEvent(!addEvent)
+        console.log(addEvent)
+
+    }
+
     function loadJob(){
       getJob(paramJobId)
           .then(job => {
@@ -110,51 +117,6 @@ function CreateTaskPage(props) { // this should be called JobCard component
         )
     })
 
-
-/*
-    <Jumbotron style ={{width: '48%', height: '38.5em', display: 'inline-block', marginRight: '2%', verticalAlign: 'top'}}>
-            <div style = {{height: '22.3em'}}>
-                <h1><u>{category}</u> </h1>
-                <h1 style={{display: 'inline'}}><b>{name}:  </b></h1>
-                <h3 style={{textTransform: 'capitalize',display: 'inline'}}>{title}</h3>
-                <p>
-                    {description}
-                </p>
-            </div>
-            <br />
-            <br />
-
-            <div style = {{}}>
-                <hr  style={{marginBottom: '0.em'}} />
-
-                <ButtonToolbar style={{display: 'flex'}}>
-
-                        <div>
-                            <Button variant='info'>
-                                <Link to={`/jobs/edit/${paramJobId}`}>
-                                    <span style = {{color: 'white'}}>Edit Job</span>
-                                </Link>
-                            </Button>
-                        </div>
-
-                        <div style = {{float: 'right', marginLeft: 'auto'}} >
-                            <Button
-                                variant='info'
-
-                                onClick={() => handleDelete(paramJobId)}>
-                                Delete
-                            </Button>
-                        </div>
-                </ButtonToolbar>
-            </div>
-
-        </Jumbotron>
-*/
-
-
-
-
-
     return (
         <React.Fragment>
             <div style={{width: '37%', marginLeft: '12%', marginRight: '1%', marginTop: '3em', display: 'inline-block'}}>
@@ -181,6 +143,13 @@ function CreateTaskPage(props) { // this should be called JobCard component
                                 style={{backgroundColor: 'white'}}
                             />
                         </Form.Group>
+
+                        <ButtonToolbar>
+                            <Button onClick={handleAddEvent}>Add Event
+                            </Button>
+                        </ButtonToolbar>
+
+                        {addEvent &&
                         <Form.Group>
                             <Form.Label>Location:</Form.Label>
                             <Form.Control
@@ -191,6 +160,9 @@ function CreateTaskPage(props) { // this should be called JobCard component
                                 style={{backgroundColor: 'white'}}
                                 />
                         </Form.Group>
+
+                        }
+                        {addEvent &&
                         <Form.Group>
                             <Form.Label>Start Time:</Form.Label>
                             <DateTimePicker
@@ -198,6 +170,8 @@ function CreateTaskPage(props) { // this should be called JobCard component
                                 value={taskData.start_time}
                             />
                         </Form.Group>
+                        }
+                        {addEvent &&
                         <Form.Group>
                             <Form.Label>End Time:</Form.Label>
                             <DateTimePicker
@@ -205,6 +179,8 @@ function CreateTaskPage(props) { // this should be called JobCard component
                                 value={taskData.end_time}
                             />
                         </Form.Group>
+                        }
+
 
                         <ButtonToolbar style={{display: 'flex', marginTop: '2em'}}>
                             <div>
