@@ -7,6 +7,7 @@ import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem, Jumbotron } from
 import DateTimePicker from 'react-datetime-picker'
 import AddToCalendar from 'react-add-to-calendar';
 import {getJob} from "../../api/jobs/jobs-api"
+import TaskCreatedComponent from '../../components/TaskCreatedComponent'
 
 function CreateTaskPage(props) { // this should be called JobCard component
     const {apiJobsData, loadJobs, loadTasks, apiTasksData} = props
@@ -23,10 +24,20 @@ function CreateTaskPage(props) { // this should be called JobCard component
             description: '',
             job_id: parseInt(paramJobId, 10),
             title: '',
+            location: '',
             start_time: new Date(),
-            end_time: new Date()
+            end_time: new Date(),
+            display_add_to_calendar: false
         }
     )
+
+    useEffect(()=> {
+        console.log("something")
+        setTaskData({
+            ...taskData,
+            display_add_to_calendar: true
+        })
+    },[taskData.location])
 
     function handleChange(event) {
         const newTaskData = {...taskData, [event.target.name]: event.target.value}
@@ -49,7 +60,17 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
     function taskCreatedSuccess() { // this function occurs once a task is created so we can create another task
         setTaskSuccess(true)
-        setTaskData({ description: '', job_id: parseInt(paramJobId, 10), title: '', location: '', start_time: new Date(), end_time: new Date()})
+        setTaskData(
+            {
+                description: '',
+                job_id: parseInt(paramJobId, 10),
+                title: '', location: '',
+                start_time: new Date(),
+                end_time: new Date(),
+                display_add_to_calendar: false
+            }
+        )
+        setAddEvent(false)
         loadTasks()
     }
 
@@ -58,8 +79,9 @@ function CreateTaskPage(props) { // this should be called JobCard component
         alert("Please Enter a title for the task")
       }  else {
         createTask(taskData)
-        .then(successTask => {
-            console.log("Success! New Task: ", successTask)
+        .then(taskObjData => {
+            console.log("Task Obj Data", taskObjData)
+
             taskCreatedSuccess()
         })
        }
@@ -94,7 +116,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
     },[])
 
     const currentJobTasks = [...apiTasksData].reverse().map((task, index) => {
-        const {job_id, title, description, start_time, end_time, location} = task
+        const {job_id, title, description, start_time, end_time, location, display_add_to_calendar} = task
 
         let modifiedTask =
          {
@@ -106,16 +128,16 @@ function CreateTaskPage(props) { // this should be called JobCard component
         }
 
         return (
-            <div key={index}>
-                {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
-                {job_id == paramJobId &&
-                <ListGroupItem>Task: {title} </ListGroupItem>
-                }
-                {job_id == paramJobId &&
-                <AddToCalendar event={modifiedTask} />
-                }
+            <TaskCreatedComponent
+                key={index}
+                title={title}
+                description={description}
+                job_id={job_id}
+                paramJobId={paramJobId}
+                modifiedTask={modifiedTask}
+                display_add_to_calendar={display_add_to_calendar}
+             />
 
-            </div>
         )
     })
 

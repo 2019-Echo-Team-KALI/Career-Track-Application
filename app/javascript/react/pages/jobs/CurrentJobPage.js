@@ -166,18 +166,18 @@ function CurrentJobPage(props) { // this should be called JobCard component
                         <ButtonToolbar style={{display: 'flex'}}>
 
 
-                                <div> 
+                                <div>
                                     <Link to={`/jobs/edit/${paramJobId}`}>
                                         <Button variant='info'>
                                                 <span style = {{color: 'white'}}>Edit Job</span>
                                         </Button>
                                     </Link>
-                                </div> 
+                                </div>
 
 
                                 <div style = {{float: 'right', marginLeft: 'auto'}} >
                                     <Button
-                                        variant='info' 
+                                        variant='info'
                                         onClick={() => handleDelete(paramJobId)}>
                                         Delete Job
                                     </Button>
@@ -203,28 +203,26 @@ function CurrentJobPage(props) { // this should be called JobCard component
 
                     <ButtonToolbar style={{display: 'flex'}}>
 
-                            <div> 
                                 <Link to={`/jobs/${paramJobId}/edittaskpage`}>
                                     <Button variant='info'>
                                             <span style = {{color: 'white'}}>Edit Task</span>
                                     </Button>
-                                </Link> 
-                            </div> 
+                                </Link>
 
-                            <div style = {{float: 'right', marginLeft: 'auto'}}> 
+                            <div style = {{float: 'right', marginLeft: 'auto'}}>
                                 <Link to={`/jobs/${paramJobId}/createtaskpage`}>
                                     <Button variant='info'>
                                             <span style = {{color: 'white'}}>Add Tasks</span>
                                     </Button>
-                                </Link> 
-                            </div> 
-                            
+                                </Link>
+                            </div>
+
                         </ButtonToolbar>
                 </Jumbotron>
-            
-            <div style = {{display: 'block', marginBottom: '3%'}}> 
+
+            <div style = {{display: 'block', marginBottom: '3%'}}>
                 <Button variant='dark' onClick={handleBack} style={{display: 'block'}}>Dash Board</Button>
-            </div> 
+            </div>
 
             {goBack &&
                 <Redirect to='/maincareerpage'/>

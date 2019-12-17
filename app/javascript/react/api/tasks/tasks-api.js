@@ -22,9 +22,6 @@ function createTask(task) { // this is the object
     .then( resp => {
         let json = resp.json()
         // this helped us understand more about what is being fetch
-        console.log("resp", resp)
-        console.log("json", json)
-        console.log("id", json.id)
         return json
     })
     // this part is important for one of the functions that we did
