@@ -50,3 +50,5 @@ gem "react-rails", "~> 2.6"
 gem "devise", "~> 4.7"
 
 gem 'devise-bootstrapped'
+
+gem "rspec-rails", "~> 3.9"
