@@ -68,7 +68,6 @@ function CreateJobPage(){
 
     return (
       <React.Fragment>
-        <h1>{jobData.category}</h1>
          <div className="editorcreateforms">
             <h1>Create a New Job Listing</h1>
             <Form className = "formContainer">
