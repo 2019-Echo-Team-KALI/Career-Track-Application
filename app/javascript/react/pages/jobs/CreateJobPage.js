@@ -69,10 +69,10 @@ function CreateJobPage(){
     return (
       <React.Fragment>
          <div className="editorcreateforms">
-            <h1>Create a New Job Listing</h1>
+            <h1>What job do you want to track?</h1>
             <Form className = "formContainer">
               <Form.Group controlId="formGroupName">
-                     <Form.Label>Name:</Form.Label>
+                     <Form.Label>Company Name:</Form.Label>
                      <Form.Control
                        type="text"
                        name="name"
@@ -82,7 +82,7 @@ function CreateJobPage(){
                 </Form.Group>
 
                  <Form.Group controlId="formGroupTitle">
-                     <Form.Label>Title</Form.Label>
+                     <Form.Label>Position Title:</Form.Label>
                      <Form.Control
                        type="text"
                        name="title"
@@ -92,7 +92,7 @@ function CreateJobPage(){
                  </Form.Group>
 
                  <Form.Group>
-                     <Form.Label>Description</Form.Label>
+                     <Form.Label>Job Description:</Form.Label>
                      <Form.Control
                        type="text"
                        name="description"
@@ -102,7 +102,7 @@ function CreateJobPage(){
                  </Form.Group>
 
                  <Form.Group>
-                     <Form.Label>URL</Form.Label>
+                     <Form.Label>Job post URL:</Form.Label>
                      <Form.Control
                        type="text"
                        name="url"
@@ -112,7 +112,7 @@ function CreateJobPage(){
                  </Form.Group>
 
                  <Form.Group controlId="controlSelect1">
-                    <Form.Label>Category Select:</Form.Label>
+                    <Form.Label>Select Current Job Status:</Form.Label>
                     <Form.Control
                         as="select"
                         name="category"
@@ -130,7 +130,7 @@ function CreateJobPage(){
 
                   <ButtonToolbar>
                     <Button variant = 'info' onClick={handleBack} style={{marginRight: '1em'}}>Go Back to Main Page</Button>
-                    <Button variant = 'info' onClick={handleClick}>Create New Job</Button>
+                    <Button variant = 'info' onClick={handleClick}>Save Job</Button>
                  </ButtonToolbar>
              </Form>
              </div>
