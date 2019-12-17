@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import MainCareerPage from './pages/MainCareerPage'
 import CreateJobPage from './pages/jobs/CreateJobPage'
 import CreateTaskPage from './pages/tasks/CreateTaskPage'
+import CreateFirstTaskPage from './pages/tasks/CreateFirstTaskPage'
 import EditTaskPage from './pages/tasks/EditTaskPage'
 import CurrentJobPage from './pages/jobs/CurrentJobPage'
 import EditJobPage from './pages/jobs/EditJobPage'
@@ -116,13 +117,7 @@ function App(props) {
                                  />
                             </Route>
 
-                            {/* <Route exact path='/jobs/:id' >
-                                <ShowCurrentJob
-                                    getJobs={getJobs}
-                                    loadJobs = {loadJobs}
-                                />
-                            </Route>
-                            */}
+
                             <Route exact path="/jobs/edit/:paramEditId">
                                 <EditJobPage
                                     apiJobsData={apiJobsData}
@@ -132,6 +127,15 @@ function App(props) {
 
                             <Route exact path="/createjobpage">
                                 <CreateJobPage />
+                            </Route>
+
+                            <Route exact path="/jobs/:paramJobId/createfirsttaskpage">
+                                <CreateFirstTaskPage
+                                    loadJobs = {loadJobs}
+                                    loadTasks = {loadTasks}
+                                    apiJobsData={apiJobsData}
+                                    apiTasksData={apiTasksData}
+                                />
                             </Route>
 
                             <Route exact path="/jobs/:paramJobId/createtaskpage">

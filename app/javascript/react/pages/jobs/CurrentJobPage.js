@@ -138,25 +138,25 @@ function CurrentJobPage(props) { // this should be called JobCard component
                         <h3 style={{textTransform: 'capitalize'}}>Current Status: {category}</h3>
 
                     /div>*/}
-                    <div style = {{marginTop: '-4%', marginBottom: '17.5%'}}> 
+                    <div style = {{marginTop: '-4%', marginBottom: '17.5%'}}>
                         <Card.Header style ={{textTransform: 'uppercase', fontSize: '200%', textAlign: 'center'}}>{name} </Card.Header>
                         <Card variant="light" style={{ width: '100%' }}>
                             <Card.Body>
 
                                 <Card.Title>Position Title: {title} </Card.Title>
                                 <Card.Title>Current Status: {category}</Card.Title>
-                                <Card.Title>Job Post URL: {url}</Card.Title> 
+                                <Card.Title>Job Post URL: {url}</Card.Title>
                                 <Card.Title style = {{display: 'inline'}}>
-                                    Description: 
+                                    Description:
                                 </Card.Title>
-                                <Card.Text> 
+                                <Card.Text>
                                     {description}
                                 </Card.Text>
 
                             </Card.Body>
                         </Card>
                     </div>
-                    
+
                     <br />
                     <br />
 
@@ -188,7 +188,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
                 </Jumbotron>
 
                 <Jumbotron style ={{width: '48%', height: '38.5em', display: 'inline-block'}}>
-                    
+
 
                     <ListGroup style = {{marginTop: '-4%'}} >
                         <Card.Header variant = 'light' style ={{textTransform: 'uppercase',textAlign: 'center', fontSize: '200%'}}>Tasks </Card.Header>
