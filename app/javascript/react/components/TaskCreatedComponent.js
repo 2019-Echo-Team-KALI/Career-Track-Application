@@ -7,6 +7,8 @@ import AddToCalendar from 'react-add-to-calendar';
 
 function TaskCreatedComponent({title, description, job_id, paramJobId, modifiedTask, display_add_to_calendar}) {
 
+    const icon = { 'calendar-plus-o': 'left'}
+
     return (
         <div>
             {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
@@ -14,7 +16,9 @@ function TaskCreatedComponent({title, description, job_id, paramJobId, modifiedT
             <div>
             <ListGroupItem>Task: {title} </ListGroupItem>
             {display_add_to_calendar &&
+                <Button variant="light">
                     <AddToCalendar event={modifiedTask} />
+                </Button>
             }
             </div>
             }
