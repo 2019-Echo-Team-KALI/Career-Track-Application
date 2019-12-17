@@ -66,11 +66,13 @@ function CurrentJobPage(props) { // this should be called JobCard component
                     <div> 
                         <Accordion defaultActiveKey="0">
                             <Card>
-                            <Accordion.Toggle as={Card.Header} eventKey="1" >
-                                {title}: {description}
+                            <Accordion.Toggle as={Card.Header} eventKey="1" style = {{borderStyle: 'solid',borderWidth: 'thin', borderBottom: 'none', borderLeft: 'none', borderRight: 'none'}} >
+                                {title}: 
+                                <br /> <hr style ={{marginTop: '0em'}}/> 
+                                 {description}
                             </Accordion.Toggle>
                             
-                            <Accordion.Collapse eventKey="1">
+                            <Accordion.Collapse eventKey="1" >
                                 <Card.Body>
                                     <b><u>{location}</u></b>: 
                                     <br /> <b>Start:</b> {moment(start_time).format('MMMM Do YYYY, h:mm:ss a ')} 
@@ -123,7 +125,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
 
             <Jumbotron style ={{width: '48%', height: '38.5em', display: 'inline-block', marginRight: '2%', verticalAlign: 'top'}}>
                     <div style = {{height: '22.3em'}}> 
-                        <h1><u>{category}</u> </h1>
+                        <h1 style ={{marginBottom: '7%', textAlign: 'center'}}><u>{category}</u> </h1>
                         <h1 style={{display: 'inline'}}><b>{name}:  </b></h1>
                         <h3 style={{textTransform: 'capitalize',display: 'inline'}}>{title}</h3>
                         <p>
@@ -168,7 +170,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
                     </p>*/}
 
                     <ListGroup >
-                        <h4 style ={{textAlign: 'center'}}><u>Tasks</u> </h4> 
+                        <h4 style ={{textAlign: 'center'}}>Tasks </h4> 
                         <ListGroup.Item style = {{height: '20em', overflowY: 'scroll'}}>    
                             {currentJobTasks} 
                         </ListGroup.Item>

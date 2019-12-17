@@ -47,18 +47,16 @@ const JobCardComponent = ({jobObj}) => {
     return(
       <div>
           <div className="card mb-3" >
-              <Button  variant="outline-dark" style={{zIndex: 1, borderTop: 'none', borderRight: 'none', borderBottom: 'none', borderLeft: 'none'}}>
-              <Link to={`/jobs/${jobObj.id}`}>
+            <Link style ={{textAlign: 'center', width: '100%'}}to={`/jobs/${jobObj.id}`}>  
+              <Button  variant="outline-dark" style={{width: '100%', zIndex: 1, borderTop: 'none', borderRight: 'none', borderBottom: 'none', borderLeft: 'none'}}>
 
                 <Card.Title >{jobObj.name}</Card.Title>
-                <Card.Title style ={{fontSize: '65%'}}>{jobObj.title}</Card.Title>
+                  <Card.Title style ={{fontSize: '75%'}}>{jobObj.title}</Card.Title>
                 <hr  style={{marginBottom: '0em', marginTop: '-0.1em'}} />
-
-
-                  </Link>
               </Button>
+            </Link> 
               
-                <Button style = {{textAlign: 'center', textTransform: 'capitalize',padding: '2%'}} variant = 'secondary'onClick = {opener}>change category </Button> 
+              <Button style = {{textAlign: 'center', textTransform: 'capitalize',padding: '2%'}} variant = 'secondary'onClick = {opener}>change category </Button> 
               
 
               <Card.Text>
