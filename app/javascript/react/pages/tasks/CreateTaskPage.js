@@ -17,7 +17,6 @@ function CreateTaskPage(props) { // this should be called JobCard component
     const [ goBack, setGoBack ] = useState(false)
     const [ tasksCreatedDone, setTasksCreatedDone ] = useState(false)
     const [ addEvent, setAddEvent ] = useState(false)
-    const [ displayCalendar, setDisplayCalendar ] = useState(false)
     const [ jobOfTask, setJobOfTask ] = useState({})
 
     const [ taskData, setTaskData ] = useState(
@@ -25,10 +24,20 @@ function CreateTaskPage(props) { // this should be called JobCard component
             description: '',
             job_id: parseInt(paramJobId, 10),
             title: '',
+            location: '',
             start_time: new Date(),
-            end_time: new Date()
+            end_time: new Date(),
+            display_add_to_calendar: false
         }
     )
+
+    useEffect(()=> {
+        console.log("something")
+        setTaskData({
+            ...taskData,
+            display_add_to_calendar: true
+        })
+    },[taskData.location])
 
     function handleChange(event) {
         const newTaskData = {...taskData, [event.target.name]: event.target.value}
@@ -51,7 +60,16 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
     function taskCreatedSuccess() { // this function occurs once a task is created so we can create another task
         setTaskSuccess(true)
-        setTaskData({ description: '', job_id: parseInt(paramJobId, 10), title: '', location: '', start_time: new Date(), end_time: new Date()})
+        setTaskData(
+            {
+                description: '',
+                job_id: parseInt(paramJobId, 10),
+                title: '', location: '',
+                start_time: new Date(),
+                end_time: new Date(),
+                display_add_to_calendar: false
+            }
+        )
         setAddEvent(false)
         loadTasks()
     }
@@ -62,12 +80,8 @@ function CreateTaskPage(props) { // this should be called JobCard component
       }  else {
         createTask(taskData)
         .then(taskObjData => {
-            if (taskObjData.location !== '') {
-                setDisplayCalendar(true)
-            }
-            else {
-                setDisplayCalendar(false)
-            }
+            console.log("Task Obj Data", taskObjData)
+
             taskCreatedSuccess()
         })
        }
@@ -102,7 +116,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
     },[])
 
     const currentJobTasks = [...apiTasksData].reverse().map((task, index) => {
-        const {job_id, title, description, start_time, end_time, location} = task
+        const {job_id, title, description, start_time, end_time, location, display_add_to_calendar} = task
 
         let modifiedTask =
          {
@@ -121,7 +135,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
                 job_id={job_id}
                 paramJobId={paramJobId}
                 modifiedTask={modifiedTask}
-                displayCalendar={displayCalendar}
+                display_add_to_calendar={display_add_to_calendar}
              />
 
         )

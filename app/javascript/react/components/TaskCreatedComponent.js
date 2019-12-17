@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem, Jumbotron } from 'react-bootstrap'
 import AddToCalendar from 'react-add-to-calendar';
 
-function TaskCreatedComponent({title, description, job_id, paramJobId, modifiedTask, displayCalendar}) {
+function TaskCreatedComponent({title, description, job_id, paramJobId, modifiedTask, display_add_to_calendar}) {
 
     return (
         <div>
@@ -13,8 +13,8 @@ function TaskCreatedComponent({title, description, job_id, paramJobId, modifiedT
             {job_id == paramJobId &&
             <div>
             <ListGroupItem>Task: {title} </ListGroupItem>
-            {displayCalendar &&
-            <AddToCalendar event={modifiedTask} />
+            {display_add_to_calendar &&
+                    <AddToCalendar event={modifiedTask} />
             }
             </div>
             }
