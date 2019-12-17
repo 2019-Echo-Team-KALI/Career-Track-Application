@@ -7,6 +7,7 @@ import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem, Jumbotron } from
 import DateTimePicker from 'react-datetime-picker'
 import AddToCalendar from 'react-add-to-calendar';
 import {getJob} from "../../api/jobs/jobs-api"
+import TaskCreatedComponent from '../../components/TaskCreatedComponent'
 
 function CreateTaskPage(props) { // this should be called JobCard component
     const {apiJobsData, loadJobs, loadTasks, apiTasksData} = props
@@ -16,6 +17,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
     const [ goBack, setGoBack ] = useState(false)
     const [ tasksCreatedDone, setTasksCreatedDone ] = useState(false)
     const [ addEvent, setAddEvent ] = useState(false)
+    const [ displayCalendar, setDisplayCalendar ] = useState(false)
     const [ jobOfTask, setJobOfTask ] = useState({})
 
     const [ taskData, setTaskData ] = useState(
@@ -50,6 +52,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
     function taskCreatedSuccess() { // this function occurs once a task is created so we can create another task
         setTaskSuccess(true)
         setTaskData({ description: '', job_id: parseInt(paramJobId, 10), title: '', location: '', start_time: new Date(), end_time: new Date()})
+        setAddEvent(false)
         loadTasks()
     }
 
@@ -58,8 +61,13 @@ function CreateTaskPage(props) { // this should be called JobCard component
         alert("Please Enter a title for the task")
       }  else {
         createTask(taskData)
-        .then(successTask => {
-            console.log("Success! New Task: ", successTask)
+        .then(taskObjData => {
+            if (taskObjData.location !== '') {
+                setDisplayCalendar(true)
+            }
+            else {
+                setDisplayCalendar(false)
+            }
             taskCreatedSuccess()
         })
        }
@@ -106,16 +114,16 @@ function CreateTaskPage(props) { // this should be called JobCard component
         }
 
         return (
-            <div key={index}>
-                {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
-                {job_id == paramJobId &&
-                <ListGroupItem>Task: {title} </ListGroupItem>
-                }
-                {job_id == paramJobId &&
-                <AddToCalendar event={modifiedTask} />
-                }
+            <TaskCreatedComponent
+                key={index}
+                title={title}
+                description={description}
+                job_id={job_id}
+                paramJobId={paramJobId}
+                modifiedTask={modifiedTask}
+                displayCalendar={displayCalendar}
+             />
 
-            </div>
         )
     })
 
