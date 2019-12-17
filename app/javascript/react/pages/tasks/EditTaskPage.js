@@ -80,15 +80,15 @@ function EditTaskPage(props) {
             <h1 style={{textAlign: 'center', marginTop: '2em', marginBottom: '-1.4em'}}><u> Tasks</u> for {jobOfTask.name}: {jobOfTask.title}</h1>
              {currentJobTasks}
 
-            <div style ={{marginBottom: '2em', width: '60.4%', marginLeft: '20%'}}>
+            <div style ={{marginBottom: '2em', width: '60.4%', marginLeft: '20%', marginBottom: '15%'}}>
                 <div style ={{float: 'left'}}>
-                    <Button variant = 'info' onClick={handleBack} style={{}} >
+                    <Button variant = 'dark' onClick={handleBack} style={{}} >
                         Back
                     </Button>
                 </div>
 
                 <div style ={{float: 'right'}}>
-                    <Button variant = 'info' onClick={handleReload}>
+                    <Button variant = 'dark' onClick={handleReload}>
                         Add Task
                     </Button>
                 </div>

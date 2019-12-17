@@ -80,18 +80,20 @@ function EditTaskComponent(props) {
               />
             </Form.Group>
    
-            <Button
-                className="centerbutton"
-                onClick={handleTaskDelete}
-            >
-                Delete Tasks
-            </Button>
                 <Button
-                    className="centerbutton"
+                    variant = 'info'
+                    onClick={handleTaskDelete}
+                    style = {{marginRight: '2%'}}
+                >
+                    Delete Tasks
+                </Button>
+                <Button
+                    variant = 'info'
                     onClick={handleTaskEdit}
                 >
                     Complete Edits
                 </Button>
+
             </Form>
 
             {taskEditSuccess &&
