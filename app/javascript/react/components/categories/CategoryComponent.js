@@ -39,7 +39,7 @@ function CategoryComponent(props) { // this should be called JobCard component
     {/* this is where the add button comes in */}
     <Link style ={{textAlign: 'center', width: '100%'}} to={`/createjobpage/${title}`}>  
               <Button  variant="outline-dark" style={{width: '100%', zIndex: 1, borderTop: 'none', borderRight: 'none', borderBottom: 'none', borderLeft: 'none'}}>
-                  <Card.Title style ={{fontSize: '100%'}}> <i class="fas fa-plus fa-lg"></i> </Card.Title>
+                  <Card.Title style ={{fontSize: '100%'}}> <i class="fas fa-plus-circle fa-lg"></i> </Card.Title>
               </Button>
 
             </Link> 
