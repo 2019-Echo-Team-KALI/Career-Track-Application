@@ -34,8 +34,6 @@ function EditTaskComponent(props) {
             alert("Please Enter a title for the task")
         } else {
             editTask(taskData, id)
-            alert("Task successfully updated!")
-
         }
 
     }
@@ -50,7 +48,6 @@ function EditTaskComponent(props) {
             deleteTask(id)
             .then(() => {
                 setTaskDeleteSuccess(!taskDeleteSuccess)
-                alert("The task has been successfully deleted.")
                 handleReload()
             })
         }

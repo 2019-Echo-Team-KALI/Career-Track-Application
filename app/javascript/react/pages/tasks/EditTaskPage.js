@@ -81,7 +81,9 @@ function EditTaskPage(props) {
     return (
         <div>
             <h1 style={{textAlign: 'center', marginTop: '2em', marginBottom: '-1.4em'}}><u> Edit Task Page for {jobOfTask.name}: {jobOfTask.title}</u></h1>
+            <div style ={{marginBottom: '5%'}}> 
              {currentJobTasks}
+            </div> 
 
             <div style ={{marginBottom: '2em', width: '60.4%', marginLeft: '20%', marginBottom: '15%'}}>
                 <div style ={{float: 'left'}}>
