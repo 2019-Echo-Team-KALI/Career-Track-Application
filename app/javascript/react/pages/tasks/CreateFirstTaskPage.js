@@ -243,7 +243,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
             <div style={{display: 'block', width: '66%', marginLeft: '12%'}}>
                 <ButtonToolbar>
                     <Button variant = 'dark' style={{marginRight: '1em'}} onClick={handleBackClick}>
-                    Back to Career Dashboard
+                    Go to Job Details
                     </Button>
                 </ButtonToolbar>
             </div>
