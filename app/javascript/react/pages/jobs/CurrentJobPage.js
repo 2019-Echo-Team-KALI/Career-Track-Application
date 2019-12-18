@@ -147,7 +147,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
                                 }
                                 </Card.Text>
 
-                                <Card.Title >Job Post URL:
+                                <Card.Title style = {{display: 'inline'}} >Job Post URL: </Card.Title>
                                 <Card.Text>
                                 {url ||
                                     (<Link to={`/jobs/edit/${paramJobId}`}>
@@ -155,7 +155,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
                                     </Link>)
                                 }
                                 </Card.Text>
-                                </Card.Title>
+
 
 
 
