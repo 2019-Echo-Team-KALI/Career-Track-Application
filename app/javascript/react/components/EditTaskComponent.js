@@ -34,6 +34,7 @@ function EditTaskComponent(props) {
             alert("Please Enter a title for the task")
         } else {
             editTask(taskData, id)
+            alert("Task successfully updated!")
         }
 
     }
