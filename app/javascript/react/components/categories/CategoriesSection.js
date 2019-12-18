@@ -19,8 +19,7 @@ function CategoriesSection(props) { // this should be called JobCard component
         },
         {
             title: 'Applied',
-            description: 'You have applied to these jobs',
-
+            description: 'Application Submitted',
             id: 1,
             jobs: []
         },
