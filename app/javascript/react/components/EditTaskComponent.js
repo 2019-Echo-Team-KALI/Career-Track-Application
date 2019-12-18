@@ -6,7 +6,7 @@ import { Form, ButtonToolbar, Button } from 'react-bootstrap'
 import { editTask, getTask, deleteTask } from '../api/tasks/tasks-api'
 
 function EditTaskComponent(props) {
-    const {id, name, job_id, description, handleReload, index} = props
+    const {id, name, job_id, description, handleReload} = props
     const [ taskDeleteSuccess, setTaskDeleteSuccess ] = useState(false)
     const [ taskEditSuccess, setTaskEditSuccess ] = useState(false)
     const [ taskData, setTaskData ] = useState(
@@ -65,7 +65,7 @@ function EditTaskComponent(props) {
             <Form className = "formContainer">
 
             <Form.Group controlId="formGroupDescription">
-              <Form.Label>Task {index + 1}:</Form.Label>
+              <Form.Label>Task: </Form.Label>
               <Form.Control
                 type="text"
                 name="title"

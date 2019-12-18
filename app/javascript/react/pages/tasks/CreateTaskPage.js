@@ -115,6 +115,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
     useEffect(() => {
       loadJob()
+      loadTasks()
     },[])
 
     const currentJobTasks = [...apiTasksData].reverse().map((task, index) => {
@@ -131,7 +132,6 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
         return (
             <TaskCreatedComponent
-                index={index}
                 key={index}
                 title={title}
                 location={modifiedTask.location}

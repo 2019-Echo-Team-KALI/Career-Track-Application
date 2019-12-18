@@ -40,7 +40,6 @@ function EditTaskPage(props) {
                 {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
                 {job_id == paramJobId &&
                 <EditTaskComponent
-                    index={index}
                     handleReload={handleReload}
                     id={id}
                     name={name}

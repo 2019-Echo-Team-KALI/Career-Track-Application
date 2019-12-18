@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem, Jumbotron } from 'react-bootstrap'
 import AddToCalendar from 'react-add-to-calendar';
 
-function TaskCreatedComponent({title, description, job_id, paramJobId, modifiedTask, display_add_to_calendar, index}) {
+function TaskCreatedComponent({title, description, job_id, paramJobId, modifiedTask, display_add_to_calendar}) {
 
     console.log("location", location)
     return (
@@ -14,7 +14,7 @@ function TaskCreatedComponent({title, description, job_id, paramJobId, modifiedT
             {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
             {job_id == paramJobId &&
             <div>
-            <ListGroupItem>Task {index + 1}: {title} </ListGroupItem>
+            <ListGroupItem>Task: {title} </ListGroupItem>
             {display_add_to_calendar &&
 
             <div style={{
