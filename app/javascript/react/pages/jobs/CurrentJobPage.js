@@ -127,31 +127,37 @@ function CurrentJobPage(props) { // this should be called JobCard component
 {/* */}
             <Jumbotron style ={{width: '48%', display: 'inline-block',height: '38.5em', marginRight: '2%', verticalAlign: 'top'}}>
 
-                    {/*<div style = {{height: '22.3em'}}>
-                        <h1 style ={{marginBottom: '7%', textAlign: 'center'}}><u>Job Details</u> </h1>
-                        <h1 style={{textTransform: 'capitalize'}}><b>Company Name: {name}  </b></h1>
-                        <h3 style={{textTransform: 'capitalize'}}>Position Title: {title}</h3>
-                        <p>
-                            Job Description: {description}
-                        </p>
-                        <h3 style={{textTransform: 'capitalize'}}>Job post URL: {url}</h3>
-                        <h3 style={{textTransform: 'capitalize'}}>Current Status: {category}</h3>
 
-                    /div>*/}
                     <div style = {{marginTop: '-4%'}}>
+
                         <Card.Header style ={{textTransform: 'uppercase', fontSize: '200%', textAlign: 'center'}}>{name} </Card.Header>
                         <Card variant="light" style={{ width: '100%', height: '20em', overflowY: 'scroll' }}>
                             <Card.Body>
 
                                 <Card.Title>Position Title: {title} </Card.Title>
                                 <Card.Title>Current Status: {category}</Card.Title>
-                                <Card.Title>Job Post URL: {url}</Card.Title>
                                 <Card.Title style = {{display: 'inline'}}>
                                     Description:
                                 </Card.Title>
                                 <Card.Text>
-                                    {description}
+                                {description ||
+                                    (<Link to={`/jobs/edit/${paramJobId}`}>
+                                    <text style={{color: "rgba(0, 0, 0, 0.5)"}}> add a description</text>
+                                    </Link>)
+                                }
                                 </Card.Text>
+
+                                <Card.Title >Job Post URL:
+                                <Card.Text>
+                                {url ||
+                                    (<Link to={`/jobs/edit/${paramJobId}`}>
+                                    <text style={{color: "rgba(0, 0, 0, 0.5)", fontStyle: 'italic'}}> add url to job post</text>
+                                    </Link>)
+                                }
+                                </Card.Text>
+                                </Card.Title>
+
+
 
                             </Card.Body>
                         </Card>
