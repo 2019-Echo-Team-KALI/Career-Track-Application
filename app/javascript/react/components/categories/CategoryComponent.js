@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, useParams } from 'react-router-dom'
 import { Accordion, Card, Button, Navbar, Nav, ListGroup, ListGroupItem, CardGroup, Jumbotron  } from 'react-bootstrap'
-import { useState, useEffect, } from 'react'
+import { useState, useEffect } from 'react'
 import Sticky from 'react-sticky-el';
 import { getJobs } from "../../api/jobs/jobs-api"
 import JobCardComponent from "./JobCardComponent"
