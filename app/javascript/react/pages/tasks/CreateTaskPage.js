@@ -3,11 +3,12 @@ import PropTypes from "prop-types"
 import { createTask } from "../../api/tasks/tasks-api"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { Form, ButtonToolbar, Button, ListGroup, ListGroupItem, Jumbotron } from 'react-bootstrap'
+import { Accordion, Card, Form, ButtonToolbar, Button, ListGroup, ListGroupItem, Jumbotron } from 'react-bootstrap'
 import DateTimePicker from 'react-datetime-picker'
 import AddToCalendar from 'react-add-to-calendar';
 import {getJob} from "../../api/jobs/jobs-api"
 import TaskCreatedComponent from '../../components/TaskCreatedComponent'
+import  moment  from 'moment'
 
 function CreateTaskPage(props) { // this should be called JobCard component
     const {apiJobsData, loadJobs, loadTasks, apiTasksData} = props
@@ -131,17 +132,36 @@ function CreateTaskPage(props) { // this should be called JobCard component
         }
 
         return (
-            <TaskCreatedComponent
-                key={index}
-                title={title}
-                location={modifiedTask.location}
-                description={description}
-                job_id={job_id}
-                paramJobId={paramJobId}
-                modifiedTask={modifiedTask}
-                display_add_to_calendar={display_add_to_calendar}
-             />
+            <div key={index}>
+                {job_id == paramJobId &&
+                    <div>
+                        <Accordion defaultActiveKey="0" style = {{marginBottom: '2%'}}>
+                            <Card>
+                            <Accordion.Toggle as={Card.Header} eventKey="1" style = {{borderWidth: 'thin'}} >
+                                Task: {title}
+                                <br /> <hr style ={{marginTop: '0em'}}/>
+                                 Description: {description}
+                            </Accordion.Toggle>
 
+                            <Accordion.Collapse eventKey="1" >
+                                <Card.Body>
+                                    <b><u>Location: {location}</u></b>
+                                    <br /> <b>Start time :</b> {moment(start_time).format('MMMM Do YYYY, h:mm:ss a ')}
+                                    <br /> <b>End time:</b>  {moment(end_time).format('MMMM Do YYYY, h:mm:ss a ')}
+
+                                    {display_add_to_calendar &&
+                                        <div>
+                                            <AddToCalendar event={modifiedTask}/>
+                                        </div>
+                                    }
+                                </Card.Body>
+                            </Accordion.Collapse>
+                            </Card>
+                        </Accordion >
+
+                    </div>
+                }
+            </div>
         )
     })
 
@@ -149,7 +169,8 @@ function CreateTaskPage(props) { // this should be called JobCard component
         <React.Fragment>
             <div style={{width: '37%', marginLeft: '12%', marginRight: '1%', marginTop: '3em', display: 'inline-block'}}>
                 <Jumbotron style = {{paddingBottom: '2%'}}>
-                    <h1 style={{textAlign: 'center'}}> Add Tasks for this {jobOfTask.title} position at {jobOfTask.name}</h1>
+                <Card.Header variant = 'light' style ={{textTransform: 'uppercase',textAlign: 'center', fontSize: '200%'}}><h4>Add Tasks for this {jobOfTask.title} position at {jobOfTask.name}</h4> </Card.Header>
+
                     <Form style={{marginTop: '2em'}}>
                         <Form.Group>
                             <Form.Label>Task Name:</Form.Label>
@@ -211,7 +232,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
                         <hr style={{marginTop: '4em', marginBottom: '2em'}}/>
 
-                        <div> 
+                        <div>
                             <Button variant = 'info' style={{marginLeft: '38.6%'}} onClick={handleCreateTask}>
                                 Add the Task
                             </Button>
@@ -222,13 +243,16 @@ function CreateTaskPage(props) { // this should be called JobCard component
                 </Jumbotron>
             </div>
 
-                       
+
                 <Jumbotron style={{display: 'inline-block', paddingBottom: '1%', float: 'right', width: '37%', marginRight: '12%', marginLeft: '1%', marginTop: '3em'}}>
-                    <h4 style ={{textAlign: 'center'}}><u>Tasks List</u> </h4>
-                    <ListGroup className="tasks" style = {{height: '21.4rem', overflowY: 'scroll',  display: 'block'}}>
-                        {currentJobTasks}
+                    <Card.Header variant = 'light' style ={{textTransform: 'uppercase',textAlign: 'center', fontSize: '200%'}}><h4>Added Tasks </h4></Card.Header>
+
+                    <ListGroup  style = {{height: '21.4rem', overflowY: 'scroll',  display: 'block'}}>
+                        <ListGroup.Item style =  {{height: '20em', overflowY: 'scroll'}}>
+                            {currentJobTasks}
+                        </ListGroup.Item>
                     </ListGroup>
-                    <hr style={{ marginBottom: '1.7em'}}/>
+                    <hr style={{ marginBottom: '1.7em', marginTop: '1.3%'}}/>
 
                     <div style={{float: 'center', textAlign: 'center'}}>
                         <Button variant = 'info' onClick={handleDoneClick}>
@@ -244,7 +268,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
                         </Button>
                     </ButtonToolbar>
                 </div>
-            
+
 
             {tasksCreatedDone &&
                <Redirect to={`/jobs/${paramJobId}`} />
