@@ -169,7 +169,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
                                 <div>
                                     <Link to={`/jobs/edit/${paramJobId}`}>
                                         <Button variant='info'>
-                                                <span style = {{color: 'white'}}>Edit Job</span>
+                                                <span style = {{color: 'white'}}>Edit Job Details</span>
                                         </Button>
                                     </Link>
                                 </div>
@@ -177,7 +177,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
 
                                 <div style = {{float: 'right', marginLeft: 'auto'}} >
                                     <Button
-                                        variant='info'
+                                        variant='danger'
                                         onClick={() => handleDelete(paramJobId)}>
                                         Delete Job
                                     </Button>
@@ -205,7 +205,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
 
                                 <Link to={`/jobs/${paramJobId}/edittaskpage`}>
                                     <Button variant='info'>
-                                            <span style = {{color: 'white'}}>Edit Task</span>
+                                            <span style = {{color: 'white'}}>Edit Tasks</span>
                                     </Button>
                                 </Link>
 
@@ -221,7 +221,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
                 </Jumbotron>
 
             <div style = {{display: 'block', marginBottom: '3%'}}>
-                <Button variant='dark' onClick={handleBack} style={{display: 'block'}}>Dash Board</Button>
+                <Button variant='dark' onClick={handleBack} style={{display: 'block'}}>Back to Dashboard</Button>
             </div>
 
             {goBack &&

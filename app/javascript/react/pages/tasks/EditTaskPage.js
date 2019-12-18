@@ -86,7 +86,7 @@ function EditTaskPage(props) {
             <div style ={{marginBottom: '2em', width: '60.4%', marginLeft: '20%', marginBottom: '15%'}}>
                 <div style ={{float: 'left'}}>
                     <Button variant = 'dark' onClick={handleBack} style={{}} >
-                        Back
+                        Back to Job Details
                     </Button>
                 </div>
 
