@@ -8,6 +8,7 @@ import CreateFirstTaskPage from './pages/tasks/CreateFirstTaskPage'
 import EditTaskPage from './pages/tasks/EditTaskPage'
 import CurrentJobPage from './pages/jobs/CurrentJobPage'
 import EditJobPage from './pages/jobs/EditJobPage'
+import Footer from './components/Footer.js'
 
 
 import { useState, useEffect } from 'react'
@@ -163,13 +164,14 @@ function App(props) {
                             <Route path="/createjobpage/:paramCategory">
                                 <CreateJobPage />
                             </Route>
-                            
+
                             <Route path="/createjobpage">
                                 <CreateJobPage />
                             </Route>
                         </Switch>
                     </div>
                 }
+                <Footer />
 
           </React.Fragment>
       </Router>
