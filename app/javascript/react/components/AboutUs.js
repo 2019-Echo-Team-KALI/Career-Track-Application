@@ -10,8 +10,8 @@ import linkedin from '../images/linkedin.png'
 function AboutUs() {
     return (
       <React.Fragment>
-        <div className = "aboutus">
-          <h4>Meet the Devs</h4>
+        <div className="aboutus">
+          <h3>Meet the Devs</h3>
             <div className="bio">
               <img src={arvin} className="biophoto"/>
               <p>Arvin Lleva</p>
@@ -47,6 +47,7 @@ function AboutUs() {
                   <a href="https://www.linkedin.com/in/lisakamino/" target="_blank"><img src={linkedin} /></a>
                 </div>
               </div>
+
 
         </div>
       </React.Fragment>
