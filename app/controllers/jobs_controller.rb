@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
     def index
-        # @jobs = current_user.jobs
-        # render json: @jobs
+        @jobs = current_user.jobs
+        render json: @jobs
     end
 
     def create
