@@ -14,6 +14,7 @@ function EditTaskPage(props) {
     const [ goBack, setGoBack ] = useState(false)
     const [ reload, setReload ] = useState(false)
     const [jobOfTask, setJobOfTask] = useState({})
+    const [ goAddTask, setGoAddTask] = useState(false)
 
     function loadTasks(){
         getTasks()
@@ -61,7 +62,9 @@ function EditTaskPage(props) {
         setGoBack(true)
 
     }
-
+    function handleGoAddTask() {
+        setGoAddTask(true)
+    }
 
 
 
@@ -77,25 +80,28 @@ function EditTaskPage(props) {
 
     return (
         <div>
-            <h1 style={{textAlign: 'center', marginTop: '2em', marginBottom: '-1.4em'}}><u> Tasks</u> for {jobOfTask.name}: {jobOfTask.title}</h1>
+            <h1 style={{textAlign: 'center', marginTop: '2em', marginBottom: '-1.4em'}}><u> Edit Task Page for {jobOfTask.name}: {jobOfTask.title}</u></h1>
              {currentJobTasks}
 
             <div style ={{marginBottom: '2em', width: '60.4%', marginLeft: '20%', marginBottom: '15%'}}>
                 <div style ={{float: 'left'}}>
                     <Button variant = 'dark' onClick={handleBack} style={{}} >
-                        Back
+                        Back to Job Details
                     </Button>
                 </div>
 
                 <div style ={{float: 'right'}}>
-                    <Button variant = 'dark' onClick={handleReload}>
-                        Add Task
+                    <Button variant = 'dark' onClick={handleGoAddTask}>
+                        Add Tasks
                     </Button>
                 </div>
             </div>
+            {goAddTask &&
+                <Redirect to={`/jobs/${paramJobId}/createtaskpage`}/>
 
+            }
              {reload &&
-                 <Redirect to={`/jobs/${paramJobId}/createtaskpage`}/>
+                 <Redirect to={`/jobs/${paramJobId}/edittaskpage`}/>
              }
              {goBack &&
                  <Redirect to={`/jobs/${paramJobId}`}/>
