@@ -138,9 +138,9 @@ function CurrentJobPage(props) { // this should be called JobCard component
                         <h3 style={{textTransform: 'capitalize'}}>Current Status: {category}</h3>
 
                     /div>*/}
-                    <div style = {{marginTop: '-4%', marginBottom: '17.5%'}}>
+                    <div style = {{marginTop: '-4%'}}>
                         <Card.Header style ={{textTransform: 'uppercase', fontSize: '200%', textAlign: 'center'}}>{name} </Card.Header>
-                        <Card variant="light" style={{ width: '100%' }}>
+                        <Card variant="light" style={{ width: '100%', height: '20em', overflowY: 'scroll' }}>
                             <Card.Body>
 
                                 <Card.Title>Position Title: {title} </Card.Title>
