@@ -36,14 +36,16 @@ function CategoryComponent(props) { // this should be called JobCard component
     return (
         <div className='jumbotron' id = {id} key = {index} style ={{ width: '22%', verticalAlign: 'top', display: 'inline-block', marginRight: '2.5em', padding: '0.7em'}}>
               <h1 className="display-3" style = {{ textAlign: 'center', fontSize: '200%'}}><u>{title}</u></h1>
+              <h6 style = {{textAlign: 'center'}}>{description}</h6>
     {/* this is where the add button comes in */}
-    <Link style ={{textAlign: 'center', width: '100%'}} to={`/createjobpage/${title}`}>
-              <Button  variant="outline-dark" style={{width: '100%', zIndex: 1, borderTop: 'none', borderRight: 'none', borderBottom: 'none', borderLeft: 'none'}}>
-                  <Card.Title style ={{fontSize: '100%'}}> <i className="fas fa-plus-circle fa-lg"></i> </Card.Title>
-              </Button>
 
-            </Link>
-              <hr className="my-4" />
+            <Link style ={{display: 'inlineBlock', marginBottom: '-4%'}} to={`/createjobpage/${title}`}>  
+              <Button  variant="outline-success" style={{ width: '100%', zIndex: 1, paddingBottom: '1%', border: 'none'}}>
+                  <Card.Title style ={{fontSize: '100%'}}> <i class="fas fa-plus-circle fa-lg"></i> </Card.Title>
+              </Button>
+            </Link> 
+              <hr style = {{marginTop: '2%', marginBottom: '6%'}}/>
+
               {displayJobs}
         </div>
     )

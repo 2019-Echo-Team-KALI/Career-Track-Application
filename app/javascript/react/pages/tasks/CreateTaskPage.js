@@ -148,7 +148,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
     return (
         <React.Fragment>
             <div style={{width: '37%', marginLeft: '12%', marginRight: '1%', marginTop: '3em', display: 'inline-block'}}>
-                <Jumbotron>
+                <Jumbotron style = {{paddingBottom: '2%'}}>
                     <h1 style={{textAlign: 'center'}}> Add Tasks for this {jobOfTask.title} position at {jobOfTask.name}</h1>
                     <Form style={{marginTop: '2em'}}>
                         <Form.Group>
@@ -211,42 +211,40 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
                         <hr style={{marginTop: '4em', marginBottom: '2em'}}/>
 
-                        <ButtonToolbar style={{display: 'flex', float: 'right'}}>
-                            <div>
-                                <Button variant = 'info' style={{float: 'right', marginLeft: 'auto'}} onClick={handleCreateTask}>
-                                    Add the Task
-                                </Button>
-                            </div>
+                        <div> 
+                            <Button variant = 'info' style={{marginLeft: '38.6%'}} onClick={handleCreateTask}>
+                                Add the Task
+                            </Button>
+                        </div>
 
-
-                        </ButtonToolbar>
 
                     </Form>
                 </Jumbotron>
             </div>
 
-
-            <div style={{display: 'inline-block', float: 'right', width: '37%', marginRight: '12%', marginLeft: '1%', marginTop: '3em'}}>
-                <Jumbotron>
+                       
+                <Jumbotron style={{display: 'inline-block', paddingBottom: '1%', float: 'right', width: '37%', marginRight: '12%', marginLeft: '1%', marginTop: '3em'}}>
                     <h4 style ={{textAlign: 'center'}}><u>Tasks List</u> </h4>
-                    <ListGroup className="tasks">
+                    <ListGroup className="tasks" style = {{height: '21.4rem', overflowY: 'scroll',  display: 'block'}}>
                         {currentJobTasks}
                     </ListGroup>
-                    <div style={{float: 'right', marginLeft: 'auto'}}>
+                    <hr style={{ marginBottom: '1.7em'}}/>
+
+                    <div style={{float: 'center', textAlign: 'center'}}>
                         <Button variant = 'info' onClick={handleDoneClick}>
                             Done Adding Tasks
                         </Button>
                     </div>
                 </Jumbotron>
-            </div>
 
-            <div style={{display: 'block', width: '66%', marginLeft: '12%'}}>
-                <ButtonToolbar>
-                    <Button variant = 'dark' style={{marginRight: '1em'}} onClick={handleBackClick}>
-                    Back to Job Details
-                    </Button>
-                </ButtonToolbar>
-            </div>
+                <div style={{display: 'block', width: '66%', marginLeft: '12%'}}>
+                    <ButtonToolbar>
+                        <Button variant = 'dark' style={{marginRight: '1em'}} onClick={handleBackClick}>
+                        Back to Job Details
+                        </Button>
+                    </ButtonToolbar>
+                </div>
+            
 
             {tasksCreatedDone &&
                <Redirect to={`/jobs/${paramJobId}`} />
