@@ -50,7 +50,7 @@ function EditTaskComponent(props) {
             deleteTask(id)
             .then(() => {
                 setTaskDeleteSuccess(!taskDeleteSuccess)
-                alert("It may not look like it, but the task has been deleted.")
+                alert("The task has been successfully deleted.")
                 handleReload()
             })
         }
