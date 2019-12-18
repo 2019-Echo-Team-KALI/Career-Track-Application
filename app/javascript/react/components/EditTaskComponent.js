@@ -46,11 +46,13 @@ function EditTaskComponent(props) {
     }
 
     function handleTaskDelete() {
-        deleteTask(id)
-        .then(() => {
-            setTaskDeleteSuccess(!taskDeleteSuccess)
-            handleReload()
-        })
+        if (confirm("Are you sure you want to delete this task?")) {
+            deleteTask(id)
+            .then(() => {
+                setTaskDeleteSuccess(!taskDeleteSuccess)
+                handleReload()
+            })
+        }
     }
 
     useEffect(() => {
@@ -79,7 +81,7 @@ function EditTaskComponent(props) {
                 value={taskData.description}
               />
             </Form.Group>
-   
+
                 <Button
                     variant = 'info'
                     onClick={handleTaskDelete}
@@ -99,9 +101,9 @@ function EditTaskComponent(props) {
             {taskEditSuccess &&
                 <Redirect to={`/jobs/${job_id}/edittaskpage`}/>
             }
-            {/*setTaskDeleteSuccess &&
+            {setTaskDeleteSuccess &&
                 <Redirect to={`/jobs/${job_id}/edittaskpage`}/>
-            */}
+            }
 
 
         </div>
