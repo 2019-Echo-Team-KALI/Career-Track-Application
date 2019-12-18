@@ -72,7 +72,7 @@ function CreateFirstTaskPage(){
       <React.Fragment>
          <div className="editorcreateforms">
 
-            <Button variant = 'info' onClick={handleBack} style={{marginLeft: '20%',marginTop: '2%'}}>Back To Dashboard</Button>
+            <Button variant = 'dark' onClick={handleBack} style={{marginLeft: '20%',marginTop: '2%'}}>Back To Dashboard</Button>
 
             <h1 style = {{marginBottom: '-4%'}}>Track A New Job</h1>
 
@@ -135,9 +135,7 @@ function CreateFirstTaskPage(){
                   </Form.Group>
 
                   <ButtonToolbar>
-
-                    <Button variant = 'info' onClick={handleClick} style = {{}}>Save Job</Button>
-
+                    <Button variant = 'info' onClick={handleClick} style = {{marginLeft: '45%'}}>Save Job</Button>
                  </ButtonToolbar>
              </Form>
              </div>
