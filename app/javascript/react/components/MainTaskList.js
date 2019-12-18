@@ -13,6 +13,7 @@ function MainTaskList(props) { // this is being called from the App.js
         const {description, job_id, user_id, title, id} = task // we need the job id to compare
         return(
             <MainTaskComponent
+                index={index}
                 apiJobsData={apiJobsData}
                 description={description}
                 job_id={job_id}

@@ -50,6 +50,7 @@ function EditTaskComponent(props) {
             deleteTask(id)
             .then(() => {
                 setTaskDeleteSuccess(!taskDeleteSuccess)
+                alert("The task has been successfully deleted.")
                 handleReload()
             })
         }
@@ -64,7 +65,7 @@ function EditTaskComponent(props) {
             <Form className = "formContainer">
 
             <Form.Group controlId="formGroupDescription">
-              <Form.Label>Title:</Form.Label>
+              <Form.Label>Task: </Form.Label>
               <Form.Control
                 type="text"
                 name="title"

@@ -67,7 +67,7 @@ function CurrentJobPage(props) { // this should be called JobCard component
                         <Accordion defaultActiveKey="0" style = {{marginBottom: '2%'}}>
                             <Card>
                             <Accordion.Toggle as={Card.Header} eventKey="1" style = {{borderWidth: 'thin'}} >
-                                {title}
+                                Task: {title}
                                 <br /> <hr style ={{marginTop: '0em'}}/>
                                  Description: {description}
                             </Accordion.Toggle>

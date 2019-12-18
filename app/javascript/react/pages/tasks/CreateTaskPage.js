@@ -33,10 +33,12 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
     useEffect(()=> {
         console.log("something")
-        setTaskData({
-            ...taskData,
-            display_add_to_calendar: true
-        })
+        if (taskData.location) {
+            setTaskData({
+                ...taskData,
+                display_add_to_calendar: true
+            })
+        }
     },[taskData.location])
 
     function handleChange(event) {
@@ -113,6 +115,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
     useEffect(() => {
       loadJob()
+      loadTasks()
     },[])
 
     const currentJobTasks = [...apiTasksData].reverse().map((task, index) => {
@@ -131,6 +134,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
             <TaskCreatedComponent
                 key={index}
                 title={title}
+                location={modifiedTask.location}
                 description={description}
                 job_id={job_id}
                 paramJobId={paramJobId}
