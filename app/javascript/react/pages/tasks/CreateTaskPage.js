@@ -129,6 +129,7 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
         return (
             <TaskCreatedComponent
+                index={index}
                 key={index}
                 title={title}
                 description={description}

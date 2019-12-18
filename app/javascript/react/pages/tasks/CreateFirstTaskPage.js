@@ -33,10 +33,12 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
     useEffect(()=> {
         console.log("something")
-        setTaskData({
-            ...taskData,
-            display_add_to_calendar: true
-        })
+        if (taskData.location) {
+            setTaskData({
+                ...taskData,
+                display_add_to_calendar: true
+            })
+        }
     },[taskData.location])
 
     function handleChange(event) {
@@ -129,6 +131,8 @@ function CreateTaskPage(props) { // this should be called JobCard component
 
         return (
             <TaskCreatedComponent
+                index={index}
+                location={modifiedTask.location}
                 key={index}
                 title={title}
                 description={description}

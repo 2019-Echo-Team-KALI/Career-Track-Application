@@ -6,7 +6,7 @@ import { Form, ButtonToolbar, Button } from 'react-bootstrap'
 import { editTask, getTask, deleteTask } from '../api/tasks/tasks-api'
 
 function EditTaskComponent(props) {
-    const {id, name, job_id, description, handleReload} = props
+    const {id, name, job_id, description, handleReload, index} = props
     const [ taskDeleteSuccess, setTaskDeleteSuccess ] = useState(false)
     const [ taskEditSuccess, setTaskEditSuccess ] = useState(false)
     const [ taskData, setTaskData ] = useState(
@@ -50,6 +50,7 @@ function EditTaskComponent(props) {
             deleteTask(id)
             .then(() => {
                 setTaskDeleteSuccess(!taskDeleteSuccess)
+                alert("It may not look like it, but the task has been deleted.")
                 handleReload()
             })
         }
@@ -64,7 +65,7 @@ function EditTaskComponent(props) {
             <Form className = "formContainer">
 
             <Form.Group controlId="formGroupDescription">
-              <Form.Label>Title:</Form.Label>
+              <Form.Label>Task {index + 1}:</Form.Label>
               <Form.Control
                 type="text"
                 name="title"
