@@ -18,10 +18,6 @@ const JobCardComponent = ({jobObj, handleReload}) => {
       setButtonOpen(!buttonOpen)
     }
 
-
-
-
-
     const [ currentJob, setCurrentJob ] = useState(
     {
         ...jobObj,
@@ -77,7 +73,7 @@ const JobCardComponent = ({jobObj, handleReload}) => {
                         <option value='Wish List'>Wish List</option>
                         <option value="Applied">Applied</option>
                         <option value="Interview">Interview</option>
-                        <option value="Offer/Rejected">Offer/Rejected</option>
+                        <option value="Offer|Rejected">Offer|Rejected</option>
                       </Form.Control>
                   </Form.Group>
 

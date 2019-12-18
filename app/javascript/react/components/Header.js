@@ -27,7 +27,7 @@ function Header(props) {
                     }
                     {logged_in &&
                       <li className="nav-item">
-                        <Link to="/createjobpage" className="nav-link">Add a job to track </Link>
+                        <Link to="/createjobpage/Wish List" className="nav-link">Add a job to track </Link>
                       </li>
                     }
 
