@@ -52,7 +52,7 @@ function MainTaskComponent(props) { // this is being called from the App.js
                         type="button" >
                     {jobOfTask.name}
                     <br/>
-                <div style={{textTransform: 'uppercase', opacity: 0.6}}>
+                <div style={{textTransform: 'capitalize', opacity: 0.6}}>
                     Task {index + 1}: {title}
                 </div>
                 </button>
