@@ -125,10 +125,6 @@ function App(props) {
                                 />
                             </Route>
 
-                            <Route exact path="/createjobpage">
-                                <CreateJobPage />
-                            </Route>
-
                             <Route exact path="/jobs/:paramJobId/createfirsttaskpage">
                                 <CreateFirstTaskPage
                                     loadJobs = {loadJobs}
@@ -162,6 +158,14 @@ function App(props) {
                                     loadTasks={loadTasks}
                                     apiTasksData={apiTasksData}
                                 />
+                            </Route>
+
+                            <Route path="/createjobpage/:paramCategory">
+                                <CreateJobPage />
+                            </Route>
+                            
+                            <Route path="/createjobpage">
+                                <CreateJobPage />
                             </Route>
                         </Switch>
                     </div>

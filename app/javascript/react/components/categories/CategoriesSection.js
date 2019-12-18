@@ -31,7 +31,7 @@ function CategoriesSection(props) { // this should be called JobCard component
             jobs: []
         },
         {
-            title: 'Offer/Rejected',
+            title: 'Offer|Rejected',
             description: 'results',
             id: 3,
             jobs: []

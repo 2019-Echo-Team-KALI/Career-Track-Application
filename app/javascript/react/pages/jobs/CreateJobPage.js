@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useState, useEffect } from "react"
-import { Redirect } from 'react-router-dom'
+import { Redirect, useParams } from 'react-router-dom'
 import { Form, ButtonToolbar, Button, DropdownButton, SplitButton, Dropdown } from 'react-bootstrap'
 
 
@@ -9,6 +9,7 @@ function CreateFirstTaskPage(){
     const [jobSuccess, setJobSuccess] = useState(false)
     const [goBack, setGoBack] = useState(false)
     const [currentJobId, setCurrentJobId] = useState()
+    const { paramCategory } = useParams() 
     const [errorCheck, setErrorCheck] = useState(false) // this is if we want to have the validations be displayed on the page instead of an alert
     const [ jobData, setJobData ] = useState(
         {
@@ -16,9 +17,10 @@ function CreateFirstTaskPage(){
             title: '',
             description: '',
             url: '',
-            category: 'Wish List'
+            category: paramCategory
         }
     )
+
 
     function createJob(job) {
         return fetch('/jobs', {
@@ -126,7 +128,7 @@ function CreateFirstTaskPage(){
                       <option value='Wish List'>Wish List</option>
                       <option value="Applied">Applied</option>
                       <option value="Interview">Interview</option>
-                      <option value="Offer/Rejected">Offer/Rejected</option>
+                      <option value="Offer|Rejected">Offer|Rejected</option>
 
 
                     </Form.Control>
