@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Link, useParams, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import AddToCalendar from 'react-add-to-calendar';
 import { ButtonToolbar, Button, Card, ListGroup, Jumbotron, Accordion, InputGroup, FormControl } from 'react-bootstrap'
 import  moment  from 'moment'
 
@@ -55,10 +56,17 @@ function CurrentJobPage(props) { // this should be called JobCard component
 
 
 
-    const currentJobTasks = apiTasksData.map((task, index) => {
-        const {id, name, job_id, title, location, start_time, end_time, description} = task
+    const currentJobTasks = [...apiTasksData].reverse().map((task, index) => {
+        const {id, name, job_id, title, location, start_time, end_time, description, display_add_to_calendar} = task
 
-
+        let modifiedTask =
+         {
+            title: title,
+            description: description,
+            startTime: start_time,
+            endTime: end_time,
+            location: location
+        }
 
         return (
             <div key={index}>
@@ -77,6 +85,12 @@ function CurrentJobPage(props) { // this should be called JobCard component
                                     <b><u>Location: {location}</u></b>
                                     <br /> <b>Start time :</b> {moment(start_time).format('MMMM Do YYYY, h:mm:ss a ')}
                                     <br /> <b>End time:</b>  {moment(end_time).format('MMMM Do YYYY, h:mm:ss a ')}
+
+                                    {display_add_to_calendar &&
+                                        <div>
+                                            <AddToCalendar event={modifiedTask}/>
+                                        </div>
+                                    }
                                 </Card.Body>
                             </Accordion.Collapse>
                             </Card>
