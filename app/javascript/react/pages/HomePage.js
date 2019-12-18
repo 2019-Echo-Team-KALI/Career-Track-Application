@@ -9,7 +9,6 @@ function HomePage() {
       <React.Fragment>
         <AboutUs />
         <HomeCarousel />
-        <AboutApp />
       </React.Fragment>
     );
 }

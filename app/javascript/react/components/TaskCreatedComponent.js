@@ -7,23 +7,29 @@ import AddToCalendar from 'react-add-to-calendar';
 
 function TaskCreatedComponent({title, description, job_id, paramJobId, modifiedTask, display_add_to_calendar}) {
 
+    console.log("location", location)
     return (
+
         <div style={{}}>
             {/* reason why we did not do triple equals is because we are comparing an int with a string*/}
             {job_id == paramJobId &&
             <div>
             <ListGroupItem>Task: {title} </ListGroupItem>
             {display_add_to_calendar &&
-            <div style={{display: "flex",
-            alignItems: "center",
-            justifyContent: "center" ,
-            textAlign: 'center'}}>
-                <Button variant="light" style={{display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center" ,
-                    textAlign: 'center'}}>
-                    <AddToCalendar event={modifiedTask} />
-                </Button>
+
+            <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center" ,
+                textAlign: 'center'
+            }}>
+
+            <Button variant="light" style={{display: "flex",
+                alignItems: "center",
+                justifyContent: "center" ,
+                textAlign: 'center'}}>
+                <AddToCalendar event={modifiedTask} />
+            </Button>
 
             </div>
             }

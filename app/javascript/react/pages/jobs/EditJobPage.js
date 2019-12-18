@@ -75,8 +75,8 @@ function EditJobPage({apiJobsData, loadJobs}) { // this is equivalent to const {
         if (!currentJob.name || !currentJob.title) {
             alert("Please enter a name and title")
         } else {
-            console.log("Edit,", paramEditId)
             editJob(currentJob)
+            alert("Job details has been successfully updated")
         }
     }
 
