@@ -12,6 +12,7 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.4.1",
+    "font-awesome": "^4.7.0",
     "ionicons": "^4.6.3",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
