@@ -21,7 +21,8 @@ function App(props) {
       logged_in,
       sign_in_route,
       sign_out_route,
-      current_user_id
+      current_user_id,
+      current_user_email
     } = props
 
     const [ errors, setErrors ] = useState(null)
@@ -98,6 +99,7 @@ function App(props) {
                             <Route exact path="/">
                             <MainCareerPage
                                 current_user_id={current_user_id}
+                                current_user_email={current_user_email}
                                 loadJobs = {loadJobs}
                                 loadTasks = {loadTasks}
                                 apiJobsData={apiJobsData}
@@ -109,6 +111,7 @@ function App(props) {
 
                                 <MainCareerPage
                                     current_user_id={current_user_id}
+                                    current_user_email={current_user_email}
                                     loadJobs = {loadJobs}
                                     loadTasks = {loadTasks}
                                     apiJobsData={apiJobsData}

@@ -12,7 +12,7 @@ import Sticky from 'react-sticky-el';
 
 function MainCareerPage(props) {
 
-    const {current_user_id, loadJobs, loadTasks, apiJobsData ,apiTasksData, getTask } = props
+    const {current_user_id, loadJobs, loadTasks, apiJobsData ,apiTasksData, getTask, current_user_email } = props
     const [ reload, setReload ] = useState(false)
 
     useEffect(() => { // we need lifecycle hook here to reload the data whenever we create a page, we may need to rename the load functions to make things easier
@@ -28,28 +28,21 @@ function MainCareerPage(props) {
 
     return (
       <React.Fragment>
-
-
-
             <CategoriesSection
               apiJobsData={apiJobsData}
               handleReload={handleReload}
             />
-
-
           <br></br>
           <br></br>
-
-
           <ProfileCard
             current_user_id={current_user_id}
+            current_user_email={current_user_email}
             loadJobs = {loadJobs}
             loadTasks = {loadTasks}
             apiJobsData={apiJobsData}
             apiTasksData={apiTasksData}
             getTask = {getTask}
           />
-
       </React.Fragment>
     );
 

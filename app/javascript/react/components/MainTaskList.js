@@ -32,8 +32,3 @@ function MainTaskList(props) { // this is being called from the App.js
 }
 
 export default MainTaskList
-
-// {
-//     description: "Task1 for job 1 User 1",
-//     job_id: 1
-// },
